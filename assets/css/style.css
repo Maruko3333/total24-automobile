@@ -775,3 +775,13 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
   background-size: cover; background-position: center right; background-repeat: no-repeat;
 }
 .hero-photo h1, .hero-photo p, .hero-eyebrow { text-shadow: 0 2px 18px rgba(0,0,0,.55); }
+
+/* Hero foto — poza și mai clară (overlay minim + text-shadow puternic) */
+.hero-photo .hero-bg {
+  background:
+    linear-gradient(90deg, rgba(9,11,14,.70) 0%, rgba(9,11,14,.30) 46%, rgba(9,11,14,0) 100%),
+    linear-gradient(180deg, transparent 62%, rgba(9,11,14,.78) 100%),
+    url('../img/brand/hero.jpg');
+  background-size: cover; background-position: center right; background-repeat: no-repeat;
+}
+.hero-photo h1, .hero-photo p, .hero-eyebrow { text-shadow: 0 2px 24px rgba(0,0,0,.75), 0 1px 4px rgba(0,0,0,.6); }
