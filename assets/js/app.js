@@ -49,6 +49,17 @@ const T24 = {
     return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${stroke}" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
   },
 
+  // Logo — siluetă de mașină (ca în design)
+  logoIcon() {
+    return `<svg width="42" height="23" viewBox="0 0 48 26" fill="none" stroke="#f5b301" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M3 16.5l2.4-6.7A4 4 0 019.2 7h15.6a4 4 0 013.2 1.6L32 14l8.8 1.4A2.4 2.4 0 0143 17.8v.9a2 2 0 01-2 2h-2.6"/>
+      <path d="M3 16.5V19a2 2 0 002 2h2.4"/>
+      <path d="M17.5 21h13"/>
+      <circle cx="13.5" cy="20.5" r="3.2"/>
+      <circle cx="34.5" cy="20.5" r="3.2"/>
+    </svg>`;
+  },
+
   // ---- Formatting ----
   price(n) { return '€ ' + Number(n).toLocaleString('de-DE'); },
   km(n) { return Number(n).toLocaleString('de-DE') + ' km'; },
@@ -87,8 +98,8 @@ const T24 = {
     <header class="header">
       <div class="container nav">
         <a href="index.html" class="logo">
-          <span class="mark">${this.icon('car', 22, 2)}</span>
-          <span>Total<span class="brand-24">24</span></span>
+          <span class="logo-ic">${this.logoIcon()}</span>
+          <span class="logo-txt">Total<span class="brand-24">Automobile</span></span>
         </a>
         <nav class="nav-links" id="navLinks">${links}</nav>
         <div class="nav-cta">
@@ -109,8 +120,8 @@ const T24 = {
         <div class="footer-grid">
           <div>
             <a href="index.html" class="logo">
-              <span class="mark">${this.icon('car', 22, 2)}</span>
-              <span>Total<span class="brand-24">24</span> Automobile</span>
+              <span class="logo-ic">${this.logoIcon()}</span>
+              <span class="logo-txt">Total<span class="brand-24">Automobile</span></span>
             </a>
             <p>${c.tagline}. Import direct din Germania, verificate și cu documente complete.</p>
           </div>

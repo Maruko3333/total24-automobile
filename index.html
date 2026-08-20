@@ -23,23 +23,14 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <span class="badge">🇩🇪 Import direct din Germania · 3+ ani experiență</span>
-        <h1>Automobile <span class="accent">din Germania</span></h1>
-        <p>Mașini verificate, de calitate, la prețuri corecte. Import și livrare rapidă în toată România.</p>
-        <div class="hero-actions">
-          <a href="stoc.html" class="btn btn-primary">Vezi stoc auto</a>
-          <a href="despre.html" class="btn btn-outline">Despre noi</a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat"><b>500+</b><span>Mașini vândute</span></div>
-          <div class="stat"><b>3+</b><span>Ani experiență</span></div>
-          <div class="stat"><b>100%</b><span>Clienți mulțumiți</span></div>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="placeholder" id="heroVisual"></div>
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <h1>Automobile <span class="accent">din Germania</span></h1>
+      <p>Mașini verificate, de calitate, la prețuri corecte.<br>Import și livrare rapidă în toată România.</p>
+      <div class="hero-actions">
+        <a href="stoc.html" class="btn btn-primary btn-lg">Vezi stoc auto</a>
+        <a href="despre.html" class="btn btn-ghost-light btn-lg">Despre noi</a>
       </div>
     </div>
   </section>
@@ -97,7 +88,6 @@
   <script>
     (async () => {
       await T24.mount('home');
-      document.getElementById('heroVisual').innerHTML = T24.icon('car', 80, 1.2) + '<p>Adaugă imaginea hero în<br>assets/img/brand/</p>';
       document.getElementById('allArrow').innerHTML = T24.icon('arrowRight', 16);
       // trust bar
       const trust = [
