@@ -1,14 +1,16 @@
 {
   "company": {
     "name": "Total24 Automobile",
+    "legalName": "Total Automobile Einzelunternehmen — Inh. Petre Paul Vîrjan",
     "tagline": "Mașini premium importate din Germania",
     "founded": 2023,
     "phone": "+49 000 000000",
     "whatsapp": "+49000000000",
     "email": "contact@total24automobile.de",
+    "mobileDeUrl": "https://home.mobile.de/TOTALAUTOMOBILEEINZELUNTERNEHMENINHPETREPAULVIRJAN",
     "address": {
       "street": "Musterstraße 1",
-      "zip": "90762",
+      "zip": "90763",
       "city": "Fürth",
       "country": "Germania"
     },

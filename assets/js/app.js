@@ -153,5 +153,50 @@ const T24 = {
     const t = document.getElementById('navToggle');
     const l = document.getElementById('navLinks');
     if (t && l) t.addEventListener('click', () => l.classList.toggle('open'));
+    this.mountWhatsApp();
+    this.observeReveal();
+  },
+
+  // Buton flotant WhatsApp (toate paginile)
+  mountWhatsApp() {
+    if (document.querySelector('.wa-float')) return;
+    const wa = (this.config.company.whatsapp || '').replace(/\D/g, '');
+    if (!wa) return;
+    const a = document.createElement('a');
+    a.href = `https://wa.me/${wa}`;
+    a.className = 'wa-float';
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.setAttribute('aria-label', 'Scrie-ne pe WhatsApp');
+    a.innerHTML = this.icon('whatsapp', 28, 1.9);
+    document.body.appendChild(a);
+  },
+
+  // Scroll reveal — inclusiv conținut încărcat dinamic (carduri)
+  observeReveal() {
+    if (this._revealInit || !('IntersectionObserver' in window)) return;
+    this._revealInit = true;
+    const sel = '.section-head,.car-card,.why-card,.service-card,.about-feature,.stat-big,.trust-item,.finance-benefit,.info-item,.calc-card,.cta-band,.tradein-band,.about-visual,.spec-table';
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+
+    const arm = el => {
+      if (el.dataset.rev) return;
+      el.dataset.rev = '1';
+      el.classList.add('reveal');
+      // deja în viewport → afișează imediat (fără flash)
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.92) el.classList.add('in');
+      else io.observe(el);
+    };
+    const scan = root => {
+      if (root.nodeType !== 1) return;
+      if (root.matches && root.matches(sel)) arm(root);
+      root.querySelectorAll && root.querySelectorAll(sel).forEach(arm);
+    };
+    scan(document.body);
+    new MutationObserver(muts =>
+      muts.forEach(m => m.addedNodes.forEach(scan))
+    ).observe(document.body, { childList: true, subtree: true });
   }
 };
