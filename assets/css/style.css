@@ -765,3 +765,13 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
   .hero-trust .container { padding: 24px; gap: 18px; }
   .hero-trust .trust-item { flex: 1 1 45%; }
 }
+
+/* Hero foto — overlay mai subtil ca să se vadă fundalul mai clar */
+.hero-photo .hero-bg {
+  background:
+    linear-gradient(90deg, rgba(9,11,14,.82) 0%, rgba(9,11,14,.42) 44%, rgba(9,11,14,.04) 100%),
+    linear-gradient(180deg, transparent 60%, rgba(9,11,14,.8) 100%),
+    url('../img/brand/hero.jpg');
+  background-size: cover; background-position: center right; background-repeat: no-repeat;
+}
+.hero-photo h1, .hero-photo p, .hero-eyebrow { text-shadow: 0 2px 18px rgba(0,0,0,.55); }
