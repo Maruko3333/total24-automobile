@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Total24 Automobile — Mașini premium din Germania</title>
+  <meta name="description" content="Total24 Automobile — mașini verificate importate direct din Germania, la prețuri corecte. Import și livrare rapidă în toată România.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/img/brand/favicon.svg">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge">🇩🇪 Import direct din Germania · 3+ ani experiență</span>
+        <h1>Automobile <span class="accent">din Germania</span></h1>
+        <p>Mașini verificate, de calitate, la prețuri corecte. Import și livrare rapidă în toată România.</p>
+        <div class="hero-actions">
+          <a href="stoc.html" class="btn btn-primary">Vezi stoc auto</a>
+          <a href="despre.html" class="btn btn-outline">Despre noi</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b>500+</b><span>Mașini vândute</span></div>
+          <div class="stat"><b>3+</b><span>Ani experiență</span></div>
+          <div class="stat"><b>100%</b><span>Clienți mulțumiți</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="placeholder" id="heroVisual"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trustbar">
+    <div class="container" id="trustbar"></div>
+  </section>
+
+  <!-- FEATURED CARS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Stoc disponibil</span>
+        <h2>Mașini recomandate</h2>
+        <p>O selecție din cele mai bune oferte disponibile acum în stoc.</p>
+      </div>
+      <div class="cars-grid" id="featuredGrid"></div>
+      <div style="text-align:center;margin-top:44px">
+        <a href="stoc.html" class="btn btn-outline">Vezi tot stocul <span id="allArrow"></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="section" style="background:var(--bg-elev);border-block:1px solid var(--line-soft)">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">De ce Total24</span>
+        <h2>Cumperi în siguranță</h2>
+        <p>Fiecare mașină trece prin verificări complete înainte de vânzare.</p>
+      </div>
+      <div class="why-grid" id="whyGrid"></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Nu ai găsit mașina dorită?</h2>
+        <p>Îți aducem la comandă exact modelul pe care îl cauți, din Germania.</p>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn btn-primary">Contactează-ne</a>
+          <a href="finantare.html" class="btn btn-outline">Calculează o rată</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/cars.js"></script>
+  <script>
+    (async () => {
+      await T24.mount('home');
+      document.getElementById('heroVisual').innerHTML = T24.icon('car', 80, 1.2) + '<p>Adaugă imaginea hero în<br>assets/img/brand/</p>';
+      document.getElementById('allArrow').innerHTML = T24.icon('arrowRight', 16);
+      // trust bar
+      const trust = [
+        ['shield', 'Mașini verificate', 'Verificate tehnic înainte de vânzare'],
+        ['gauge', 'Kilometri garantați', 'Kilometraj real, garantat în contract'],
+        ['certificate', 'Garanție 12 luni', 'Garanție inclusă pentru liniștea ta'],
+        ['truck', 'Livrare rapidă', 'Livrare la domiciliu în toată România']
+      ];
+      document.getElementById('trustbar').innerHTML = trust.map(([ic, t, d]) =>
+        `<div class="trust-item"><span class="ic">${T24.icon(ic, 26, 1.6)}</span>
+         <div><b style="display:block;color:var(--text)">${t}</b>
+         <span style="font-size:13px;color:var(--text-muted)">${d}</span></div></div>`).join('');
+      // why grid
+      const why = [
+        ['shield', 'Verificare completă', 'Fiecare mașină este verificată tehnic și estetic înainte de a ajunge la tine.'],
+        ['tag', 'Prețuri corecte', 'Import direct, fără intermediari — plătești prețul real al mașinii.'],
+        ['certificate', 'Documente în regulă', 'Istoric complet, carte service și acte pregătite pentru înmatriculare.'],
+        ['handshake', 'Suport dedicat', 'Te însoțim de la alegere până la livrare și înmatriculare.']
+      ];
+      document.getElementById('whyGrid').innerHTML = why.map(([ic, t, d]) =>
+        `<div class="why-card"><div class="ic">${T24.icon(ic, 26, 1.6)}</div><h3>${t}</h3><p>${d}</p></div>`).join('');
+      Cars.renderFeatured('featuredGrid', 3);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "company": {
+    "name": "Total24 Automobile",
+    "tagline": "Mașini premium importate din Germania",
+    "founded": 2023,
+    "phone": "+49 000 000000",
+    "whatsapp": "+49000000000",
+    "email": "contact@total24automobile.de",
+    "address": {
+      "street": "Musterstraße 1",
+      "zip": "90762",
+      "city": "Fürth",
+      "country": "Germania"
+    },
+    "hours": {
+      "weekdays": "09:00 - 18:00",
+      "saturday": "09:00 - 14:00",
+      "sunday": "Închis"
+    },
+    "social": {
+      "facebook": "",
+      "instagram": "",
+      "mobile_de": ""
+    }
+  },
+  "meta": {
+    "currency": "EUR",
+    "locale": "ro-RO",
+    "updated": "2026-08-20"
+  }
+}

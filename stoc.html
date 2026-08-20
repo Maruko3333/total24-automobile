@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stoc Auto — Total24 Automobile</title>
+  <meta name="description" content="Vezi stocul complet de mașini disponibile la Total24 Automobile. Filtrează după marcă, model, preț, an și kilometraj.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/img/brand/favicon.svg">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Stoc Auto</h1>
+      <p>Alege din cele mai bune oferte disponibile.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:34px">
+    <div class="container">
+      <div class="stoc-layout">
+        <!-- FILTERS -->
+        <aside class="filters-side">
+          <h3>Filtre</h3>
+          <div class="field"><label>Marcă</label><select id="fMake"></select></div>
+          <div class="field"><label>Model</label><select id="fModel"></select></div>
+          <div class="field">
+            <label>Preț maxim</label>
+            <div class="range-wrap">
+              <div class="range-values"><span id="priceMin">€ 0</span><span id="priceVal">€ 30.000</span></div>
+              <input type="range" id="fPrice" min="0" max="80000" step="1000" value="80000">
+              <div class="range-values" style="margin-top:6px"><span>min</span><span id="priceMax">€ 80.000</span></div>
+            </div>
+          </div>
+          <div class="field"><label>An fabricație</label><select id="fYear"></select></div>
+          <div class="field"><label>Kilometraj maxim</label>
+            <select id="fKm">
+              <option value="">Oricare</option>
+              <option value="50000">până la 50.000 km</option>
+              <option value="100000">până la 100.000 km</option>
+              <option value="150000">până la 150.000 km</option>
+              <option value="200000">până la 200.000 km</option>
+            </select>
+          </div>
+          <div class="field"><label>Caroserie</label><select id="fBody"></select></div>
+          <button class="btn btn-primary btn-block" id="fApplyCount">Filtrează</button>
+          <button class="btn btn-ghost btn-block" id="fReset" style="margin-top:8px">Resetează filtrele</button>
+        </aside>
+
+        <!-- RESULTS -->
+        <div>
+          <div class="stoc-toolbar">
+            <span class="count" id="carsCount"><b>0</b> mașini găsite</span>
+            <div class="sort-box">
+              <label>Sortează:</label>
+              <select id="fSort">
+                <option value="">Recomandate</option>
+                <option value="year-desc">Cele mai noi</option>
+                <option value="price-asc">Preț crescător</option>
+                <option value="price-desc">Preț descrescător</option>
+                <option value="km-asc">Kilometraj mic</option>
+              </select>
+            </div>
+          </div>
+          <div class="cars-grid" id="carsGrid"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/cars.js"></script>
+  <script>
+    (async () => { await T24.mount('stoc'); Cars.initStoc(); })();
+  </script>
+</body>
+</html>

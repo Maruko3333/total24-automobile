@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Total24 Automobile</title>
+  <meta name="description" content="Contactează Total24 Automobile în Fürth, Germania. Telefon, email, program și formular de contact.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/img/brand/favicon.svg">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Contact</h1>
+      <p>Suntem aici pentru orice întrebare. Scrie-ne sau sună-ne.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:34px">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info" id="contactInfo"></div>
+        <div class="contact-form">
+          <h3 style="margin-bottom:20px">Trimite-ne un mesaj</h3>
+          <form id="contactForm">
+            <div class="field"><label>Nume</label><input type="text" name="name" required></div>
+            <div class="field"><label>Telefon</label><input type="tel" name="phone" required></div>
+            <div class="field"><label>Email</label><input type="email" name="email"></div>
+            <div class="field"><label>Mesaj</label><textarea name="message" required></textarea></div>
+            <button type="submit" class="btn btn-primary btn-block">Trimite mesaj</button>
+          </form>
+          <p id="formNote" style="margin-top:14px;font-size:13px;color:var(--text-muted)"></p>
+        </div>
+      </div>
+
+      <div class="contact-map" style="margin-top:40px">
+        <iframe title="Hartă" loading="lazy" src="https://www.google.com/maps?q=F%C3%BCrth%2C%20Germania&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/app.js"></script>
+  <script>
+    (async () => {
+      await T24.mount('contact');
+      const c = T24.config.company;
+      const info = [
+        ['pin', 'Adresă', `${c.name} · ${c.address.street}<br>${c.address.zip} ${c.address.city}, ${c.address.country}`],
+        ['phone', 'Telefon', `<a href="tel:${c.phone}">${c.phone}</a>`],
+        ['mail', 'Email', `<a href="mailto:${c.email}">${c.email}</a>`],
+        ['clock', 'Program', `Luni – Vineri: ${c.hours.weekdays}<br>Sâmbătă: ${c.hours.saturday}<br>Duminică: ${c.hours.sunday}`]
+      ];
+      document.getElementById('contactInfo').innerHTML = info.map(([ic, t, d]) =>
+        `<div class="info-item"><div class="ic">${T24.icon(ic, 22, 1.7)}</div>
+         <div><h4>${t}</h4><p>${d}</p></div></div>`).join('');
+
+      // Form -> deschide clientul de email cu mesajul precompletat (fără backend)
+      document.getElementById('contactForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const f = e.target;
+        const subject = encodeURIComponent(`Cerere ofertă — ${f.name.value}`);
+        const body = encodeURIComponent(
+          `Nume: ${f.name.value}\nTelefon: ${f.phone.value}\nEmail: ${f.email.value}\n\nMesaj:\n${f.message.value}`);
+        window.location.href = `mailto:${c.email}?subject=${subject}&body=${body}`;
+        document.getElementById('formNote').textContent = 'Se deschide aplicația ta de email cu mesajul precompletat. (Putem conecta trimiterea automată prin Formspree — spune-mi.)';
+      });
+    })();
+  </script>
+</body>
+</html>

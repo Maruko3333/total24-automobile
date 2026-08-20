@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Despre Noi — Total24 Automobile</title>
+  <meta name="description" content="Total24 Automobile — echipă cu experiență în importul de automobile premium din Germania. Transparență, verificări complete și clienți mulțumiți.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/img/brand/favicon.svg">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Despre Noi</h1>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:34px">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <p>Suntem o echipă cu experiență în domeniul auto, specializată în importul de automobile premium din Germania. Ne asigurăm că fiecare mașină este atent verificată și oferim transparență totală clienților noștri.</p>
+          <p>De peste 3 ani aducem în România mașini de calitate, cu istoric complet și documente în regulă, la prețuri corecte — direct de la sursă, fără intermediari.</p>
+          <div class="about-features">
+            <div class="about-feature">
+              <div class="ic" id="af1"></div>
+              <div><h4>Experiență</h4><p>Peste 3 ani în domeniul auto și importul din Germania.</p></div>
+            </div>
+            <div class="about-feature">
+              <div class="ic" id="af2"></div>
+              <div><h4>Transparență</h4><p>Istoric complet și verificări disponibile pentru fiecare mașină.</p></div>
+            </div>
+            <div class="about-feature">
+              <div class="ic" id="af3"></div>
+              <div><h4>Satisfacție</h4><p>Clienți mulțumiți și recomandări care vorbesc despre noi.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual">
+          <div class="no-img" id="aboutVisual"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-band">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-big"><b>3+</b><span>Ani experiență</span></div>
+        <div class="stat-big"><b>500+</b><span>Mașini vândute</span></div>
+        <div class="stat-big"><b>100%</b><span>Clienți mulțumiți</span></div>
+        <div class="stat-big"><b>30</b><span>Mașini lunar</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Hai să găsim mașina potrivită pentru tine</h2>
+        <p>Vezi stocul disponibil sau spune-ne ce cauți — ți-o aducem din Germania.</p>
+        <div class="cta-actions">
+          <a href="stoc.html" class="btn btn-primary">Vezi stoc auto</a>
+          <a href="contact.html" class="btn btn-outline">Contactează-ne</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/app.js"></script>
+  <script>
+    (async () => {
+      await T24.mount('despre');
+      document.getElementById('af1').innerHTML = T24.icon('award', 24, 1.6);
+      document.getElementById('af2').innerHTML = T24.icon('shield', 24, 1.6);
+      document.getElementById('af3').innerHTML = T24.icon('star', 24, 1.6);
+      document.getElementById('aboutVisual').innerHTML = T24.icon('car', 64, 1.2) + '<p style="margin-top:10px">Adaugă o poză a showroom-ului<br>în assets/img/brand/</p>';
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalii mașină — Total24 Automobile</title>
+  <meta name="description" content="Detalii complete, specificații tehnice și dotări pentru mașina selectată.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/img/brand/favicon.svg">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <section class="detail">
+    <div class="container" id="detailWrap"></div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/cars.js"></script>
+  <script>
+    (async () => { await T24.mount('stoc'); Cars.initDetail(); })();
+  </script>
+</body>
+</html>

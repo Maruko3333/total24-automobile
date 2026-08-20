@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finanțare Auto — Total24 Automobile</title>
+  <meta name="description" content="Finanțare auto flexibilă: avans de la 0%, perioadă 12-60 luni, aprobare rapidă. Calculează rata lunară estimată.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/img/brand/favicon.svg">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Finanțare Auto</h1>
+      <p>Soluții flexibile pentru achiziția mașinii dorite.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:34px">
+    <div class="container">
+      <div class="finance-grid">
+        <div>
+          <div class="finance-benefits" id="finBenefits"></div>
+          <a href="contact.html" class="btn btn-primary">Solicită finanțare</a>
+        </div>
+
+        <div class="calc-card">
+          <h3>Calculator rate</h3>
+          <div class="calc-field">
+            <div class="calc-label"><span>Preț mașină (€)</span><span class="calc-val" id="cPriceVal">€ 25.000</span></div>
+            <input type="range" id="cPrice" min="5000" max="120000" step="1000" value="25000">
+          </div>
+          <div class="calc-field">
+            <div class="calc-label"><span>Avans</span><span class="calc-val" id="cDownVal">20%</span></div>
+            <input type="range" id="cDown" min="0" max="60" step="5" value="20">
+          </div>
+          <div class="calc-field">
+            <div class="calc-label"><span>Perioadă</span><span class="calc-val" id="cTermVal">60 luni</span></div>
+            <input type="range" id="cTerm" min="12" max="60" step="6" value="60">
+          </div>
+          <div class="calc-result">
+            <div class="r-label">Rată lunară estimată</div>
+            <div class="r-value" id="cResult">€ 468 <small>/ lună</small></div>
+          </div>
+          <p class="calc-note">* Calcul orientativ, cu dobândă anuală estimată de 8,9%. Condițiile finale se stabilesc în urma analizei dosarului de către instituția finanțatoare.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/finance.js"></script>
+  <script>
+    (async () => {
+      await T24.mount('finantare');
+      const benefits = [
+        ['percent', 'Avans începând de la 0%'],
+        ['calendar', 'Perioadă de finanțare 12–60 luni'],
+        ['checkCircle', 'Aprobare rapidă'],
+        ['tag', 'Rate fixe și transparente']
+      ];
+      document.getElementById('finBenefits').innerHTML = benefits.map(([ic, t]) =>
+        `<div class="finance-benefit"><span class="ic">${T24.icon(ic, 20, 1.7)}</span>${t}</div>`).join('');
+      Finance.init();
+    })();
+  </script>
+</body>
+</html>

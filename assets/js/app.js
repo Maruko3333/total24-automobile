@@ -1,0 +1,157 @@
+/* ============================================
+   Total24 Automobile — Core app
+   Shared config, header/footer, icons, helpers
+   ============================================ */
+
+const T24 = {
+  config: null,
+  cars: null,
+
+  // ---- SVG icon set (24x24, stroke) ----
+  icons: {
+    car: '<path d="M5 13l1.5-4.5A2 2 0 018.4 7h7.2a2 2 0 011.9 1.5L19 13m-14 0h14m-14 0v4h2m12-4v4h-2m-8 0h8M7 17v1M17 17v1"/><circle cx="7.5" cy="14.5" r="1"/><circle cx="16.5" cy="14.5" r="1"/>',
+    shield: '<path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/>',
+    gauge: '<path d="M12 14a2 2 0 100-4 2 2 0 000 4z"/><path d="M12 12l3-3"/><path d="M4 18a8 8 0 1116 0"/>',
+    certificate: '<circle cx="12" cy="9" r="5"/><path d="M9 13.5L8 21l4-2 4 2-1-7.5"/>',
+    truck: '<path d="M3 6h11v9H3zM14 9h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.5"/><circle cx="17" cy="18" r="1.5"/>',
+    heart: '<path d="M12 20s-7-4.3-9.3-8.5C1.3 8.8 2.6 6 5.5 6c1.8 0 3 1 3.5 2 .5-1 1.7-2 3.5-2 2.9 0 4.2 2.8 2.8 5.5C19 15.7 12 20 12 20z"/>',
+    calendar: '<rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 9h16M8 3v4M16 3v4"/>',
+    fuel: '<path d="M5 21V5a2 2 0 012-2h5a2 2 0 012 2v16M4 21h11"/><path d="M14 8h2.5A1.5 1.5 0 0118 9.5V16a1.5 1.5 0 003 0V9"/><path d="M14 12h3"/>',
+    gear: '<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/>',
+    power: '<path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/>',
+    phone: '<path d="M4 5c0 8 7 15 15 15l1-4-4-2-2 2c-2-1-5-4-6-6l2-2-2-4-4 1z"/>',
+    mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
+    pin: '<path d="M12 21c4-4 7-7.5 7-11a7 7 0 10-14 0c0 3.5 3 7 7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+    clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    whatsapp: '<path d="M12 3a9 9 0 00-7.7 13.6L3 21l4.5-1.2A9 9 0 1012 3z"/><path d="M8.5 8.5c0 4 3 7 6.5 7 .8 0 1.3-.6 1-1.2l-1-1.5-1.7.6c-1.2-.6-2.2-1.6-2.6-2.7l.6-1.4-1.3-1.4c-.6-.3-1.5.3-1.5 1z"/>',
+    facebook: '<path d="M14 8h2V5h-2c-2 0-3 1.3-3 3v2H9v3h2v6h3v-6h2l1-3h-3V8.5c0-.3.2-.5.5-.5z"/>',
+    instagram: '<rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.5"/><circle cx="16.5" cy="7.5" r="1"/>',
+    check: '<path d="M5 12l4 4 10-10"/>',
+    checkCircle: '<circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-5"/>',
+    chevron: '<path d="M9 6l6 6-6 6"/>',
+    menu: '<path d="M4 7h16M4 12h16M4 17h16"/>',
+    close: '<path d="M6 6l12 12M18 6L6 18"/>',
+    search: '<circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/>',
+    award: '<circle cx="12" cy="9" r="5"/><path d="M9 13l-1 8 4-2 4 2-1-8"/>',
+    users: '<circle cx="9" cy="9" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><path d="M16 6a3 3 0 010 6M17 15c2 0 4 2 4 5"/>',
+    star: '<path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/>',
+    download: '<path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/>',
+    wrench: '<path d="M15 6a4 4 0 00-5 5L4 17l3 3 6-6a4 4 0 005-5l-2.5 2.5L18 9l-1.5-2.5z"/>',
+    handshake: '<path d="M8 12l3-3 2 2 3-3 4 4-4 4-2-2-3 3-4-4z"/><path d="M2 10l4-2M22 10l-4-2"/>',
+    tag: '<path d="M3 12l9-9 9 9-9 9-9-9z"/><circle cx="9" cy="9" r="1.5"/>',
+    arrowRight: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+    percent: '<path d="M19 5L5 19"/><circle cx="7" cy="7" r="2"/><circle cx="17" cy="17" r="2"/>',
+    doc: '<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 13h6M9 17h6"/>'
+  },
+
+  icon(name, size = 20, stroke = 1.7) {
+    const p = this.icons[name] || '';
+    return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${stroke}" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
+  },
+
+  // ---- Formatting ----
+  price(n) { return '€ ' + Number(n).toLocaleString('de-DE'); },
+  km(n) { return Number(n).toLocaleString('de-DE') + ' km'; },
+
+  // ---- Data loading ----
+  async loadConfig() {
+    if (this.config) return this.config;
+    const r = await fetch('data/config.json');
+    this.config = await r.json();
+    return this.config;
+  },
+  async loadCars() {
+    if (this.cars) return this.cars;
+    const r = await fetch('data/cars.json');
+    const d = await r.json();
+    this.cars = d.cars || [];
+    return this.cars;
+  },
+
+  // ---- Header / Footer injection ----
+  nav: [
+    { label: 'Acasă', href: 'index.html', key: 'home' },
+    { label: 'Stoc Auto', href: 'stoc.html', key: 'stoc' },
+    { label: 'Despre Noi', href: 'despre.html', key: 'despre' },
+    { label: 'Servicii', href: 'servicii.html', key: 'servicii' },
+    { label: 'Finanțare', href: 'finantare.html', key: 'finantare' },
+    { label: 'Contact', href: 'contact.html', key: 'contact' }
+  ],
+
+  renderHeader(active) {
+    const c = this.config.company;
+    const links = this.nav.map(n =>
+      `<a href="${n.href}" class="${n.key === active ? 'active' : ''}">${n.label}</a>`
+    ).join('');
+    return `
+    <header class="header">
+      <div class="container nav">
+        <a href="index.html" class="logo">
+          <span class="mark">${this.icon('car', 22, 2)}</span>
+          <span>Total<span class="brand-24">24</span></span>
+        </a>
+        <nav class="nav-links" id="navLinks">${links}</nav>
+        <div class="nav-cta">
+          <a href="contact.html" class="btn btn-primary">Contact rapid</a>
+          <button class="nav-toggle" id="navToggle" aria-label="Meniu">${this.icon('menu', 26, 2)}</button>
+        </div>
+      </div>
+    </header>`;
+  },
+
+  renderFooter() {
+    const c = this.config.company;
+    const y = new Date().getFullYear();
+    const links = this.nav.map(n => `<li><a href="${n.href}">${n.label}</a></li>`).join('');
+    return `
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <a href="index.html" class="logo">
+              <span class="mark">${this.icon('car', 22, 2)}</span>
+              <span>Total<span class="brand-24">24</span> Automobile</span>
+            </a>
+            <p>${c.tagline}. Import direct din Germania, verificate și cu documente complete.</p>
+          </div>
+          <div>
+            <h5>Navigare</h5>
+            <ul class="footer-links">${links}</ul>
+          </div>
+          <div>
+            <h5>Contact</h5>
+            <ul class="footer-links">
+              <li><a href="tel:${c.phone}">${c.phone}</a></li>
+              <li><a href="mailto:${c.email}">${c.email}</a></li>
+              <li>${c.address.street}, ${c.address.zip} ${c.address.city}</li>
+            </ul>
+          </div>
+          <div>
+            <h5>Program</h5>
+            <ul class="footer-links">
+              <li>Luni – Vineri: ${c.hours.weekdays}</li>
+              <li>Sâmbătă: ${c.hours.saturday}</li>
+              <li>Duminică: ${c.hours.sunday}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© ${y} Total24 Automobile. Toate drepturile rezervate.</span>
+          <span>Politica de confidențialitate · Termeni și condiții</span>
+        </div>
+      </div>
+    </footer>`;
+  },
+
+  async mount(active) {
+    await this.loadConfig();
+    const h = document.getElementById('site-header');
+    const f = document.getElementById('site-footer');
+    if (h) h.innerHTML = this.renderHeader(active);
+    if (f) f.innerHTML = this.renderFooter();
+    // mobile nav toggle
+    const t = document.getElementById('navToggle');
+    const l = document.getElementById('navLinks');
+    if (t && l) t.addEventListener('click', () => l.classList.toggle('open'));
+  }
+};

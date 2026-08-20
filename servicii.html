@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicii — Total24 Automobile</title>
+  <meta name="description" content="Servicii Total24 Automobile: import auto la comandă, verificare completă, garanție 12 luni, finanțare și buy-back.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/img/brand/favicon.svg">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Serviciile Noastre</h1>
+      <p>Tot ce ai nevoie pentru o achiziție fără griji.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:34px">
+    <div class="container">
+      <div class="services-grid" id="servicesGrid"></div>
+
+      <div class="tradein-band">
+        <div class="tradein-img" id="tradeinImg"></div>
+        <div class="tradein-content">
+          <h3>Ai o mașină la schimb?</h3>
+          <p>O putem lua în calcul la achiziția unei mașini noi din stocul nostru. Evaluare corectă și rapidă, direct la fața locului.</p>
+          <a href="contact.html" class="btn btn-primary">Contactează-ne</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/app.js"></script>
+  <script>
+    (async () => {
+      await T24.mount('servicii');
+      const services = [
+        ['download', 'Import auto', 'Importăm mașini la comandă din Germania, conform preferințelor tale.'],
+        ['shield', 'Verificare completă', 'Fiecare mașină este verificată tehnic și estetic înainte de vânzare.'],
+        ['certificate', 'Garanție 12 luni', 'Oferim garanție pentru motor și cutie de viteze.'],
+        ['percent', 'Finanțare', 'Soluții de finanțare avantajoase prin partenerii noștri.']
+      ];
+      document.getElementById('servicesGrid').innerHTML = services.map(([ic, t, d]) =>
+        `<div class="service-card"><div class="ic">${T24.icon(ic, 28, 1.6)}</div><h3>${t}</h3><p>${d}</p></div>`).join('');
+      document.getElementById('tradeinImg').innerHTML = T24.icon('car', 60, 1.2);
+    })();
+  </script>
+</body>
+</html>
