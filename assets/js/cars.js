@@ -24,8 +24,8 @@ const Cars = {
         <div class="car-meta">${meta}</div>
         <div class="car-price">${T24.price(car.price)}</div>
         <div class="car-actions">
-          <a href="masina.html?id=${car.id}" class="btn btn-primary btn-block">Vezi detalii</a>
-          <a href="${T24.waCar(car)}" target="_blank" rel="noopener" class="btn btn-wa btn-block">${T24.icon('whatsapp', 18)} WhatsApp</a>
+          <a href="masina.html?id=${car.id}" class="btn btn-detail btn-block">Vezi detalii</a>
+          <a href="${T24.waCar(car)}" target="_blank" rel="noopener" class="btn btn-wa-outline btn-block">${T24.icon('whatsapp', 16)} WhatsApp</a>
         </div>
       </div>
     </div>`;
