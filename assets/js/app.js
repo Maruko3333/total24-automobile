@@ -97,9 +97,8 @@ const T24 = {
     return `
     <header class="header">
       <div class="container nav">
-        <a href="index.html" class="logo">
-          <span class="logo-ic">${this.logoIcon()}</span>
-          <span class="logo-txt">Total<span class="brand-24">Automobile</span></span>
+        <a href="index.html" class="logo" aria-label="Total24 Automobile">
+          <img src="assets/img/brand/logo.png" alt="Total24 Automobile" class="logo-img">
         </a>
         <nav class="nav-links" id="navLinks">${links}</nav>
         <div class="nav-cta">
@@ -119,9 +118,8 @@ const T24 = {
       <div class="container">
         <div class="footer-grid">
           <div>
-            <a href="index.html" class="logo">
-              <span class="logo-ic">${this.logoIcon()}</span>
-              <span class="logo-txt">Total<span class="brand-24">Automobile</span></span>
+            <a href="index.html" class="logo" aria-label="Total24 Automobile">
+              <img src="assets/img/brand/logo.png" alt="Total24 Automobile" class="logo-img footer-logo-img">
             </a>
             <p>${c.tagline}. Import direct din Germania, verificate și cu documente complete.</p>
           </div>
