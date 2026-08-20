@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+
+Sitemap: https://maruko3333.github.io/total24-automobile/sitemap.xml

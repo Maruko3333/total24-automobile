@@ -95,6 +95,25 @@ const T24 = {
     return this.cars;
   },
 
+  // ---- SEO helpers ----
+  setMeta(name, content, attr = 'name') {
+    let el = document.head.querySelector(`meta[${attr}="${name}"]`);
+    if (!el) { el = document.createElement('meta'); el.setAttribute(attr, name); document.head.appendChild(el); }
+    el.setAttribute('content', content);
+  },
+  setCanonical(url) {
+    let el = document.head.querySelector('link[rel="canonical"]');
+    if (!el) { el = document.createElement('link'); el.rel = 'canonical'; document.head.appendChild(el); }
+    el.href = url;
+  },
+  addJsonLd(obj) {
+    const s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.textContent = JSON.stringify(obj);
+    document.head.appendChild(s);
+  },
+  siteUrl() { return (this.config.meta.siteUrl || '').replace(/\/$/, ''); },
+
   // ---- Header / Footer injection ----
   nav: [
     { label: 'Acasă', href: 'index.html', key: 'home' },

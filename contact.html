@@ -23,6 +23,7 @@
 
   <section class="section" style="padding-top:34px">
     <div class="container">
+      <div class="contact-cta" id="contactCTA"></div>
       <div class="contact-grid">
         <div class="contact-info" id="contactInfo"></div>
         <div class="contact-form">
@@ -51,9 +52,21 @@
     (async () => {
       await T24.mount('contact');
       const c = T24.config.company;
+      const wa = (c.whatsapp || '').replace(/\D/g, '');
+      const addr = `${c.name}, ${c.address.street}, ${c.address.zip} ${c.address.city}, ${c.address.country}`;
+      const navUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(addr)}`;
+
+      // Butoane acțiune rapidă
+      document.getElementById('contactCTA').innerHTML = `
+        <a href="https://wa.me/${wa}" target="_blank" rel="noopener" class="btn btn-wa">${T24.icon('whatsapp', 20)} Scrie pe WhatsApp</a>
+        <a href="tel:${c.phone}" class="btn btn-primary">${T24.icon('phone', 20)} Sună acum</a>
+        <a href="${navUrl}" target="_blank" rel="noopener" class="btn btn-outline">${T24.icon('pin', 20)} Navighează până la noi</a>`;
+
+      // Date contact
       const info = [
-        ['pin', 'Adresă', `${c.name} · ${c.address.street}<br>${c.address.zip} ${c.address.city}, ${c.address.country}`],
+        ['pin', 'Adresă', `${c.name} · ${c.address.street}<br>${c.address.zip} ${c.address.city}, ${c.address.country}<br><a href="${navUrl}" target="_blank" rel="noopener" style="color:var(--gold)">Deschide în Google Maps →</a>`],
         ['phone', 'Telefon', `<a href="tel:${c.phone}">${c.phone}</a>`],
+        ['whatsapp', 'WhatsApp', `<a href="https://wa.me/${wa}" target="_blank" rel="noopener">Scrie-ne pe WhatsApp</a>`],
         ['mail', 'Email', `<a href="mailto:${c.email}">${c.email}</a>`],
         ['clock', 'Program', `Luni – Vineri: ${c.hours.weekdays}<br>Sâmbătă: ${c.hours.saturday}<br>Duminică: ${c.hours.sunday}`]
       ];
@@ -61,15 +74,26 @@
         `<div class="info-item"><div class="ic">${T24.icon(ic, 22, 1.7)}</div>
          <div><h4>${t}</h4><p>${d}</p></div></div>`).join('');
 
-      // Form -> deschide clientul de email cu mesajul precompletat (fără backend)
+      // Formular -> trimite direct pe WhatsApp (fără backend, ajunge instant pe telefon)
       document.getElementById('contactForm').addEventListener('submit', e => {
         e.preventDefault();
         const f = e.target;
-        const subject = encodeURIComponent(`Cerere ofertă — ${f.name.value}`);
-        const body = encodeURIComponent(
-          `Nume: ${f.name.value}\nTelefon: ${f.phone.value}\nEmail: ${f.email.value}\n\nMesaj:\n${f.message.value}`);
-        window.location.href = `mailto:${c.email}?subject=${subject}&body=${body}`;
-        document.getElementById('formNote').textContent = 'Se deschide aplicația ta de email cu mesajul precompletat. (Putem conecta trimiterea automată prin Formspree — spune-mi.)';
+        const msg = encodeURIComponent(
+          `Bună ziua! Sunt ${f.name.value} (tel: ${f.phone.value}${f.email.value ? ', email: ' + f.email.value : ''}).\n\n${f.message.value}`);
+        window.open(`https://wa.me/${wa}?text=${msg}`, '_blank');
+        document.getElementById('formNote').textContent = 'Mulțumim! Se deschide WhatsApp cu mesajul tău — apasă trimite și te contactăm rapid.';
+        f.reset();
+      });
+
+      // Date structurate — dealer auto (SEO)
+      T24.setCanonical(`${T24.siteUrl()}/contact.html`);
+      T24.addJsonLd({
+        '@context': 'https://schema.org', '@type': 'AutoDealer',
+        name: c.name, telephone: c.phone, email: c.email, url: T24.siteUrl(),
+        image: `${T24.siteUrl()}/assets/img/brand/logo.png`,
+        address: { '@type': 'PostalAddress', streetAddress: c.address.street, postalCode: c.address.zip, addressLocality: c.address.city, addressCountry: 'DE' },
+        sameAs: [c.mobileDeUrl].filter(Boolean),
+        openingHours: ['Mo-Fr 09:00-18:00', 'Sa 09:00-14:00']
       });
     })();
   </script>

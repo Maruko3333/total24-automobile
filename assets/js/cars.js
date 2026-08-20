@@ -158,6 +158,53 @@ const Cars = {
     this.applyFilters();
   },
 
+  // ---- SEO pentru pagina mașinii ----
+  setDetailSEO(car) {
+    const base = T24.siteUrl();
+    const url = `${base}/masina.html?id=${car.id}`;
+    const img = (car.images && car.images[0])
+      ? (car.images[0].startsWith('http') ? car.images[0] : `${base}/${car.images[0]}`)
+      : `${base}/assets/img/brand/logo.png`;
+    const avail = car.status === 'available';
+    const desc = `${car.make} ${car.model}, ${car.year}, ${T24.km(car.mileage)}, ${car.fuel}, ${car.transmission}. Preț ${T24.price(car.price)}. Import direct din Germania — Total24 Automobile, Fürth.`;
+
+    T24.setMeta('description', desc);
+    T24.setCanonical(url);
+    T24.setMeta('og:type', 'product', 'property');
+    T24.setMeta('og:title', `${car.make} ${car.model} ${car.year} — ${T24.price(car.price)}`, 'property');
+    T24.setMeta('og:description', desc, 'property');
+    T24.setMeta('og:image', img, 'property');
+    T24.setMeta('og:url', url, 'property');
+    T24.setMeta('twitter:card', 'summary_large_image');
+
+    T24.addJsonLd({
+      '@context': 'https://schema.org', '@type': 'Car',
+      name: `${car.make} ${car.model}`,
+      brand: { '@type': 'Brand', name: car.make },
+      model: car.model,
+      vehicleModelDate: car.year,
+      mileageFromOdometer: { '@type': 'QuantitativeValue', value: car.mileage, unitCode: 'KMT' },
+      fuelType: car.fuel, vehicleTransmission: car.transmission,
+      ...(car.color ? { color: car.color } : {}),
+      ...(car.power ? { vehicleEngine: { '@type': 'EngineSpecification', enginePower: { '@type': 'QuantitativeValue', value: car.power, unitCode: 'BHP' } } } : {}),
+      image: img, url,
+      offers: {
+        '@type': 'Offer', price: car.price, priceCurrency: 'EUR',
+        availability: avail ? 'https://schema.org/InStock' : 'https://schema.org/SoldOut',
+        itemCondition: 'https://schema.org/UsedCondition', url,
+        seller: { '@type': 'AutoDealer', name: 'Total24 Automobile' }
+      }
+    });
+    T24.addJsonLd({
+      '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Acasă', item: `${base}/index.html` },
+        { '@type': 'ListItem', position: 2, name: 'Stoc Auto', item: `${base}/stoc.html` },
+        { '@type': 'ListItem', position: 3, name: `${car.make} ${car.model}` }
+      ]
+    });
+  },
+
   // ---- Detail page ----
   async initDetail() {
     const id = new URLSearchParams(location.search).get('id');
@@ -172,6 +219,7 @@ const Cars = {
       return;
     }
     document.title = `${car.make} ${car.model} ${car.year} — Total24 Automobile`;
+    this.setDetailSEO(car);
     const c = T24.config.company;
     const phone = c.phone;
     const monthly = T24.monthly(car.price);

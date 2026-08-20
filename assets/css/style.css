@@ -647,3 +647,19 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 @media (max-width: 400px) {
   .car-actions { grid-template-columns: 1fr; }
 }
+
+/* ============================================
+   Val 2 — Contact CTA + proces 4 pași
+   ============================================ */
+.contact-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
+.contact-cta .btn { flex: 1; min-width: 210px; justify-content: center; padding: 15px 18px; font-size: 15px; }
+@media (max-width: 560px) { .contact-cta .btn { flex: 1 1 100%; } }
+
+.steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.step-card { background: var(--bg-card); border: 1px solid var(--line-soft); border-radius: 14px; padding: 28px 22px; transition: all .25s; }
+.step-card:hover { border-color: var(--line); transform: translateY(-3px); }
+.step-num { width: 42px; height: 42px; border-radius: 12px; background: var(--gold-soft); color: var(--gold); display: grid; place-items: center; font-family: var(--font-head); font-weight: 800; font-size: 18px; margin-bottom: 16px; }
+.step-card h3 { font-size: 17px; margin-bottom: 8px; }
+.step-card p { color: var(--text-soft); font-size: 14px; }
+@media (max-width: 900px) { .steps-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .steps-grid { grid-template-columns: 1fr; } }
