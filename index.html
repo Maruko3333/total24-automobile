@@ -42,24 +42,20 @@
   <div id="site-header"></div>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero hero-photo">
     <div class="hero-bg"></div>
-    <div class="hero-rings"></div>
-    <div class="hero-car"></div>
-    <div class="hero-overlay"></div>
     <div class="container hero-content">
-      <h1>Automobile <span class="accent">din Germania</span></h1>
-      <p>Mașini verificate, de calitate, la prețuri corecte.<br>Import și livrare rapidă în toată România.</p>
+      <span class="hero-eyebrow">Mașini premium din Germania</span>
+      <h1>Mașini verificate.<br>Prețuri corecte.<br><span class="accent">Din Germania.</span></h1>
+      <p>Importăm mașini atent selectate, verificate și pregătite pentru drum.</p>
       <div class="hero-actions">
-        <a href="stoc.html" class="btn btn-primary btn-lg">Vezi stoc auto</a>
-        <a href="despre.html" class="btn btn-ghost-light btn-lg">Despre noi</a>
+        <a href="stoc.html" class="btn btn-primary btn-lg">Vezi stoc auto <span id="heroArrow"></span></a>
+        <a href="despre.html" class="btn btn-ghost-light btn-lg"><span id="heroPlay" class="play-ic"></span> Despre noi</a>
       </div>
     </div>
-  </section>
-
-  <!-- TRUST BAR -->
-  <section class="trustbar">
-    <div class="container" id="trustbar"></div>
+    <div class="hero-trust">
+      <div class="container" id="heroTrust"></div>
+    </div>
   </section>
 
   <!-- FEATURED CARS -->
@@ -111,17 +107,20 @@
     (async () => {
       await T24.mount('home');
       document.getElementById('allArrow').innerHTML = T24.icon('arrowRight', 16);
-      // trust bar
+      document.getElementById('heroArrow').innerHTML = T24.icon('arrowRight', 17);
+      document.getElementById('heroPlay').innerHTML = T24.icon('play', 20);
+      // bara de încredere (suprapusă pe hero)
       const trust = [
-        ['shield', 'Mașini verificate', 'Verificate tehnic înainte de vânzare'],
-        ['certificate', 'Documente complete', 'Acte pregătite pentru înmatriculare'],
-        ['gauge', 'Istoric & VIN', 'Verificare istoric disponibilă la cerere'],
-        ['truck', 'Livrare în România', 'Transport la domiciliu, oriunde în țară']
+        ['shield', 'Mașini verificate', 'Verificare tehnică și istoric'],
+        ['certificate', 'Documente complete', 'Pregătite pentru înmatriculare'],
+        ['gauge', 'Istoric & VIN', 'Verificare disponibilă la cerere'],
+        ['tag', 'Import direct', 'Din Germania, fără intermediari'],
+        ['truck', 'Livrare în România', 'Transport la domiciliu'],
+        ['handshake', 'Suport dedicat', 'De la alegere până la livrare']
       ];
-      document.getElementById('trustbar').innerHTML = trust.map(([ic, t, d]) =>
-        `<div class="trust-item"><span class="ic">${T24.icon(ic, 26, 1.6)}</span>
-         <div><b style="display:block;color:var(--text)">${t}</b>
-         <span style="font-size:13px;color:var(--text-muted)">${d}</span></div></div>`).join('');
+      document.getElementById('heroTrust').innerHTML = trust.map(([ic, t, d]) =>
+        `<div class="trust-item"><span class="ic">${T24.icon(ic, 24, 1.6)}</span>
+         <div><b>${t}</b><span>${d}</span></div></div>`).join('');
       // why grid
       const why = [
         ['shield', 'Verificare completă', 'Fiecare mașină este verificată tehnic și estetic înainte de a ajunge la tine.'],

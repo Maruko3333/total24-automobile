@@ -41,7 +41,8 @@ const T24 = {
     tag: '<path d="M3 12l9-9 9 9-9 9-9-9z"/><circle cx="9" cy="9" r="1.5"/>',
     arrowRight: '<path d="M5 12h14M13 6l6 6-6 6"/>',
     percent: '<path d="M19 5L5 19"/><circle cx="7" cy="7" r="2"/><circle cx="17" cy="17" r="2"/>',
-    doc: '<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 13h6M9 17h6"/>'
+    doc: '<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 13h6M9 17h6"/>',
+    play: '<circle cx="12" cy="12" r="9"/><path d="M10.5 8.5l5 3.5-5 3.5z"/>'
   },
 
   icon(name, size = 20, stroke = 1.7) {
@@ -129,7 +130,21 @@ const T24 = {
     const links = this.nav.map(n =>
       `<a href="${n.href}" class="${n.key === active ? 'active' : ''}">${n.label}</a>`
     ).join('');
+    const a = c.address;
     return `
+    <div class="topbar">
+      <div class="container topbar-in">
+        <div class="topbar-left">
+          <span>${this.icon('pin', 15)} ${a.city}, ${a.country}</span>
+          <a href="tel:${c.phone}">${this.icon('phone', 15)} ${c.phone}</a>
+          <a href="mailto:${c.email}">${this.icon('mail', 15)} ${c.email}</a>
+        </div>
+        <div class="topbar-right">
+          <span>${this.icon('clock', 15)} Luni – Vineri: ${c.hours.weekdays}</span>
+          <span class="topbar-lang">🇩🇪 RO</span>
+        </div>
+      </div>
+    </div>
     <header class="header">
       <div class="container nav">
         <a href="index.html" class="logo" aria-label="Total24 Automobile">
@@ -137,7 +152,7 @@ const T24 = {
         </a>
         <nav class="nav-links" id="navLinks">${links}</nav>
         <div class="nav-cta">
-          <a href="contact.html" class="btn btn-primary">Contact rapid</a>
+          <a href="contact.html" class="btn btn-primary">${this.icon('phone', 16)} Contact rapid</a>
           <button class="nav-toggle" id="navToggle" aria-label="Meniu">${this.icon('menu', 26, 2)}</button>
         </div>
       </div>
