@@ -582,3 +582,68 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
       linear-gradient(120deg, #0b0d10, #12161c);
   }
 }
+
+/* ============================================
+   Val 1 — carduri aerisite, CTA, detaliu îmbunătățit
+   ============================================ */
+
+/* Buton WhatsApp */
+.btn-wa { background: #25D366; color: #fff; }
+.btn-wa:hover { background: #1fbe5a; color: #fff; transform: translateY(-2px); }
+
+/* Grid stoc mai aerisit */
+.cars-grid { grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 28px; }
+
+/* Card mașină — layout nou */
+.car-card { border-radius: 16px; }
+.car-media { display: block; }
+.car-status {
+  position: absolute; top: 12px; left: 12px; z-index: 2;
+  font-size: 12px; font-weight: 700; padding: 5px 11px; border-radius: 7px;
+}
+.car-status.status-reserved { background: rgba(245,179,1,.9); color: #1a1408; }
+.car-status.status-sold { background: rgba(224,90,90,.9); color: #fff; }
+.car-body { padding: 20px 22px 22px; gap: 0; }
+.car-title { display: block; font-size: 19px; font-weight: 700; font-family: var(--font-head); color: var(--text); margin-bottom: 7px; line-height: 1.25; }
+.car-title:hover { color: var(--gold); }
+.car-meta { color: var(--text-muted); font-size: 14px; margin-bottom: 16px; }
+.car-price { font-family: var(--font-head); font-size: 26px; font-weight: 800; color: var(--gold); margin-bottom: 18px; }
+.car-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.car-actions .btn { padding: 12px 14px; font-size: 14px; }
+
+/* Contor stoc vizibil */
+.stoc-toolbar .count { font-size: 18px; font-weight: 500; }
+.stoc-toolbar .count b { color: var(--gold); font-size: 22px; font-family: var(--font-head); }
+
+/* ---- Detaliu: rată, CTA, note, lead ---- */
+.detail-finance {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--gold-soft); border: 1px solid rgba(245,179,1,.25);
+  color: var(--text); font-size: 15px; padding: 10px 15px; border-radius: 10px;
+  margin-bottom: 20px;
+}
+.detail-finance b { color: var(--gold-hi); }
+.detail-finance:hover { border-color: var(--gold); }
+.detail-cta-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.detail-cta-row .btn { padding: 15px 14px; font-size: 15px; }
+.detail-note { display: flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: 13px; margin-top: 14px; }
+.detail-note .ic, .detail-finance .ic { color: var(--gold); display: inline-flex; }
+
+.lead-box { margin-top: 24px; padding: 20px; background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); }
+.lead-box h3 { font-size: 17px; margin-bottom: 4px; }
+.lead-box > p { color: var(--text-soft); font-size: 14px; margin-bottom: 14px; }
+.lead-form { display: grid; gap: 10px; }
+.lead-form input { padding: 12px 14px; background: var(--bg-card); border: 1px solid var(--line); border-radius: 9px; color: var(--text); font-family: inherit; font-size: 14px; }
+.lead-form input:focus { outline: none; border-color: var(--gold); }
+.lead-note { color: var(--green); font-size: 13px; margin-top: 10px; }
+
+/* ---- Detaliu: grid specificații modern ---- */
+.spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.spec-cell { display: flex; align-items: center; gap: 13px; background: var(--bg-card); border: 1px solid var(--line-soft); border-radius: 12px; padding: 14px 16px; }
+.spec-cell .ic { width: 38px; height: 38px; border-radius: 10px; background: var(--gold-soft); color: var(--gold); display: grid; place-items: center; flex-shrink: 0; }
+.spec-cell .k { display: block; color: var(--text-muted); font-size: 12.5px; }
+.spec-cell .v { display: block; color: var(--text); font-weight: 600; font-size: 15px; }
+
+@media (max-width: 400px) {
+  .car-actions { grid-template-columns: 1fr; }
+}

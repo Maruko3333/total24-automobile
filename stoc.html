@@ -32,9 +32,9 @@
           <div class="field">
             <label>Preț maxim</label>
             <div class="range-wrap">
-              <div class="range-values"><span id="priceMin">€ 0</span><span id="priceVal">€ 30.000</span></div>
+              <div class="range-values"><span>până la</span><span id="priceVal">30.000 €</span></div>
               <input type="range" id="fPrice" min="0" max="80000" step="1000" value="80000">
-              <div class="range-values" style="margin-top:6px"><span>min</span><span id="priceMax">€ 80.000</span></div>
+              <div class="range-values" style="margin-top:6px"><span>0 €</span><span id="priceMax">80.000 €</span></div>
             </div>
           </div>
           <div class="field"><label>An fabricație</label><select id="fYear"></select></div>
@@ -47,6 +47,8 @@
               <option value="200000">până la 200.000 km</option>
             </select>
           </div>
+          <div class="field"><label>Combustibil</label><select id="fFuel"></select></div>
+          <div class="field"><label>Cutie de viteze</label><select id="fGear"></select></div>
           <div class="field"><label>Caroserie</label><select id="fBody"></select></div>
           <button class="btn btn-primary btn-block" id="fApplyCount">Filtrează</button>
           <button class="btn btn-ghost btn-block" id="fReset" style="margin-top:8px">Resetează filtrele</button>
@@ -55,7 +57,7 @@
         <!-- RESULTS -->
         <div>
           <div class="stoc-toolbar">
-            <span class="count" id="carsCount"><b>0</b> mașini găsite</span>
+            <span class="count" id="carsCount"><b>0</b> mașini disponibile</span>
             <div class="sort-box">
               <label>Sortează:</label>
               <select id="fSort">

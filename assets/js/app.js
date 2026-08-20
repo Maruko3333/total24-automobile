@@ -61,8 +61,24 @@ const T24 = {
   },
 
   // ---- Formatting ----
-  price(n) { return '€ ' + Number(n).toLocaleString('de-DE'); },
+  price(n) { return Number(n).toLocaleString('de-DE') + ' €'; },
   km(n) { return Number(n).toLocaleString('de-DE') + ' km'; },
+
+  // WhatsApp deep-link pentru o mașină
+  waCar(car, extra = '') {
+    const wa = (this.config.company.whatsapp || '').replace(/\D/g, '');
+    const msg = encodeURIComponent(
+      `Bună ziua! Sunt interesat de ${car.make} ${car.model} (${car.year}) – ${this.price(car.price)}. ${extra}Este disponibilă?`);
+    return `https://wa.me/${wa}?text=${msg}`;
+  },
+
+  // Rată lunară estimată (avans %, luni, dobândă anuală %)
+  monthly(price, downPct = 20, term = 60, apr = 8.9) {
+    const principal = price * (1 - downPct / 100);
+    const r = apr / 100 / 12;
+    const m = r === 0 ? principal / term : principal * r / (1 - Math.pow(1 + r, -term));
+    return Math.round(m);
+  },
 
   // ---- Data loading ----
   async loadConfig() {
