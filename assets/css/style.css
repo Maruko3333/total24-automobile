@@ -691,3 +691,24 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 
 /* CTA-uri pagina mașinii — puțin mai sobre */
 .detail-cta-row .btn { text-transform: uppercase; letter-spacing: .6px; font-size: 13.5px; }
+
+/* ============================================
+   Header mai mare + scalare globală pe ecrane late
+   ============================================ */
+.nav { height: 104px; }
+.logo-img { height: 78px; max-width: 250px; }
+.footer-logo-img { height: 82px; }
+.nav-links a { font-size: 16px; }
+.nav-cta .btn { padding: 14px 26px; font-size: 15.5px; }
+.filters-side, .detail-panel { top: 120px; }
+@media (max-width: 900px) { .nav-links.open { top: 104px; } }
+@media (max-width: 560px) {
+  .nav { height: 74px; }
+  .logo-img { height: 50px; max-width: 175px; }
+  .nav-links.open { top: 74px !important; }
+}
+
+/* Scalare globală — tot site-ul mai mare pe monitoare mari */
+@media (min-width: 1500px) { body { zoom: 1.08; } }
+@media (min-width: 1900px) { body { zoom: 1.18; } }
+@media (min-width: 2300px) { body { zoom: 1.30; } }
