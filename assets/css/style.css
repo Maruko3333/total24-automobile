@@ -93,7 +93,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 600; line-height: 1
 .logo-img { height: 50px; width: auto; max-width: 200px; object-fit: contain; display: block; }
 .footer-logo-img { height: 60px; max-width: 230px; }
 .nav-links { display: flex; align-items: center; gap: 30px; }
-.nav-links a { position: relative; color: rgba(255,255,255,.85); font-weight: 600; font-size: 14px; letter-spacing: .4px; text-transform: uppercase; }
+.nav-links a { position: relative; display: inline-flex; align-items: center; color: rgba(255,255,255,.85); font-weight: 600; font-size: 14px; letter-spacing: .4px; text-transform: uppercase; }
 .nav-links a:hover { color: #fff; }
 .nav-links a.active { color: var(--gold); }
 .nav-links a.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -10px; height: 2px; background: var(--gold); border-radius: 2px; }
@@ -714,7 +714,6 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 .brand-logo-lg .brand-sub { font-size: 12px; letter-spacing: 6px; }
 
 /* Caret dropdown (Servicii, RO) */
-.nav-links a { display: inline-flex; align-items: center; }
 .nav-links a .caret { margin-left: 5px; opacity: .8; }
 .topbar-lang { display: inline-flex; align-items: center; gap: 5px; }
 .topbar-lang .caret { opacity: .7; }
@@ -726,27 +725,21 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
    pentru lizibilitatea textului în stânga; partea dreaptă rămâne clară. */
 .hero-photo {
   position: relative; display: flex; align-items: center; overflow: hidden;
-  aspect-ratio: 2048 / 768;   /* înălțimea urmează poza → se vede TOATĂ, fără crop, pe ecrane ≥1280px */
-  min-height: 470px;          /* prag ca textul să încapă pe laptopuri mici (acolo poza se decupează ușor) */
-  padding: 92px 0 92px; background: #080808;
+  min-height: 640px; padding: 96px 0 96px; background: #080808;
 }
-/* O SINGURĂ fotografie <img> full-width (object-fit) + overlay orizontal subtil.
-   Compoziție: text stânga · BMW + showroom dreapta. Dreapta rămâne luminoasă. */
+/* Fotografia = un singur layer <img> (object-fit: cover), un singur object-position. */
+.hero-photo > picture { position: absolute; inset: 0; z-index: 0; display: block; }
 .hero-photo .hero-image {
   position: absolute; inset: 0; z-index: 0;
   width: 100%; height: 100%;
-  object-fit: cover; object-position: center center;
+  object-fit: cover; object-position: 65% 60%;
   will-change: transform;
 }
-.hero-photo > picture { position: absolute; inset: 0; z-index: 0; display: block; }
-.hero-overlay,
+/* Overlay simplu — doar pentru lizibilitatea textului în stânga; dreapta rămâne clară. */
 .hero-photo::before {
   content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background: linear-gradient(90deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.32) 30%, rgba(0,0,0,.08) 58%, transparent 82%);
 }
-/* sub 1280px poza se decupează (prag min-height) → mutăm cadrul spre BMW */
-@media (max-width: 1279px) { .hero-photo .hero-image { object-position: 72% center; } }
-@media (max-width: 760px)  { .hero-photo .hero-image { object-position: 80% 62%; } }
 .hero-inner {
   position: relative; z-index: 2; width: 100%;
   padding-left: 5%; padding-right: 24px;
@@ -795,7 +788,7 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 
 /* ---- Responsive hero + nav ---- */
 @media (max-width: 760px) {
-  .hero-photo { display: block; aspect-ratio: auto; min-height: 600px; padding: 100px 0 0; }
+  .hero-photo { display: block; min-height: 560px; padding: 100px 0 0; }
   .hero-photo h1 { font-size: clamp(30px, 7.6vw, 42px); letter-spacing: -.4px; max-width: 92vw; }
   .hero-photo p { font-size: 15px; max-width: 100%; }
   .hero-inner { padding-right: 5%; }
