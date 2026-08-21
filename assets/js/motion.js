@@ -22,7 +22,7 @@
       const bg = document.querySelector('.hero-photo .hero-bg');
       if (!bg) return;
       bg.style.willChange = 'transform';
-      M.animate(bg, { scale: [1, 1.025] }, { duration: 9, ease: 'easeOut' });
+      M.animate(bg, { scale: [1, 1.02] }, { duration: 10, ease: 'easeOut' });
     },
 
     // TRUST BAR — fade + translateY 15px, foarte subtil, la intrarea în viewport.

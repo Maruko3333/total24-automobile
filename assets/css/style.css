@@ -224,7 +224,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 600; line-height: 1
 .why-split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
 .why-photo {
   min-height: 380px; border-radius: var(--radius); border: 1px solid var(--line-soft);
-  background: url('../img/brand/hero.jpg?v=5') center/cover no-repeat;
+  background: url('../img/brand/hero.jpg?v=7') center/cover no-repeat;
 }
 .why-text .eyebrow { color: var(--gold); font-size: 13px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 12px; display: block; }
 .why-text h2 { font-size: clamp(28px, 3.4vw, 40px); margin-bottom: 16px; }
@@ -256,7 +256,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 600; line-height: 1
 /* ---------- Home: CTA final full-width cu fotografie ---------- */
 .cta-final {
   position: relative; padding: 96px 24px; text-align: center;
-  background: linear-gradient(rgba(9,11,14,.78), rgba(9,11,14,.86)), url('../img/brand/hero.jpg?v=5') center/cover no-repeat;
+  background: linear-gradient(rgba(9,11,14,.78), rgba(9,11,14,.86)), url('../img/brand/hero.jpg?v=7') center/cover no-repeat;
   border-block: 1px solid var(--line-soft);
 }
 .cta-final-in { max-width: 640px; margin: 0 auto; }
@@ -731,24 +731,35 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 .hero-trust .trust-item { padding: 18px 22px; gap: 13px; }
 .hero-trust .trust-item b { font-size: 13.5px; letter-spacing: .3px; white-space: nowrap; }
 
-/* ---- Hero cu fotografie (home) ---- */
+/* ---- Hero cu fotografie (home) — implementare unică, coerentă ----
+   Compoziție: text stânga · mașină+showroom dreapta. Overlay subtil doar
+   pentru lizibilitatea textului în stânga; partea dreaptă rămâne clară. */
 .hero-photo {
-  position: relative; display: flex; align-items: center;
-  min-height: 700px; padding: 150px 0 150px; background: #080808;
+  position: relative; display: flex; align-items: center; overflow: hidden;
+  min-height: 700px; padding: 150px 0 140px; background: #080808;
 }
 .hero-photo .hero-bg {
   position: absolute; inset: 0; z-index: 0; will-change: transform;
   background-color: #080808;
   background-image:
-    linear-gradient(90deg, rgba(8,8,8,.94) 0%, rgba(8,8,8,.7) 28%, rgba(8,8,8,.2) 52%, rgba(0,0,0,0) 70%),
-    url('../img/brand/hero.jpg?v=6');
-  background-size: cover, contain;
-  background-position: center, right center;
+    linear-gradient(90deg, rgba(0,0,0,.68) 0%, rgba(0,0,0,.42) 30%, rgba(0,0,0,.15) 58%, rgba(0,0,0,.02) 100%),
+    url('../img/brand/hero.jpg?v=7');
+  background-size: cover, cover;
+  background-position: center, center 42%;
   background-repeat: no-repeat, no-repeat;
 }
-@media (max-width: 760px) {
-  .hero-photo .hero-bg { background-size: cover, cover; background-position: center, center; }
+/* WebP pentru browserele compatibile (fallback = JPG de mai sus) */
+@supports (background-image: image-set(url("x.webp") type("image/webp"))) {
+  .hero-photo .hero-bg {
+    background-image:
+      linear-gradient(90deg, rgba(0,0,0,.68) 0%, rgba(0,0,0,.42) 30%, rgba(0,0,0,.15) 58%, rgba(0,0,0,.02) 100%),
+      image-set(url('../img/brand/hero.webp?v=7') type('image/webp'),
+                url('../img/brand/hero.jpg?v=7') type('image/jpeg'));
+  }
 }
+/* ecrane late: hero puțin mai înalt ca să nu se taie mașina / firma */
+@media (min-width: 1700px) { .hero-photo { min-height: 760px; } }
+@media (min-width: 2200px) { .hero-photo { min-height: 820px; } }
 .hero-inner {
   position: relative; z-index: 2; width: 100%;
   padding-left: 5%; padding-right: 24px;
