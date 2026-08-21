@@ -40,18 +40,45 @@ const BASE = environment === 'sandbox'
 const AUTH = 'Basic ' + Buffer.from(`${username}:${password}`).toString('base64');
 
 // ---------- Helper HTTP (doar GET) ----------
-async function api(path) {
+async function fetchJson(path) {
   const res = await fetch(BASE + path, { headers: { Authorization: AUTH, Accept: 'application/json' } });
   const text = await res.text();
   let body; try { body = text ? JSON.parse(text) : null; } catch { body = text; }
-  if (!res.ok) {
-    const hint = res.status === 401 ? 'username/parolă greșite'
-      : res.status === 403 ? 'cont fără acces la Seller-API (cere activarea la suportul Mobile.de)'
-      : res.status === 404 ? 'sellerId greșit sau resursă inexistentă' : '';
-    die(`API ${res.status} ${res.statusText} la ${path}${hint ? ` — ${hint}` : ''}\n` +
-        (typeof body === 'string' ? body : JSON.stringify(body, null, 2)));
+  return { ok: res.ok, status: res.status, statusText: res.statusText, body };
+}
+// varianta „dură" — oprește scriptul la eroare (pentru cererile principale)
+async function api(path) {
+  const r = await fetchJson(path);
+  if (!r.ok) {
+    const hint = r.status === 401 ? 'username/parolă greșite'
+      : r.status === 403 ? 'cont fără acces la Seller-API (cere activarea la suportul Mobile.de)'
+      : r.status === 404 ? 'sellerId greșit sau resursă inexistentă' : '';
+    die(`API ${r.status} ${r.statusText} la ${path}${hint ? ` — ${hint}` : ''}\n` +
+        (typeof r.body === 'string' ? r.body : JSON.stringify(r.body, null, 2)));
   }
-  return body;
+  return r.body;
+}
+// verifică dacă un sellerId e valid (întoarce 200 la lista de anunțuri)
+async function sellerWorks(id) {
+  const r = await fetchJson(`/sellers/${encodeURIComponent(id)}/ads?page.number=1&page.size=1`);
+  return r.ok;
+}
+// descoperă automat sellerId
+async function discoverSellerId() {
+  // 1) endpoint listă vânzători (dacă există)
+  const s = await fetchJson('/sellers');
+  if (s.ok && s.body) {
+    const list = Array.isArray(s.body) ? s.body : (s.body.sellers || s.body.items || []);
+    if (list && list.length) {
+      const id = String(list[0].mobileSellerId || list[0].id || list[0].sellerId || '');
+      if (id && await sellerWorks(id)) return id;
+    }
+  }
+  // 2) username-ul e des chiar numărul de vânzător
+  if (await sellerWorks(username)) return username;
+  // 3) dacă username-ul e numeric, mai încearcă o dată explicit
+  if (/^\d+$/.test(username) && await sellerWorks(username)) return username;
+  return '';
 }
 
 // ---------- Mapări cod -> etichetă germană ----------
@@ -133,12 +160,14 @@ async function getAllAds() {
 // ---------- Rulare ----------
 (async () => {
   if (!sellerId) {
-    try {
-      const s = await api('/sellers');
-      const list = Array.isArray(s) ? s : (s.sellers || s.items || []);
-      if (list.length) { sellerId = String(list[0].mobileSellerId || list[0].id || list[0].sellerId); console.log('ℹ️  sellerId descoperit automat:', sellerId); }
-    } catch { /* endpoint-ul poate lipsi */ }
-    if (!sellerId) die('Completează "sellerId" (mobileSellerId) în scripts/mobilede.credentials.json.');
+    console.log('… caut automat sellerId (nu l-ai completat)…');
+    sellerId = await discoverSellerId();
+    if (sellerId) console.log('ℹ️  sellerId găsit automat:', sellerId);
+    else die('Nu am putut afla sellerId automat.\n' +
+      '   → Caută "Kundennummer" în contul tău Mobile.de (Händlerbereich) și pune-l la "sellerId" în\n' +
+      '     scripts/mobilede.credentials.json. SAU trimite-mi ce vezi și îl aflăm împreună.');
+  } else if (!(await sellerWorks(sellerId))) {
+    die(`sellerId "${sellerId}" nu răspunde (401/403/404). Verifică-l sau lasă-l gol pentru descoperire automată.`);
   }
 
   console.log(`→ Mediu: ${environment} | sellerId: ${sellerId}`);
