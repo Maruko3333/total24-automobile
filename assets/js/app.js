@@ -172,7 +172,7 @@ const T24 = {
             <a href="index.html" class="logo" aria-label="Total24 Automobile">
               <img src="assets/img/brand/logo.png" alt="Total24 Automobile" class="logo-img footer-logo-img">
             </a>
-            <p>${c.tagline}. Import direct din Germania, verificate și cu documente complete.</p>
+            <p>${c.tagline}. Prima mână, verificate, cu km la service-ul oficial al mărcii.</p>
           </div>
           <div>
             <h5>Navigare</h5>

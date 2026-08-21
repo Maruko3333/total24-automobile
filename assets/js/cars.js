@@ -238,7 +238,7 @@ const Cars = {
       ? (car.images[0].startsWith('http') ? car.images[0] : `${base}/${car.images[0]}`)
       : `${base}/assets/img/brand/logo.png`;
     const avail = car.status === 'available';
-    const desc = `${car.make} ${car.model}, ${car.year}, ${T24.km(car.mileage)}, ${car.fuel}, ${car.transmission}. Preț ${T24.price(car.price)}. Import direct din Germania — Total24 Automobile, Fürth.`;
+    const desc = `${car.make} ${car.model}, ${car.year}, ${T24.km(car.mileage)}, ${car.fuel}, ${car.transmission}. Preț ${T24.price(car.price)}. Prima mână, km la service-ul oficial — Total24 Automobile, Fürth.`;
 
     T24.setMeta('description', desc);
     T24.setCanonical(url);
@@ -349,9 +349,9 @@ const Cars = {
           <div class="detail-price">${T24.price(car.price)}</div>
           <a href="finantare.html?price=${car.price}" class="detail-finance">${T24.icon('percent', 15)} Finanțare de la <b>${monthly} €/lună</b></a>
           <ul class="detail-trust">
-            <li>${T24.icon('checkCircle', 17)} Istoric verificat</li>
-            <li>${T24.icon('checkCircle', 17)} Documente complete</li>
-            <li>${T24.icon('checkCircle', 17)} Import inclus în preț</li>
+            <li>${T24.icon('checkCircle', 17)} Prima mână — un singur proprietar</li>
+            <li>${T24.icon('checkCircle', 17)} Km făcuți doar la service-ul oficial</li>
+            <li>${T24.icon('checkCircle', 17)} Istoric clar și documente complete</li>
           </ul>
           <div class="detail-cta-row">
             <a href="${T24.waCar(car)}" target="_blank" rel="noopener" class="btn btn-wa btn-block">${T24.icon('whatsapp', 18)} WhatsApp</a>
