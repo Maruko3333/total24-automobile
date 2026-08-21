@@ -430,6 +430,7 @@ const Cars = {
         await T24.sendLead({
           _subject: `Cerere ofertă — ${car.make} ${car.model} (${car.year})`,
           _template: 'table',
+          ...(lead.email.value ? { _replyto: lead.email.value } : {}),
           Mașina: `${car.make} ${car.model} ${car.year}`,
           Preț: T24.price(car.price),
           Link: `${T24.siteUrl()}/masina.html?id=${car.id}`,

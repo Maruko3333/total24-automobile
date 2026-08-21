@@ -89,6 +89,7 @@
           await T24.sendLead({
             _subject: `Contact site — ${f.name.value}`,
             _template: 'table',
+            ...(f.email.value ? { _replyto: f.email.value } : {}),
             Nume: f.name.value,
             Telefon: f.phone.value,
             Email: f.email.value || '—',
