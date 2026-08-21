@@ -17,12 +17,13 @@
       this.trustBar();
     },
 
-    // HERO — slow cinematic zoom scale(1.00 → 1.025) în ~9s, o singură dată.
+    // HERO — slow cinematic zoom scale(1.00 → 1.015) în ~11s, o singură dată.
+    // Se aplică DOAR pe fotografie (.hero-image), nu pe hero/content/trust.
     heroZoom() {
-      const bg = document.querySelector('.hero-photo .hero-bg');
-      if (!bg) return;
-      bg.style.willChange = 'transform';
-      M.animate(bg, { scale: [1, 1.02] }, { duration: 10, ease: 'easeOut' });
+      const img = document.querySelector('.hero-photo .hero-image');
+      if (!img) return;
+      img.style.willChange = 'transform';
+      M.animate(img, { scale: [1, 1.015] }, { duration: 11, ease: 'easeOut' });
     },
 
     // TRUST BAR — fade + translateY 15px, foarte subtil, la intrarea în viewport.

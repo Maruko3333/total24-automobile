@@ -224,7 +224,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 600; line-height: 1
 .why-split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
 .why-photo {
   min-height: 380px; border-radius: var(--radius); border: 1px solid var(--line-soft);
-  background: url('../img/brand/hero.jpg?v=9') center/cover no-repeat;
+  background: url('../img/brand/hero-hd.jpg') center/cover no-repeat;
 }
 .why-text .eyebrow { color: var(--gold); font-size: 13px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 12px; display: block; }
 .why-text h2 { font-size: clamp(28px, 3.4vw, 40px); margin-bottom: 16px; }
@@ -256,7 +256,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 600; line-height: 1
 /* ---------- Home: CTA final full-width cu fotografie ---------- */
 .cta-final {
   position: relative; padding: 96px 24px; text-align: center;
-  background: linear-gradient(rgba(9,11,14,.78), rgba(9,11,14,.86)), url('../img/brand/hero.jpg?v=9') center/cover no-repeat;
+  background: linear-gradient(rgba(9,11,14,.78), rgba(9,11,14,.86)), url('../img/brand/hero-hd.jpg') center/cover no-repeat;
   border-block: 1px solid var(--line-soft);
 }
 .cta-final-in { max-width: 640px; margin: 0 auto; }
@@ -503,7 +503,7 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
   .reveal { opacity: 1 !important; transform: none !important; transition: none; }
   .hero-inner, .hero-inner > * { animation: none !important; opacity: 1 !important; transform: none !important; }
   #site-header { animation: none !important; }
-  .hero-photo .hero-bg { transform: none !important; }
+  .hero-photo .hero-image { transform: none !important; }
   .wa-float::before { animation: none; }
 }
 
@@ -739,29 +739,24 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
   position: relative; display: flex; align-items: center; overflow: hidden;
   min-height: 650px; padding: 128px 0 140px; background: #080808;
 }
-/* O SINGURĂ fotografie full-width + gradient orizontal peste ea.
-   Fără panou negru separat, fără linie verticală: dreapta rămâne clară. */
-.hero-photo .hero-bg {
-  position: absolute; inset: 0; z-index: 0; will-change: transform;
-  background-color: #080808;
-  background-image:
-    linear-gradient(90deg, rgba(0,0,0,.66) 0%, rgba(0,0,0,.5) 20%, rgba(0,0,0,.26) 42%, rgba(0,0,0,.08) 64%, rgba(0,0,0,0) 82%),
-    url('../img/brand/hero.jpg?v=9');
-  background-size: cover, cover;
-  background-position: center, center 48%;
-  background-repeat: no-repeat, no-repeat;
+/* O SINGURĂ fotografie <img> full-width (object-fit) + overlay orizontal subtil.
+   Compoziție: text stânga · BMW + showroom dreapta. Dreapta rămâne luminoasă. */
+.hero-photo .hero-image {
+  position: absolute; inset: 0; z-index: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 62%;
+  will-change: transform;
 }
-/* WebP pentru browserele compatibile (fallback = JPG de mai sus) */
-@supports (background-image: image-set(url("x.webp") type("image/webp"))) {
-  .hero-photo .hero-bg {
-    background-image:
-      linear-gradient(90deg, rgba(0,0,0,.66) 0%, rgba(0,0,0,.5) 20%, rgba(0,0,0,.26) 42%, rgba(0,0,0,.08) 64%, rgba(0,0,0,0) 82%),
-      image-set(url('../img/brand/hero.webp?v=9') type('image/webp'),
-                url('../img/brand/hero.jpg?v=9') type('image/jpeg'));
-  }
+.hero-photo > picture { position: absolute; inset: 0; z-index: 0; display: block; }
+.hero-photo::before {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(90deg, rgba(0,0,0,.58) 0%, rgba(0,0,0,.35) 30%, rgba(0,0,0,.10) 55%, rgba(0,0,0,0) 80%);
 }
-/* ecrane late: hero puțin mai înalt, dar compact (≤690px) */
-@media (min-width: 1700px) { .hero-photo { min-height: 690px; } }
+/* ecrane late: hero puțin mai înalt, dar compact (≤680px) */
+@media (min-width: 1700px) { .hero-photo { min-height: 680px; } }
+/* tabletă / mobil: mutăm cadrul spre dreapta ca BMW-ul să rămână vizibil */
+@media (max-width: 1024px) { .hero-photo .hero-image { object-position: 70% 58%; } }
+@media (max-width: 760px)  { .hero-photo .hero-image { object-position: 82% 64%; } }
 .hero-inner {
   position: relative; z-index: 2; width: 100%;
   padding-left: 5%; padding-right: 24px;
