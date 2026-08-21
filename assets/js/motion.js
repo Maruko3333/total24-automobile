@@ -14,6 +14,7 @@
     init() {
       if (!M || reduce()) return;
       this.heroZoom();
+      this.trustBar();
     },
 
     // HERO — slow cinematic zoom scale(1.00 → 1.025) în ~9s, o singură dată.
@@ -22,6 +23,18 @@
       if (!bg) return;
       bg.style.willChange = 'transform';
       M.animate(bg, { scale: [1, 1.025] }, { duration: 9, ease: 'easeOut' });
+    },
+
+    // TRUST BAR — fade + translateY 15px, foarte subtil, la intrarea în viewport.
+    trustBar() {
+      const box = document.querySelector('.hero-trust');
+      if (!box || typeof M.inView !== 'function') return;
+      M.inView(box, () => {
+        const items = box.querySelectorAll('.trust-item');
+        if (!items.length) return;
+        const delay = typeof M.stagger === 'function' ? M.stagger(0.07) : (i) => i * 0.07;
+        M.animate(items, { opacity: [0, 1], y: [15, 0] }, { duration: 0.5, delay, ease: [0.22, 0.7, 0.2, 1] });
+      }, { amount: 0.3 });
     }
   };
 

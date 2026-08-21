@@ -42,7 +42,8 @@ const T24 = {
     arrowRight: '<path d="M5 12h14M13 6l6 6-6 6"/>',
     percent: '<path d="M19 5L5 19"/><circle cx="7" cy="7" r="2"/><circle cx="17" cy="17" r="2"/>',
     doc: '<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 13h6M9 17h6"/>',
-    play: '<circle cx="12" cy="12" r="9"/><path d="M10.5 8.5l5 3.5-5 3.5z"/>'
+    play: '<circle cx="12" cy="12" r="9"/><path d="M10.5 8.5l5 3.5-5 3.5z"/>',
+    headset: '<path d="M4 13v-1a8 8 0 0116 0v1"/><rect x="3" y="13" width="4" height="7" rx="1.6"/><rect x="17" y="13" width="4" height="7" rx="1.6"/><path d="M20 20a3 3 0 01-3 3h-3"/>'
   },
 
   icon(name, size = 20, stroke = 1.7) {
@@ -141,7 +142,7 @@ const T24 = {
         </div>
         <div class="topbar-right">
           <span>${this.icon('clock', 15)} Luni – Vineri: ${c.hours.weekdays}</span>
-          <span class="topbar-lang">RO 🇷🇴</span>
+          <span class="topbar-lang">🇷🇴 RO</span>
         </div>
       </div>
     </div>
