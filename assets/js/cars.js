@@ -31,6 +31,26 @@ const Cars = {
     </div>`;
   },
 
+  // ---- Home: card mare, aerisit (imagine mare, MODEL / meta / preț / „Vezi mașina") ----
+  featuredCard(car) {
+    const img = (car.images && car.images.length)
+      ? `<img src="${car.images[0]}" alt="${car.make} ${car.model}" loading="lazy">`
+      : `<div class="no-img">${T24.icon('car', 54, 1.3)}</div>`;
+    const meta = [car.year, T24.km(car.mileage), car.fuel, car.transmission].filter(Boolean).join(' · ');
+    return `
+    <a href="masina.html?id=${car.id}" class="feat-card">
+      <div class="feat-media">${img}</div>
+      <div class="feat-body">
+        <h3 class="feat-title">${car.make} ${car.model}</h3>
+        <div class="feat-meta">${meta}</div>
+        <div class="feat-foot">
+          <span class="feat-price">${T24.price(car.price)}</span>
+          <span class="feat-link">Vezi mașina ${T24.icon('arrowRight', 15)}</span>
+        </div>
+      </div>
+    </a>`;
+  },
+
   // ---- Home: featured ----
   async renderFeatured(elId, limit = 3) {
     const el = document.getElementById(elId);
@@ -38,7 +58,7 @@ const Cars = {
     const cars = await T24.loadCars();
     const featured = cars.filter(c => c.featured && c.status === 'available').slice(0, limit);
     const list = featured.length ? featured : cars.slice(0, limit);
-    el.innerHTML = list.map(c => this.card(c)).join('');
+    el.innerHTML = list.map(c => this.featuredCard(c)).join('');
   },
 
   // ---- Stoc: full listing with filters ----

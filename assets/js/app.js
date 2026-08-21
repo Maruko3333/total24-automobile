@@ -302,13 +302,13 @@ const T24 = {
   observeReveal() {
     if (this._revealInit || !('IntersectionObserver' in window)) return;
     this._revealInit = true;
-    const sel = '.section-head,.car-card,.why-card,.service-card,.about-feature,.stat-big,.trust-item,.finance-benefit,.info-item,.calc-card,.cta-band,.tradein-band,.about-visual,.spec-table';
+    const sel = '.section-head,.car-card,.feat-card,.why-split,.service-card,.about-feature,.stat-big,.finance-benefit,.info-item,.calc-card,.cta-band,.tradein-band,.about-visual,.spec-table';
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
 
     // carduri din grid → stagger la intrarea în viewport (max 8)
-    const STAGGER = ['car-card', 'why-card', 'service-card', 'step-card'];
+    const STAGGER = ['car-card', 'feat-card', 'service-card', 'step-card'];
     const arm = el => {
       if (el.dataset.rev) return;
       el.dataset.rev = '1';

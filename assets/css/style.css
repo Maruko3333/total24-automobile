@@ -71,10 +71,10 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 600; line-height: 1
   border: 1px solid transparent; transition: all .22s ease; white-space: nowrap;
 }
 .btn-primary {
-  background: linear-gradient(135deg, var(--gold-hi), var(--gold));
+  background: var(--gold);
   color: #1a1408;
 }
-.btn-primary:hover { transform: scale(1.02); filter: brightness(1.06); box-shadow: 0 6px 18px rgba(245,179,1,.20); }
+.btn-primary:hover { transform: translateY(-2px); filter: brightness(1.05); }
 .btn-outline { border-color: var(--line); color: var(--text); background: transparent; }
 .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
 .btn-ghost { color: var(--text-soft); padding: 13px 8px; }
@@ -89,11 +89,11 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 600; line-height: 1
 }
 .nav { display: flex; align-items: center; justify-content: space-between; height: 88px; }
 .logo { display: flex; align-items: center; }
-.logo-img { height: 56px; width: auto; max-width: 230px; object-fit: contain; display: block; }
+.logo-img { height: 46px; width: auto; max-width: 200px; object-fit: contain; display: block; }
 .footer-logo-img { height: 64px; max-width: 240px; }
 .nav-links { display: flex; align-items: center; gap: 30px; }
 .nav-links a { color: var(--text-soft); font-weight: 600; font-size: 13px; letter-spacing: 1.2px; text-transform: uppercase; }
-.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
 .nav-cta { display: flex; align-items: center; gap: 14px; }
 .nav-toggle { display: none; background: none; border: 0; color: var(--text); cursor: pointer; }
 
@@ -218,13 +218,57 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 600; line-height: 1
 .contact-form textarea { width: 100%; padding: 12px 14px; background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius-sm); color: var(--text); font-family: inherit; font-size: 14px; resize: vertical; min-height: 110px; }
 .contact-form textarea:focus { outline: none; border-color: var(--gold); }
 
-/* ---------- Why us ---------- */
-.why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
-.why-card { background: var(--bg-card); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 30px 26px; transition: all .25s; }
-.why-card:hover { border-color: var(--line); transform: translateY(-3px); }
-.why-card .ic { width: 52px; height: 52px; border-radius: 13px; background: var(--gold-soft); color: var(--gold); display: grid; place-items: center; margin-bottom: 18px; }
-.why-card h3 { font-size: 19px; margin-bottom: 10px; }
-.why-card p { color: var(--text-soft); font-size: 15px; }
+/* ---------- Home: „De ce Total24" (50/50 editorial) ---------- */
+.why-split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.why-photo {
+  min-height: 380px; border-radius: var(--radius); border: 1px solid var(--line-soft);
+  background: url('../img/brand/hero.jpg?v=3') center/cover no-repeat;
+}
+.why-text .eyebrow { color: var(--gold); font-size: 13px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 12px; display: block; }
+.why-text h2 { font-size: clamp(28px, 3.4vw, 40px); margin-bottom: 16px; }
+.why-text > p { color: var(--text-soft); font-size: 16.5px; line-height: 1.8; margin-bottom: 26px; }
+.why-list { display: grid; gap: 14px; margin-bottom: 30px; }
+.why-li { display: flex; align-items: center; gap: 13px; color: var(--text); font-size: 15.5px; }
+.why-li .ic { color: var(--gold); flex-shrink: 0; display: inline-flex; }
+
+/* ---------- Home: carduri stoc mari, aerisite ---------- */
+.feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.feat-card {
+  display: flex; flex-direction: column; background: var(--bg-card);
+  border: 1px solid var(--line-soft); border-radius: var(--radius); overflow: hidden;
+  transition: transform .3s ease, border-color .3s ease;
+}
+.feat-card:hover { transform: translateY(-4px); border-color: var(--line); }
+.feat-media { aspect-ratio: 16/10; background: var(--bg-card-hi); overflow: hidden; }
+.feat-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+.feat-card:hover .feat-media img { transform: scale(1.03); }
+.feat-media .no-img { width: 100%; height: 100%; display: grid; place-items: center; color: var(--text-muted); }
+.feat-body { padding: 22px 24px 24px; display: flex; flex-direction: column; flex: 1; }
+.feat-title { font-size: 20px; font-weight: 700; font-family: var(--font-head); color: var(--text); margin-bottom: 8px; }
+.feat-meta { color: var(--text-muted); font-size: 14px; margin-bottom: 20px; }
+.feat-foot { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+.feat-price { font-family: var(--font-head); font-size: 24px; font-weight: 800; color: var(--gold); }
+.feat-link { display: inline-flex; align-items: center; gap: 6px; color: var(--text-soft); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .6px; }
+.feat-card:hover .feat-link { color: var(--gold); }
+
+/* ---------- Home: CTA final full-width cu fotografie ---------- */
+.cta-final {
+  position: relative; padding: 96px 24px; text-align: center;
+  background: linear-gradient(rgba(9,11,14,.78), rgba(9,11,14,.86)), url('../img/brand/hero.jpg?v=3') center/cover no-repeat;
+  border-block: 1px solid var(--line-soft);
+}
+.cta-final-in { max-width: 640px; margin: 0 auto; }
+.cta-final h2 { font-size: clamp(28px, 3.6vw, 40px); margin-bottom: 12px; }
+.cta-final p { color: var(--text-soft); font-size: 18px; margin-bottom: 28px; }
+
+@media (max-width: 900px) {
+  .why-split { grid-template-columns: 1fr; gap: 32px; }
+  .why-photo { min-height: 240px; }
+  .feat-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 620px) {
+  .feat-grid { grid-template-columns: 1fr; }
+}
 
 /* ---------- Footer ---------- */
 .footer { background: var(--bg-elev); border-top: 1px solid var(--line-soft); padding: 60px 0 30px; margin-top: 40px; }
@@ -371,29 +415,15 @@ input[type=range]::-moz-range-thumb { width: 18px; height: 18px; border-radius: 
 .hero-inner p { animation-delay: .12s; }
 .hero-inner .hero-actions { animation-delay: .18s; }
 
-@keyframes floatIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes floatIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: none; } }
 
 /* Navbar — intrare fină la load (fade + slide de sus) */
 #site-header { animation: navIn .5s cubic-bezier(.2,.7,.2,1) both; }
 @keyframes navIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: none; } }
 
 /* Scroll reveal */
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1); will-change: opacity, transform; }
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1); will-change: opacity, transform; }
 .reveal.in { opacity: 1; transform: none; }
-
-/* Nav link underline */
-.nav-links a { position: relative; }
-.nav-links a::after { content: ""; position: absolute; left: 0; bottom: -6px; width: 0; height: 2px; background: var(--gold); border-radius: 2px; transition: width .25s ease; }
-.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-
-/* Primary button shimmer */
-.btn-primary { position: relative; overflow: hidden; }
-.btn-primary::after {
-  content: ""; position: absolute; top: 0; left: -120%; width: 60%; height: 100%;
-  background: linear-gradient(100deg, transparent, rgba(255,255,255,.35), transparent);
-  transform: skewX(-18deg); transition: left .6s ease;
-}
-.btn-primary:hover::after { left: 130%; }
 
 /* Card media gradient (când vor exista poze) */
 .car-media::after { content: ""; position: absolute; inset: auto 0 0 0; height: 42%; background: linear-gradient(transparent, rgba(13,15,18,.35)); pointer-events: none; }
@@ -437,7 +467,7 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
    ============================================ */
 .btn-lg { padding: 15px 30px; font-size: 16px; }
 .btn-ghost-light { color: #fff; border: 1px solid rgba(255,255,255,.28); background: rgba(255,255,255,.06); }
-.btn-ghost-light:hover { border-color: var(--gold); color: var(--gold); background: rgba(245,179,1,.08); transform: scale(1.02); }
+.btn-ghost-light:hover { border-color: var(--gold); color: var(--gold); background: rgba(245,179,1,.08); }
 
 /* Preț galben pe carduri (ca în design) */
 .car-price { color: var(--gold); }
@@ -568,8 +598,8 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
    ============================================ */
 
 /* ---- Top bar (bara subțire de sus) ---- */
-.topbar { background: #0a0c0f; border-bottom: 1px solid rgba(255,255,255,.05); font-size: 13px; }
-.topbar-in { display: flex; justify-content: space-between; align-items: center; height: 40px; }
+.topbar { background: #0a0c0f; border-bottom: 1px solid rgba(255,255,255,.05); font-size: 12.5px; }
+.topbar-in { display: flex; justify-content: space-between; align-items: center; height: 37px; }
 .topbar-left, .topbar-right { display: flex; align-items: center; }
 .topbar-left > *, .topbar-right > * { position: relative; padding: 0 16px; }
 .topbar-left > *:first-child { padding-left: 0; }
@@ -611,8 +641,8 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 .hero-photo .hero-bg {
   position: absolute; inset: 0; z-index: 0; will-change: transform;
   background:
-    linear-gradient(95deg, rgba(9,11,14,.88) 0%, rgba(9,11,14,.60) 30%, rgba(9,11,14,.18) 58%, rgba(9,11,14,0) 82%),
-    linear-gradient(180deg, transparent 58%, rgba(9,11,14,.90) 100%),
+    linear-gradient(95deg, rgba(9,11,14,.72) 0%, rgba(9,11,14,.42) 26%, rgba(9,11,14,.10) 52%, rgba(9,11,14,0) 76%),
+    linear-gradient(180deg, transparent 64%, rgba(9,11,14,.80) 100%),
     url('../img/brand/hero.jpg?v=3');
   background-size: cover; background-position: center right; background-repeat: no-repeat;
 }
@@ -620,16 +650,10 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
   position: relative; z-index: 2; width: 100%;
   padding-left: clamp(24px, 7vw, 150px); padding-right: 24px;
 }
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 13px;
-  color: var(--gold); text-transform: uppercase; letter-spacing: 3px;
-  font-size: 13px; font-weight: 700; margin-bottom: 22px;
-}
-.hero-eyebrow::before { content: ""; width: 46px; height: 2px; background: var(--gold); }
 .hero-photo h1 {
-  font-size: clamp(42px, 5.4vw, 72px); font-weight: 800; letter-spacing: -1.2px;
-  line-height: 1.03; margin-bottom: 22px; max-width: 640px;
-  text-shadow: 0 2px 26px rgba(0,0,0,.7);
+  font-size: clamp(38px, 4.4vw, 60px); font-weight: 800; letter-spacing: -1px;
+  line-height: 1.05; margin-bottom: 20px; max-width: 620px;
+  text-shadow: 0 2px 26px rgba(0,0,0,.65);
 }
 .hero-photo h1 .accent { color: var(--gold); }
 .hero-photo p {
@@ -641,20 +665,14 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 /* ---- Trust bar (o singură bandă jos pe hero) ---- */
 .hero-trust {
   position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
-  background: rgba(11,13,16,.55); backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255,255,255,.09);
+  background: rgba(9,11,14,.40); backdrop-filter: blur(6px);
+  border-top: 1px solid rgba(255,255,255,.07);
 }
-.hero-trust .container { display: flex; align-items: center; gap: 20px; padding: 20px 24px; flex-wrap: wrap; }
-.hero-trust .trust-item { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 180px; }
+.hero-trust .container { display: flex; align-items: center; gap: 20px; padding: 15px 24px; flex-wrap: wrap; }
+.hero-trust .trust-item { display: flex; align-items: center; gap: 11px; flex: 1; min-width: 180px; }
 .hero-trust .trust-item .ic { color: var(--gold); flex-shrink: 0; display: inline-flex; }
-.hero-trust .trust-item b { display: block; color: #fff; font-size: 14px; font-family: var(--font-head); font-weight: 600; }
-.hero-trust .trust-item span { display: block; color: var(--text-soft); font-size: 12.5px; }
-.hero-trust .trust-stat {
-  flex: 0 0 auto; padding-left: 24px; margin-left: 6px;
-  border-left: 1px solid rgba(255,255,255,.14);
-}
-.hero-trust .trust-stat b { display: block; font-family: var(--font-head); font-weight: 800; font-size: 30px; color: var(--gold); line-height: 1; }
-.hero-trust .trust-stat span { display: block; color: var(--text-soft); font-size: 12px; text-transform: uppercase; letter-spacing: .8px; margin-top: 4px; }
+.hero-trust .trust-item b { display: block; color: #fff; font-size: 13.5px; font-family: var(--font-head); font-weight: 600; }
+.hero-trust .trust-item span { display: block; color: var(--text-soft); font-size: 12px; }
 
 /* ---- Responsive hero + nav ---- */
 @media (max-width: 760px) {
@@ -665,7 +683,6 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
   .hero-trust { position: static; background: var(--bg-elev); backdrop-filter: none; }
   .hero-trust .container { padding: 24px; gap: 18px; }
   .hero-trust .trust-item { flex: 1 1 42%; min-width: 0; }
-  .hero-trust .trust-stat { flex: 1 1 100%; border-left: 0; border-top: 1px solid rgba(255,255,255,.12); padding: 14px 0 0; margin: 6px 0 0; }
 }
 @media (max-width: 620px) {
   .nav-cta .btn { display: none; }   /* pe mobil rămâne doar hamburgerul */

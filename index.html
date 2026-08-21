@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=3">
+  <link rel="stylesheet" href="assets/css/style.css?v=4">
   <link rel="icon" href="assets/img/brand/favicon.png">
   <link rel="canonical" href="https://maruko3333.github.io/total24-automobile/">
   <script type="application/ld+json">
@@ -45,12 +45,11 @@
   <section class="hero hero-photo">
     <div class="hero-bg"></div>
     <div class="hero-inner">
-      <span class="hero-eyebrow">Mașini premium din Germania</span>
       <h1>Mașini verificate.<br>Prețuri corecte.<br><span class="accent">Din Germania.</span></h1>
       <p>Importăm mașini atent selectate, verificate și pregătite pentru drum.</p>
       <div class="hero-actions">
         <a href="stoc.html" class="btn btn-primary btn-lg">Vezi stoc auto <span id="heroArrow"></span></a>
-        <a href="despre.html" class="btn btn-ghost-light btn-lg">Despre noi</a>
+        <a href="contact.html" class="btn btn-ghost-light btn-lg">Contactează-ne</a>
       </div>
     </div>
     <div class="hero-trust">
@@ -62,40 +61,39 @@
   <section class="section">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">Stoc disponibil</span>
-        <h2>Mașini recomandate</h2>
-        <p>O selecție din cele mai bune oferte disponibile acum în stoc.</p>
+        <span class="eyebrow">Stoc auto</span>
+        <h2>Mașini disponibile acum</h2>
+        <p>O selecție din stocul curent, verificată și pregătită pentru drum.</p>
       </div>
-      <div class="cars-grid" id="featuredGrid"></div>
+      <div class="feat-grid" id="featuredGrid"></div>
       <div style="text-align:center;margin-top:44px">
         <a href="stoc.html" class="btn btn-outline">Vezi tot stocul <span id="allArrow"></span></a>
       </div>
     </div>
   </section>
 
-  <!-- WHY US -->
+  <!-- DE CE TOTAL24 -->
   <section class="section" style="background:var(--bg-elev);border-block:1px solid var(--line-soft)">
     <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">De ce Total24</span>
-        <h2>Cumperi în siguranță</h2>
-        <p>Fiecare mașină trece prin verificări complete înainte de vânzare.</p>
+      <div class="why-split">
+        <div class="why-photo" role="img" aria-label="Total24 Automobile — showroom"></div>
+        <div class="why-text">
+          <span class="eyebrow">Stoc &amp; transparență</span>
+          <h2>De ce Total24?</h2>
+          <p>Importăm direct din Germania mașini atent selectate, cu istoric clar și documente complete. Fără intermediari și fără surprize — doar mașini verificate, la prețuri corecte.</p>
+          <div class="why-list" id="whyList"></div>
+          <a href="despre.html" class="btn btn-primary">Descoperă Total24 <span id="whyArrow"></span></a>
+        </div>
       </div>
-      <div class="why-grid" id="whyGrid"></div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section">
-    <div class="container">
-      <div class="cta-band">
-        <h2>Nu ai găsit mașina dorită?</h2>
-        <p>Îți aducem la comandă exact modelul pe care îl cauți, din Germania.</p>
-        <div class="cta-actions">
-          <a href="contact.html" class="btn btn-primary">Contactează-ne</a>
-          <a href="https://home.mobile.de/TOTALAUTOMOBILEEINZELUNTERNEHMENINHPETREPAULVIRJAN" target="_blank" rel="noopener" class="btn btn-outline">Vezi mașinile pe Mobile.de</a>
-        </div>
-      </div>
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="cta-final-in">
+      <h2>Nu ai găsit mașina dorită?</h2>
+      <p>O căutăm pentru tine în Germania.</p>
+      <a href="contact.html" class="btn btn-primary btn-lg">Caută o mașină <span id="ctaArrow"></span></a>
     </div>
   </section>
 
@@ -108,7 +106,9 @@
       await T24.mount('home');
       document.getElementById('allArrow').innerHTML = T24.icon('arrowRight', 16);
       document.getElementById('heroArrow').innerHTML = T24.icon('arrowRight', 17);
-      // bara de încredere (o singură bandă: 4 avantaje + statistică)
+      document.getElementById('whyArrow').innerHTML = T24.icon('arrowRight', 16);
+      document.getElementById('ctaArrow').innerHTML = T24.icon('arrowRight', 17);
+      // bara de încredere — 4 avantaje, discretă
       const trust = [
         ['shield', 'Mașini verificate', 'Verificare tehnică și istoric'],
         ['gauge', 'Istoric transparent', 'VIN și documente disponibile'],
@@ -117,18 +117,17 @@
       ];
       document.getElementById('heroTrust').innerHTML =
         trust.map(([ic, t, d]) =>
-          `<div class="trust-item"><span class="ic">${T24.icon(ic, 22, 1.6)}</span>
-           <div><b>${t}</b><span>${d}</span></div></div>`).join('') +
-        `<div class="trust-stat"><b>30+</b><span>Mașini în stoc / lună</span></div>`;
-      // why grid
+          `<div class="trust-item"><span class="ic">${T24.icon(ic, 20, 1.6)}</span>
+           <div><b>${t}</b><span>${d}</span></div></div>`).join('');
+      // „De ce Total24" — 4 beneficii cu iconițe mici
       const why = [
-        ['shield', 'Verificare completă', 'Fiecare mașină este verificată tehnic și estetic înainte de a ajunge la tine.'],
-        ['tag', 'Prețuri corecte', 'Import direct, fără intermediari — plătești prețul real al mașinii.'],
-        ['certificate', 'Documente în regulă', 'Istoric complet, carte service și acte pregătite pentru înmatriculare.'],
-        ['handshake', 'Suport dedicat', 'Te însoțim de la alegere până la livrare și înmatriculare.']
+        ['shield', 'Mașini verificate tehnic și estetic'],
+        ['tag', 'Prețuri corecte, fără intermediari'],
+        ['certificate', 'Documente complete pentru înmatriculare'],
+        ['handshake', 'Suport dedicat până la livrare']
       ];
-      document.getElementById('whyGrid').innerHTML = why.map(([ic, t, d]) =>
-        `<div class="why-card"><div class="ic">${T24.icon(ic, 26, 1.6)}</div><h3>${t}</h3><p>${d}</p></div>`).join('');
+      document.getElementById('whyList').innerHTML = why.map(([ic, t]) =>
+        `<div class="why-li"><span class="ic">${T24.icon(ic, 18, 1.7)}</span><span>${t}</span></div>`).join('');
       Cars.renderFeatured('featuredGrid', 3);
     })();
   </script>
