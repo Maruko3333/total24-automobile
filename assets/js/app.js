@@ -141,7 +141,7 @@ const T24 = {
         </div>
         <div class="topbar-right">
           <span>${this.icon('clock', 15)} Luni – Vineri: ${c.hours.weekdays}</span>
-          <span class="topbar-lang">🇩🇪 RO</span>
+          <span class="topbar-lang">RO 🇷🇴</span>
         </div>
       </div>
     </div>
@@ -212,8 +212,75 @@ const T24 = {
     const t = document.getElementById('navToggle');
     const l = document.getElementById('navLinks');
     if (t && l) t.addEventListener('click', () => l.classList.toggle('open'));
+    // Pe HOME: header transparent peste fotografia hero, devine solid la scroll
+    if (active === 'home' && h) {
+      document.body.classList.add('home');
+      h.classList.add('nav-overlay');
+      const onScroll = () => h.classList.toggle('is-stuck', window.scrollY > 40);
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    }
     this.mountWhatsApp();
     this.observeReveal();
+    await this.loadEnhancements();
+  },
+
+  // ---- Vendor asset loaders (injectate dinamic, ca header/footer) ----
+  loadCSS(href) {
+    if (document.querySelector(`link[href="${href}"]`)) return;
+    const l = document.createElement('link');
+    l.rel = 'stylesheet'; l.href = href;
+    document.head.appendChild(l);
+  },
+  loadJS(src) {
+    return new Promise((res, rej) => {
+      if (document.querySelector(`script[src="${src}"]`)) return res();
+      const s = document.createElement('script');
+      s.src = src; s.onload = () => res(); s.onerror = () => rej(new Error('load fail: ' + src));
+      document.head.appendChild(s);
+    });
+  },
+
+  // Încarcă librăriile care îmbunătățesc experiența, în funcție de pagină
+  async loadEnhancements() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const V = 'assets/js/vendor/', C = 'assets/css/vendor/';
+
+    // Smooth scroll (Lenis) — pe tot site-ul, dar nu dacă userul cere reduced-motion
+    if (!reduce) {
+      this.loadCSS(C + 'lenis.css');
+      try { await this.loadJS(V + 'lenis.min.js'); this.initLenis(); } catch (e) { /* silențios */ }
+    }
+    // Lightbox foto (GLightbox) — doar pe pagina de detalii mașină
+    if (document.getElementById('detailWrap')) {
+      this.loadCSS(C + 'glightbox.min.css');
+      try { await this.loadJS(V + 'glightbox.min.js'); } catch (e) { /* silențios */ }
+    }
+    // Strat Motion premium — doar pe HOME (există hero-photo) și fără reduced-motion
+    if (!reduce && document.querySelector('.hero-photo')) {
+      try {
+        await this.loadJS(V + 'motion.js');
+        await this.loadJS('assets/js/motion.js');
+        if (window.T24Motion) window.T24Motion.init();
+      } catch (e) { /* silențios */ }
+    }
+  },
+
+  // Smooth scroll premium + anchor-uri fine
+  initLenis() {
+    if (this._lenis || !window.Lenis) return;
+    const lenis = new Lenis({ duration: 1.05, smoothWheel: true, wheelMultiplier: 1 });
+    this._lenis = lenis;
+    const raf = t => { lenis.raf(t); requestAnimationFrame(raf); };
+    requestAnimationFrame(raf);
+    document.addEventListener('click', e => {
+      const a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      const href = a.getAttribute('href');
+      if (href.length < 2) return;
+      const el = document.querySelector(href);
+      if (el) { e.preventDefault(); lenis.scrollTo(el, { offset: -100 }); }
+    });
   },
 
   // Buton flotant WhatsApp (toate paginile)
@@ -240,10 +307,18 @@ const T24 = {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
 
+    // carduri din grid → stagger la intrarea în viewport (max 8)
+    const STAGGER = ['car-card', 'why-card', 'service-card', 'step-card'];
     const arm = el => {
       if (el.dataset.rev) return;
       el.dataset.rev = '1';
       el.classList.add('reveal');
+      const cls = STAGGER.find(c => el.classList.contains(c));
+      if (cls && el.parentElement) {
+        const sibs = [...el.parentElement.children].filter(x => x.classList.contains(cls));
+        const idx = sibs.indexOf(el);
+        if (idx > 0) el.style.transitionDelay = (Math.min(idx, 7) * 0.07) + 's';
+      }
       // deja în viewport → afișează imediat (fără flash)
       if (el.getBoundingClientRect().top < window.innerHeight * 0.92) el.classList.add('in');
       else io.observe(el);

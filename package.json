@@ -1,0 +1,27 @@
+{
+  "name": "total24-automobile",
+  "version": "1.0.0",
+  "description": "Site de prezentare și stoc pentru **Total24 Automobile** — mașini premium importate din Germania (Fürth). Site static (HTML / CSS / JavaScript), fără backend, găzduibil gratuit pe **GitHub Pages**.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maruko3333/total24-automobile.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Maruko3333/total24-automobile/issues"
+  },
+  "homepage": "https://github.com/Maruko3333/total24-automobile#readme",
+  "dependencies": {
+    "glightbox": "^3.3.1",
+    "lenis": "^1.3.26",
+    "motion": "^13.1.1",
+    "swiper": "^14.1.0"
+  }
+}

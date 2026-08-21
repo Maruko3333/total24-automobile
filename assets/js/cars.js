@@ -295,6 +295,28 @@ const Cars = {
       if (m) m.src = t.dataset.src;
     }));
 
+    // Lightbox full-screen (GLightbox) — click pe imaginea principală
+    if (window.GLightbox && car.images && car.images.length) {
+      const lb = GLightbox({
+        elements: car.images.map(src => ({ href: src, type: 'image' })),
+        loop: true, zoomable: true, touchNavigation: true
+      });
+      const main = document.getElementById('galMain');
+      const gm = wrap.querySelector('.gallery-main');
+      if (gm) {
+        gm.classList.add('zoomable');
+        const cue = document.createElement('span');
+        cue.className = 'gallery-zoom-cue';
+        cue.innerHTML = T24.icon('search', 18);
+        gm.appendChild(cue);
+      }
+      if (main) main.addEventListener('click', () => {
+        const thumbs = [...wrap.querySelectorAll('.thumb')];
+        const active = wrap.querySelector('.thumb.active');
+        lb.openAt(active ? Math.max(0, thumbs.indexOf(active)) : 0);
+      });
+    }
+
     // lead form -> WhatsApp cu mesaj precompletat
     const lead = document.getElementById('leadForm');
     if (lead) lead.addEventListener('submit', e => {
