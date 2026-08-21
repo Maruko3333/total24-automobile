@@ -3,10 +3,18 @@
    ============================================ */
 
 const Cars = {
+  // ---- Primul URL VALID de imagine (pregătit pentru orice sursă: cars.json / Mobile.de API) ----
+  // Așteaptă car.images = [...] și întoarce prima intrare non-goală. Fără hardcodare pe marcă.
+  firstImage(car) {
+    const imgs = Array.isArray(car && car.images) ? car.images : [];
+    return imgs.find(u => typeof u === 'string' && u.trim() !== '') || '';
+  },
+
   // ---- Card markup (aerisit, cu CTA WhatsApp) ----
   card(car) {
-    const img = (car.images && car.images.length)
-      ? `<img src="${car.images[0]}" alt="${car.make} ${car.model}" loading="lazy">`
+    const src = this.firstImage(car);
+    const img = src
+      ? `<img class="vehicle-card-image" src="${src}" alt="${car.make} ${car.model}" loading="lazy" decoding="async">`
       : `<div class="no-img">${T24.icon('car', 46, 1.4)}</div>`;
     const statusBadge = car.status !== 'available'
       ? `<span class="car-status status-${car.status}">${car.status === 'reserved' ? 'Rezervat' : 'Vândut'}</span>`
@@ -34,8 +42,9 @@ const Cars = {
 
   // ---- Home: card mare, aerisit (imagine mare, MODEL / meta / preț / „Vezi mașina") ----
   featuredCard(car) {
-    const img = (car.images && car.images.length)
-      ? `<img src="${car.images[0]}" alt="${car.make} ${car.model}" loading="lazy">`
+    const src = this.firstImage(car);
+    const img = src
+      ? `<img class="vehicle-card-image" src="${src}" alt="${car.make} ${car.model}" loading="lazy" decoding="async">`
       : `<div class="no-img">${T24.icon('car', 54, 1.3)}</div>`;
     const meta = [car.year, T24.km(car.mileage), car.fuel, car.transmission].filter(Boolean).join(' · ');
     return `

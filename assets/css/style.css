@@ -789,7 +789,7 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 }
 .feat-media .no-img svg, .car-media .no-img svg { color: rgba(245,179,1,.5); }
 .feat-media .no-img::after, .car-media .no-img::after {
-  content: "Fotos in Kürze";
+  content: "Keine Fotos verfügbar";
   font-size: 12px; letter-spacing: .6px; color: #5a6475; text-transform: uppercase;
 }
 
