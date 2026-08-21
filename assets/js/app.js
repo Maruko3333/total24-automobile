@@ -72,7 +72,7 @@ const T24 = {
   waCar(car, extra = '') {
     const wa = (this.config.company.whatsapp || '').replace(/\D/g, '');
     const msg = encodeURIComponent(
-      `Bună ziua! Sunt interesat de ${car.make} ${car.model} (${car.year}) – ${this.price(car.price)}. ${extra}Este disponibilă?`);
+      `Hallo! Ich interessiere mich für den ${car.make} ${car.model} (${car.year}) – ${this.price(car.price)}. ${extra}Ist er noch verfügbar?`);
     return `https://wa.me/${wa}?text=${msg}`;
   },
 
@@ -176,14 +176,14 @@ const T24 = {
             <a href="index.html" class="logo" aria-label="Total24 Automobile">
               <img src="assets/img/brand/logo.png" alt="Total24 Automobile" class="logo-img footer-logo-img">
             </a>
-            <p>${c.tagline}. Prima mână, verificate, cu km la service-ul oficial al mărcii.</p>
+            <p>${c.tagline} — geprüfte Fahrzeuge aus erster Hand, scheckheftgepflegt.</p>
           </div>
           <div>
-            <h5>Navigare</h5>
+            <h5>Navigation</h5>
             <ul class="footer-links">${links}</ul>
           </div>
           <div>
-            <h5>Contact</h5>
+            <h5>Kontakt</h5>
             <ul class="footer-links">
               <li><a href="tel:${c.phone}">${c.phone}</a></li>
               <li><a href="mailto:${c.email}">${c.email}</a></li>
@@ -191,17 +191,17 @@ const T24 = {
             </ul>
           </div>
           <div>
-            <h5>Program</h5>
+            <h5>Öffnungszeiten</h5>
             <ul class="footer-links">
-              <li>Luni – Vineri: ${c.hours.weekdays}</li>
-              <li>Sâmbătă: ${c.hours.saturday}</li>
-              <li>Duminică: ${c.hours.sunday}</li>
+              <li>Mo – Fr: ${c.hours.weekdays}</li>
+              <li>Sa: ${c.hours.saturday}</li>
+              <li>So: ${c.hours.sunday}</li>
             </ul>
           </div>
         </div>
         <div class="footer-bottom">
-          <span>© ${y} Total24 Automobile. Toate drepturile rezervate.</span>
-          <span>Politica de confidențialitate · Termeni și condiții</span>
+          <span>© ${y} Total24 Automobile. Alle Rechte vorbehalten.</span>
+          <span>Datenschutz · AGB</span>
         </div>
       </div>
     </footer>`;

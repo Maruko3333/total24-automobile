@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Servicii — Total24 Automobile</title>
-  <meta name="description" content="Servicii Total24 Automobile: mașini prima mână, verificare completă, istoric la service oficial și soluții de finanțare.">
+  <title>Leistungen — Total24 Automobile</title>
+  <meta name="description" content="Leistungen von Total24 Automobile: Fahrzeuge aus erster Hand, vollständige Prüfung, Scheckheftpflege und Finanzierungslösungen.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=6">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=23">
   <link rel="icon" href="assets/img/brand/favicon.png">
 </head>
 <body>
@@ -16,8 +16,8 @@
 
   <section class="page-hero">
     <div class="container">
-      <h1>Serviciile Noastre</h1>
-      <p>Tot ce ai nevoie pentru o achiziție fără griji.</p>
+      <h1>Unsere Leistungen</h1>
+      <p>Alles für einen sorgenfreien Fahrzeugkauf.</p>
     </div>
   </section>
 
@@ -28,9 +28,9 @@
       <div class="tradein-band">
         <div class="tradein-img" id="tradeinImg"></div>
         <div class="tradein-content">
-          <h3>Ai o mașină la schimb?</h3>
-          <p>O putem lua în calcul la achiziția unei mașini noi din stocul nostru. Evaluare corectă și rapidă, direct la fața locului.</p>
-          <a href="contact.html" class="btn btn-primary">Contactează-ne</a>
+          <h3>Fahrzeug in Zahlung geben?</h3>
+          <p>Wir rechnen Ihr Fahrzeug beim Kauf aus unserem Bestand an. Faire und schnelle Bewertung — direkt vor Ort.</p>
+          <a href="contact.html" class="btn btn-primary">Kontakt aufnehmen</a>
         </div>
       </div>
     </div>
@@ -43,10 +43,10 @@
     (async () => {
       await T24.mount('servicii');
       const services = [
-        ['award', 'Mașini prima mână', 'Mașini cu un singur proprietar, atent selectate pentru tine.'],
-        ['wrench', 'Service oficial', 'Kilometrii făcuți doar la atelierul oficial al fiecărei mărci.'],
-        ['shield', 'Verificare completă', 'Fiecare mașină este verificată tehnic și estetic înainte de vânzare.'],
-        ['percent', 'Finanțare', 'Soluții de finanțare avantajoase prin partenerii noștri.']
+        ['award', 'Fahrzeuge aus erster Hand', 'Fahrzeuge mit nur einem Vorbesitzer, sorgfältig für Sie ausgewählt.'],
+        ['wrench', 'Scheckheftgepflegt', 'Wartung ausschließlich bei der offiziellen Markenwerkstatt.'],
+        ['shield', 'Vollständige Prüfung', 'Jedes Fahrzeug wird vor dem Verkauf technisch und optisch geprüft.'],
+        ['percent', 'Finanzierung', 'Attraktive Finanzierungslösungen über unsere Partner.']
       ];
       document.getElementById('servicesGrid').innerHTML = services.map(([ic, t, d]) =>
         `<div class="service-card"><div class="ic">${T24.icon(ic, 28, 1.6)}</div><h3>${t}</h3><p>${d}</p></div>`).join('');

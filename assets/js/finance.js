@@ -34,8 +34,8 @@ const Finance = {
     // Update displayed values
     document.getElementById('cPriceVal').textContent = T24.price(price);
     document.getElementById('cDownVal').textContent = downPct + '%  (' + T24.price(down) + ')';
-    document.getElementById('cTermVal').textContent = term + ' luni';
+    document.getElementById('cTermVal').textContent = term + ' Monate';
     document.getElementById('cResult').innerHTML =
-      T24.price(Math.round(monthly)) + ' <small>/ lună</small>';
+      T24.price(Math.round(monthly)) + ' <small>/ Monat</small>';
   }
 };
