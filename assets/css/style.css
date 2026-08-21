@@ -88,9 +88,9 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 600; line-height: 1
   background: rgba(11,13,16,.92); backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line-soft);
 }
-.nav { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+.nav { display: flex; align-items: center; justify-content: space-between; height: 74px; }
 .logo { display: flex; align-items: center; }
-.logo-img { height: 54px; width: auto; max-width: 210px; object-fit: contain; display: block; }
+.logo-img { height: 50px; width: auto; max-width: 200px; object-fit: contain; display: block; }
 .footer-logo-img { height: 60px; max-width: 230px; }
 .nav-links { display: flex; align-items: center; gap: 30px; }
 .nav-links a { position: relative; color: rgba(255,255,255,.85); font-weight: 600; font-size: 14px; letter-spacing: .4px; text-transform: uppercase; }
@@ -238,10 +238,10 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 600; line-height: 1
 .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .feat-card {
   display: flex; flex-direction: column; background: var(--bg-card);
-  border: 1px solid var(--line-soft); border-radius: var(--radius); overflow: hidden;
+  border: 1px solid var(--line-soft); border-radius: 10px; overflow: hidden;
   transition: transform .3s ease, border-color .3s ease;
 }
-.feat-card:hover { transform: translateY(-4px); border-color: var(--line); }
+.feat-card:hover { transform: translateY(-3px); border-color: var(--line); }
 .feat-media { aspect-ratio: 16/10; background: var(--bg-card-hi); overflow: hidden; }
 .feat-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
 .feat-card:hover .feat-media img { transform: scale(1.03); }
@@ -434,7 +434,7 @@ input[type=range]::-moz-range-thumb { width: 18px; height: 18px; border-radius: 
 }
 
 /* ============================================
-   Polish pass — animații, hero, micro-interacții
+   Animații & micro-interacții
    ============================================ */
 
 /* Accent line sub titluri */
@@ -523,7 +523,7 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 .car-price { color: var(--gold); }
 
 /* ============================================
-   Val 1 — carduri aerisite, CTA, detaliu îmbunătățit
+   Carduri & detaliu mașină
    ============================================ */
 
 /* Buton WhatsApp */
@@ -616,7 +616,7 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 }
 
 /* ============================================
-   Val 2 — Contact CTA + proces 4 pași
+   Contact CTA & pași
    ============================================ */
 .contact-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
 .contact-cta .btn { flex: 1; min-width: 210px; justify-content: center; padding: 15px 18px; font-size: 15px; }
@@ -632,7 +632,7 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 @media (max-width: 520px) { .steps-grid { grid-template-columns: 1fr; } }
 
 /* ============================================
-   Rafinare — layout pe ecrane late + carduri luxury
+   Layout pe ecrane late
    ============================================ */
 @media (min-width: 1800px) {
   :root { --maxw: 1520px; }
@@ -665,8 +665,7 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 
 
 /* ============================================
-   TOP BAR + HEADER OVERLAY (home) + HERO FOTO
-   Sursă unică — nu adăuga variante noi mai jos.
+   TOP BAR + HEADER (home) + HERO
    ============================================ */
 
 /* ---- Top bar (bara subțire de sus) ---- */
@@ -740,9 +739,10 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
   will-change: transform;
 }
 .hero-photo > picture { position: absolute; inset: 0; z-index: 0; display: block; }
+.hero-overlay,
 .hero-photo::before {
   content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: linear-gradient(90deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.30) 30%, rgba(0,0,0,.08) 58%, transparent 82%);
+  background: linear-gradient(90deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.32) 30%, rgba(0,0,0,.08) 58%, transparent 82%);
 }
 /* sub 1280px poza se decupează (prag min-height) → mutăm cadrul spre BMW */
 @media (max-width: 1279px) { .hero-photo .hero-image { object-position: 72% center; } }
@@ -767,8 +767,8 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 /* ---- Trust bar — parte din hero, discretă și elegantă ---- */
 .hero-trust {
   position: absolute; left: 50%; bottom: 36px; transform: translateX(-50%);
-  width: 82%; max-width: 1140px; z-index: 2;
-  background: rgba(8,8,8,.7); border: 1px solid rgba(255,255,255,.07); border-radius: 12px;
+  width: 84%; max-width: 1140px; z-index: 2;
+  background: rgba(10,10,10,.82); border: 1px solid rgba(255,255,255,.10); border-radius: 12px;
   backdrop-filter: blur(4px);
 }
 .hero-trust .container { display: flex; align-items: stretch; gap: 0; padding: 0; max-width: none; }
@@ -796,7 +796,7 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 /* ---- Responsive hero + nav ---- */
 @media (max-width: 760px) {
   .hero-photo { display: block; aspect-ratio: auto; min-height: 600px; padding: 100px 0 0; }
-  .hero-photo h1 { font-size: clamp(26px, 6.8vw, 40px); letter-spacing: -.4px; max-width: 90vw; }
+  .hero-photo h1 { font-size: clamp(30px, 7.6vw, 42px); letter-spacing: -.4px; max-width: 92vw; }
   .hero-photo p { font-size: 15px; max-width: 100%; }
   .hero-inner { padding-right: 5%; }
   .hero-photo .hero-actions .btn { flex: 1 1 100%; justify-content: center; }
