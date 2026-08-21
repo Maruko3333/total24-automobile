@@ -578,7 +578,9 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 .lead-form { display: grid; gap: 10px; }
 .lead-form input { padding: 12px 14px; background: var(--bg-card); border: 1px solid var(--line); border-radius: 9px; color: var(--text); font-family: inherit; font-size: 14px; }
 .lead-form input:focus { outline: none; border-color: var(--gold); }
-.lead-note { color: var(--green); font-size: 13px; margin-top: 10px; }
+.lead-check { display: flex; align-items: center; gap: 9px; color: var(--text-soft); font-size: 13.5px; cursor: pointer; margin: 2px 0; }
+.lead-check input[type=checkbox] { width: 17px; height: 17px; padding: 0; accent-color: var(--gold); flex-shrink: 0; cursor: pointer; }
+.lead-note { font-size: 13px; margin-top: 10px; }
 
 /* ---- Detaliu: grid specificații modern ---- */
 .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }

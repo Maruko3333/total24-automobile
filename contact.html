@@ -77,15 +77,32 @@
         `<div class="info-item"><div class="ic">${T24.icon(ic, 22, 1.7)}</div>
          <div><h4>${t}</h4><p>${d}</p></div></div>`).join('');
 
-      // Formular -> trimite direct pe WhatsApp (fără backend, ajunge instant pe telefon)
-      document.getElementById('contactForm').addEventListener('submit', e => {
+      // Formular -> trimite pe email (FormSubmit), cu fallback pe WhatsApp
+      document.getElementById('contactForm').addEventListener('submit', async e => {
         e.preventDefault();
         const f = e.target;
-        const msg = encodeURIComponent(
-          `Bună ziua! Sunt ${f.name.value} (tel: ${f.phone.value}${f.email.value ? ', email: ' + f.email.value : ''}).\n\n${f.message.value}`);
-        window.open(`https://wa.me/${wa}?text=${msg}`, '_blank');
-        document.getElementById('formNote').textContent = 'Mulțumim! Se deschide WhatsApp cu mesajul tău — apasă trimite și te contactăm rapid.';
-        f.reset();
+        const note = document.getElementById('formNote');
+        const btn = f.querySelector('button[type=submit]');
+        const orig = btn.textContent;
+        btn.disabled = true; btn.textContent = 'Se trimite...';
+        try {
+          await T24.sendLead({
+            _subject: `Contact site — ${f.name.value}`,
+            _template: 'table',
+            Nume: f.name.value,
+            Telefon: f.phone.value,
+            Email: f.email.value || '—',
+            Mesaj: f.message.value
+          });
+          note.style.color = 'var(--green)';
+          note.textContent = 'Mulțumim! Mesajul a fost trimis — te contactăm cât mai curând.';
+          f.reset();
+        } catch (err) {
+          note.style.color = 'var(--red)';
+          note.innerHTML = `Nu am putut trimite acum. Scrie-ne direct pe <a href="https://wa.me/${wa}" target="_blank" rel="noopener" style="color:var(--gold)">WhatsApp</a> sau sună-ne.`;
+        } finally {
+          btn.disabled = false; btn.textContent = orig;
+        }
       });
 
       // Date structurate — dealer auto (SEO)

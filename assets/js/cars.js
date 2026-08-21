@@ -364,11 +364,13 @@ const Cars = {
 
           <div class="lead-box">
             <h3>Te interesează această mașină?</h3>
-            <p>Lasă-ne numărul tău și te contactăm.</p>
+            <p>Lasă-ne datele și te contactăm cu o ofertă.</p>
             <form class="lead-form" id="leadForm">
               <input name="name" placeholder="Numele tău" required>
               <input name="phone" type="tel" placeholder="Telefon" required>
-              <button type="submit" class="btn btn-primary btn-block">Trimite solicitarea</button>
+              <input name="email" type="email" placeholder="Email (opțional)">
+              <label class="lead-check"><input type="checkbox" name="finance"> Doresc informații despre finanțare</label>
+              <button type="submit" class="btn btn-primary btn-block">Trimite cererea</button>
             </form>
             <p class="lead-note" id="leadNote"></p>
           </div>
@@ -416,14 +418,35 @@ const Cars = {
       });
     }
 
-    // lead form -> WhatsApp cu mesaj precompletat
+    // lead form -> trimite pe email (FormSubmit) cu contextul mașinii; fallback WhatsApp
     const lead = document.getElementById('leadForm');
-    if (lead) lead.addEventListener('submit', e => {
+    if (lead) lead.addEventListener('submit', async e => {
       e.preventDefault();
-      const extra = `Numele meu: ${lead.name.value}, telefon: ${lead.phone.value}. `;
-      window.open(T24.waCar(car, extra), '_blank');
-      document.getElementById('leadNote').textContent = 'Mulțumim! Se deschide WhatsApp pentru a trimite solicitarea. Te contactăm rapid.';
-      lead.reset();
+      const note = document.getElementById('leadNote');
+      const btn = lead.querySelector('button[type=submit]');
+      const orig = btn.textContent;
+      btn.disabled = true; btn.textContent = 'Se trimite...';
+      try {
+        await T24.sendLead({
+          _subject: `Cerere ofertă — ${car.make} ${car.model} (${car.year})`,
+          _template: 'table',
+          Mașina: `${car.make} ${car.model} ${car.year}`,
+          Preț: T24.price(car.price),
+          Link: `${T24.siteUrl()}/masina.html?id=${car.id}`,
+          Nume: lead.name.value,
+          Telefon: lead.phone.value,
+          Email: lead.email.value || '—',
+          Finanțare: lead.finance.checked ? 'Da, dorește informații' : 'Nu'
+        });
+        note.style.color = 'var(--green)';
+        note.textContent = 'Mulțumim! Cererea a fost trimisă — te contactăm cu o ofertă.';
+        lead.reset();
+      } catch (err) {
+        note.style.color = 'var(--red)';
+        note.innerHTML = `Nu am putut trimite acum. Scrie-ne pe <a href="${T24.waCar(car)}" target="_blank" rel="noopener" style="color:var(--gold)">WhatsApp</a>.`;
+      } finally {
+        btn.disabled = false; btn.textContent = orig;
+      }
     });
   }
 };

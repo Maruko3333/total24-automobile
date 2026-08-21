@@ -284,6 +284,21 @@ const T24 = {
     });
   },
 
+  // ---- Trimitere formulare prin FormSubmit.co (fără backend/cont) ----
+  // Livrează pe emailul firmei din config. Prima trimitere cere o activare
+  // unică (email de confirmare de la FormSubmit către adresa firmei).
+  async sendLead(payload) {
+    const email = (this.config.company.email || '').trim();
+    if (!email) throw new Error('no email configured');
+    const r = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(email)}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (!r.ok) throw new Error('send failed: ' + r.status);
+    return r.json();
+  },
+
   // ---- Favorite (localStorage, fără cont) ----
   favs: {
     KEY: 't24_favs',
