@@ -34,7 +34,7 @@
         const items = box.querySelectorAll('.trust-item');
         if (!items.length) return;
         const delay = typeof M.stagger === 'function' ? M.stagger(0.07) : (i) => i * 0.07;
-        M.animate(items, { opacity: [0, 1], y: [15, 0] }, { duration: 0.5, delay, ease: [0.22, 0.7, 0.2, 1] });
+        M.animate(items, { opacity: [0, 1], y: [10, 0] }, { duration: 0.5, delay, ease: [0.22, 0.7, 0.2, 1] });
       }, { amount: 0.3 });
     }
   };

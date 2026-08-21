@@ -46,7 +46,7 @@ const Cars = {
         <div class="feat-meta">${meta}</div>
         <div class="feat-foot">
           <span class="feat-price">${T24.price(car.price)}</span>
-          <span class="feat-link">Vezi mașina ${T24.icon('arrowRight', 15)}</span>
+          <span class="feat-link">Fahrzeug ansehen ${T24.icon('arrowRight', 15)}</span>
         </div>
       </div>
     </a>`;
