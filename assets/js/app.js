@@ -87,13 +87,14 @@ const T24 = {
   // ---- Data loading ----
   async loadConfig() {
     if (this.config) return this.config;
-    const r = await fetch('data/config.json');
+    const r = await fetch('data/config.json', { cache: 'no-store' });
     this.config = await r.json();
     return this.config;
   },
   async loadCars() {
     if (this.cars) return this.cars;
-    const r = await fetch('data/cars.json');
+    // fără cache — stocul se poate schimba oricând
+    const r = await fetch('data/cars.json', { cache: 'no-store' });
     const d = await r.json();
     this.cars = d.cars || [];
     return this.cars;
