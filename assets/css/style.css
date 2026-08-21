@@ -709,6 +709,28 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 /* CTA „Contact rapid" — majuscule discrete */
 .nav-cta .btn { padding: 15px 26px; font-size: 14px; border-radius: 8px; text-transform: uppercase; letter-spacing: .6px; }
 
+/* ---- Logo textual (TOTAL 24 / AUTOMOBILE) ---- */
+.brand-logo { flex-direction: column; align-items: flex-start; gap: 4px; line-height: 1; }
+.brand-top { font-family: var(--font-head); font-weight: 800; font-size: 30px; letter-spacing: .5px; line-height: 1; }
+.brand-top .bt-total { color: #fff; }
+.brand-top .bt-24 { color: var(--gold); margin-left: 9px; }
+.brand-sub { display: flex; align-items: center; gap: 9px; font-family: var(--font-head); font-weight: 600; font-size: 11px; letter-spacing: 5px; color: rgba(255,255,255,.6); padding-left: 2px; }
+.brand-sub .bt-line { width: 30px; height: 2px; background: var(--gold); display: inline-block; flex-shrink: 0; }
+.brand-logo-lg .brand-top { font-size: 34px; }
+.brand-logo-lg .brand-sub { font-size: 12px; letter-spacing: 6px; }
+
+/* Caret dropdown (Servicii, RO) */
+.nav-links a { display: inline-flex; align-items: center; }
+.nav-links a .caret { margin-left: 5px; opacity: .8; }
+.topbar-lang { display: inline-flex; align-items: center; gap: 5px; }
+.topbar-lang .caret { opacity: .7; }
+
+.topbar-lang .flag-ro { border-radius: 2px; display: block; }
+
+/* Bară încredere — 5 coloane */
+.hero-trust .trust-item { padding: 18px 22px; gap: 13px; }
+.hero-trust .trust-item b { font-size: 13.5px; letter-spacing: .3px; white-space: nowrap; }
+
 /* ---- Hero cu fotografie (home) ---- */
 .hero-photo {
   position: relative; display: flex; align-items: center;

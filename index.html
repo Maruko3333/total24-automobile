@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=6">
+  <link rel="stylesheet" href="assets/css/style.css?v=7">
   <link rel="icon" href="assets/img/brand/favicon.png">
   <link rel="canonical" href="https://maruko3333.github.io/total24-automobile/">
   <script type="application/ld+json">
@@ -46,7 +46,7 @@
     <div class="hero-bg"></div>
     <div class="hero-inner">
       <h1>Mașini verificate.<br>Prețuri corecte.<br><span class="accent">Din Germania.</span></h1>
-      <p>Mașini prima mână, atent selectate și verificate, pregătite pentru drum.</p>
+      <p>Importăm mașini atent selectate din Germania, verificate și pregătite pentru drum.</p>
       <div class="hero-actions">
         <a href="stoc.html" class="btn btn-primary btn-lg">Vezi stoc auto <span id="heroArrow"></span></a>
         <a href="contact.html" class="btn btn-ghost-light btn-lg">Contactează-ne</a>
@@ -141,12 +141,13 @@
       document.getElementById('heroArrow').innerHTML = T24.icon('arrowRight', 17);
       document.getElementById('whyArrow').innerHTML = T24.icon('arrowRight', 16);
       document.getElementById('ctaArrow').innerHTML = T24.icon('arrowRight', 17);
-      // bara de încredere — 4 avantaje, bandă continuă
+      // bara de încredere — 5 avantaje, bandă continuă
       const trust = [
-        ['award', 'Prima mână', 'Un singur<br>proprietar'],
-        ['wrench', 'Service oficial', 'Km la atelierul<br>mărcii'],
-        ['shield', 'Mașini verificate', 'Verificare tehnică<br>și istoric'],
-        ['headset', 'Suport dedicat', 'De la alegere<br>până la livrare']
+        ['shield', 'Mașini verificate', 'Verificare tehnică<br>și istoric complet'],
+        ['doc', 'Istoric transparent', 'VIN și documente<br>disponibile'],
+        ['truck', 'Livrare în România', 'Transport sigur<br>la domiciliu'],
+        ['headset', 'Suport dedicat', 'De la alegere<br>până la livrare'],
+        ['calendar', '30+ mașini', 'în stoc în<br>fiecare lună']
       ];
       document.getElementById('heroTrust').innerHTML =
         trust.map(([ic, t, d]) =>

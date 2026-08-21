@@ -51,15 +51,17 @@ const T24 = {
     return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${stroke}" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
   },
 
-  // Logo — siluetă de mașină (ca în design)
-  logoIcon() {
-    return `<svg width="42" height="23" viewBox="0 0 48 26" fill="none" stroke="#f5b301" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M3 16.5l2.4-6.7A4 4 0 019.2 7h15.6a4 4 0 013.2 1.6L32 14l8.8 1.4A2.4 2.4 0 0143 17.8v.9a2 2 0 01-2 2h-2.6"/>
-      <path d="M3 16.5V19a2 2 0 002 2h2.4"/>
-      <path d="M17.5 21h13"/>
-      <circle cx="13.5" cy="20.5" r="3.2"/>
-      <circle cx="34.5" cy="20.5" r="3.2"/>
-    </svg>`;
+  // Logo textual — „TOTAL 24 / AUTOMOBILE" (ca în design)
+  brandLogo(extra = '') {
+    return `<a href="index.html" class="logo brand-logo ${extra}" aria-label="Total24 Automobile">
+      <span class="brand-top"><span class="bt-total">TOTAL</span><span class="bt-24">24</span></span>
+      <span class="brand-sub"><i class="bt-line"></i>AUTOMOBILE</span>
+    </a>`;
+  },
+
+  // Chevron mic (▾) pentru dropdown-uri în nav / topbar
+  caret(size = 13) {
+    return `<svg class="caret" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>`;
   },
 
   // ---- Formatting ----
@@ -128,9 +130,10 @@ const T24 = {
 
   renderHeader(active) {
     const c = this.config.company;
-    const links = this.nav.map(n =>
-      `<a href="${n.href}" class="${n.key === active ? 'active' : ''}">${n.label}</a>`
-    ).join('');
+    const links = this.nav.map(n => {
+      const caret = n.key === 'servicii' ? this.caret(13) : '';
+      return `<a href="${n.href}" class="${n.key === active ? 'active' : ''}">${n.label}${caret}</a>`;
+    }).join('');
     const a = c.address;
     return `
     <div class="topbar">
@@ -142,15 +145,13 @@ const T24 = {
         </div>
         <div class="topbar-right">
           <span>${this.icon('clock', 15)} Luni – Vineri: ${c.hours.weekdays}</span>
-          <span class="topbar-lang">🇷🇴 RO</span>
+          <span class="topbar-lang"><svg class="flag-ro" width="21" height="14" viewBox="0 0 30 20" aria-hidden="true"><rect width="10" height="20" fill="#002B7F"/><rect x="10" width="10" height="20" fill="#FCD116"/><rect x="20" width="10" height="20" fill="#CE1126"/></svg> RO ${this.caret(13)}</span>
         </div>
       </div>
     </div>
     <header class="header">
       <div class="container nav">
-        <a href="index.html" class="logo" aria-label="Total24 Automobile">
-          <img src="assets/img/brand/logo.png" alt="Total24 Automobile" class="logo-img">
-        </a>
+        ${this.brandLogo()}
         <nav class="nav-links" id="navLinks">${links}</nav>
         <div class="nav-cta">
           <a href="contact.html" class="btn btn-primary">${this.icon('phone', 16)} Contact rapid</a>
@@ -169,9 +170,7 @@ const T24 = {
       <div class="container">
         <div class="footer-grid">
           <div>
-            <a href="index.html" class="logo" aria-label="Total24 Automobile">
-              <img src="assets/img/brand/logo.png" alt="Total24 Automobile" class="logo-img footer-logo-img">
-            </a>
+            ${this.brandLogo('brand-logo-lg')}
             <p>${c.tagline}. Prima mână, verificate, cu km la service-ul oficial al mărcii.</p>
           </div>
           <div>
