@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — Total24 Automobile</title>
-  <meta name="description" content="Contactează Total24 Automobile în Fürth, Germania. Telefon, email, program și formular de contact.">
+  <title>Kontakt — Total24 Automobile</title>
+  <meta name="description" content="Kontaktieren Sie Total24 Automobile in Fürth, Deutschland. Telefon, E-Mail, Öffnungszeiten und Kontaktformular.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=6">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=23">
   <link rel="icon" href="assets/img/brand/favicon.png">
 </head>
 <body>
@@ -16,8 +16,8 @@
 
   <section class="page-hero">
     <div class="container">
-      <h1>Contact</h1>
-      <p>Suntem aici pentru orice întrebare. Scrie-ne sau sună-ne.</p>
+      <h1>Kontakt</h1>
+      <p>Wir sind für Sie da — schreiben oder rufen Sie uns an.</p>
     </div>
   </section>
 
@@ -27,27 +27,27 @@
       <div class="contact-grid">
         <div class="contact-info" id="contactInfo"></div>
         <div class="contact-form">
-          <h3 style="margin-bottom:20px">Trimite-ne un mesaj</h3>
+          <h3 style="margin-bottom:20px">Schreiben Sie uns</h3>
           <form id="contactForm">
-            <div class="field"><label>Nume</label><input type="text" name="name" required></div>
+            <div class="field"><label>Name</label><input type="text" name="name" required></div>
             <div class="field"><label>Telefon</label><input type="tel" name="phone" required></div>
-            <div class="field"><label>Email</label><input type="email" name="email"></div>
-            <div class="field"><label>Mesaj</label><textarea name="message" required></textarea></div>
-            <button type="submit" class="btn btn-primary btn-block">Trimite mesaj</button>
+            <div class="field"><label>E-Mail</label><input type="email" name="email"></div>
+            <div class="field"><label>Nachricht</label><textarea name="message" required></textarea></div>
+            <button type="submit" class="btn btn-primary btn-block">Nachricht senden</button>
           </form>
           <p id="formNote" style="margin-top:14px;font-size:13px;color:var(--text-muted)"></p>
         </div>
       </div>
 
       <div class="contact-map" style="margin-top:40px">
-        <iframe id="contactMapFrame" title="Hartă — Total24 Automobile" loading="lazy" src=""></iframe>
+        <iframe id="contactMapFrame" title="Karte — Total24 Automobile" loading="lazy" src=""></iframe>
       </div>
     </div>
   </section>
 
   <div id="site-footer"></div>
 
-  <script src="assets/js/app.js"></script>
+  <script src="assets/js/app.js?v=2"></script>
   <script>
     (async () => {
       await T24.mount('contact');
@@ -55,58 +55,68 @@
       const wa = (c.whatsapp || '').replace(/\D/g, '');
       const mapAddr = `${c.address.street}, ${c.address.zip} ${c.address.city}, ${c.address.country}`;
       const navUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(mapAddr)}`;
-      // Hartă la adresa exactă (sincron cu config)
+      // Karte an der genauen Adresse (synchron mit config)
       const mapFrame = document.getElementById('contactMapFrame');
       if (mapFrame) mapFrame.src = `https://www.google.com/maps?q=${encodeURIComponent(mapAddr)}&output=embed`;
 
-      // Butoane acțiune rapidă
+      // Schnellaktionen
       document.getElementById('contactCTA').innerHTML = `
-        <a href="https://wa.me/${wa}" target="_blank" rel="noopener" class="btn btn-wa">${T24.icon('whatsapp', 20)} Scrie pe WhatsApp</a>
-        <a href="tel:${c.phone}" class="btn btn-primary">${T24.icon('phone', 20)} Sună acum</a>
-        <a href="${navUrl}" target="_blank" rel="noopener" class="btn btn-outline">${T24.icon('pin', 20)} Navighează până la noi</a>`;
+        <a href="https://wa.me/${wa}" target="_blank" rel="noopener" class="btn btn-wa">${T24.icon('whatsapp', 20)} WhatsApp schreiben</a>
+        <a href="tel:${c.phone}" class="btn btn-primary">${T24.icon('phone', 20)} Jetzt anrufen</a>
+        <a href="${navUrl}" target="_blank" rel="noopener" class="btn btn-outline">${T24.icon('pin', 20)} Route berechnen</a>`;
 
-      // Date contact
+      // Kontaktdaten
       const info = [
-        ['pin', 'Adresă', `${c.name} · ${c.address.street}<br>${c.address.zip} ${c.address.city}, ${c.address.country}<br><a href="${navUrl}" target="_blank" rel="noopener" style="color:var(--gold)">Deschide în Google Maps →</a>`],
+        ['pin', 'Adresse', `${c.name} · ${c.address.street}<br>${c.address.zip} ${c.address.city}, ${c.address.country}<br><a href="${navUrl}" target="_blank" rel="noopener" style="color:var(--gold)">In Google Maps öffnen →</a>`],
         ['phone', 'Telefon', `<a href="tel:${c.phone}">${c.phone}</a>`],
-        ['whatsapp', 'WhatsApp', `<a href="https://wa.me/${wa}" target="_blank" rel="noopener">Scrie-ne pe WhatsApp</a>`],
-        ['mail', 'Email', `<a href="mailto:${c.email}">${c.email}</a>`],
-        ['clock', 'Program', `Luni – Vineri: ${c.hours.weekdays}<br>Sâmbătă: ${c.hours.saturday}<br>Duminică: ${c.hours.sunday}`]
+        ['whatsapp', 'WhatsApp', `<a href="https://wa.me/${wa}" target="_blank" rel="noopener">Schreiben Sie uns auf WhatsApp</a>`],
+        ['mail', 'E-Mail', `<a href="mailto:${c.email}">${c.email}</a>`],
+        ['clock', 'Öffnungszeiten', `Mo – Fr: ${c.hours.weekdays}<br>Sa: ${c.hours.saturday}<br>So: geschlossen`]
       ];
       document.getElementById('contactInfo').innerHTML = info.map(([ic, t, d]) =>
         `<div class="info-item"><div class="ic">${T24.icon(ic, 22, 1.7)}</div>
          <div><h4>${t}</h4><p>${d}</p></div></div>`).join('');
 
-      // Formular -> trimite pe email (FormSubmit), cu fallback pe WhatsApp
+      // Formular -> E-Mail (FormSubmit), gebrandet + mit Auto-Antwort; Fallback WhatsApp
       document.getElementById('contactForm').addEventListener('submit', async e => {
         e.preventDefault();
         const f = e.target;
         const note = document.getElementById('formNote');
         const btn = f.querySelector('button[type=submit]');
         const orig = btn.textContent;
-        btn.disabled = true; btn.textContent = 'Se trimite...';
+        btn.disabled = true; btn.textContent = 'Wird gesendet...';
         try {
           await T24.sendLead({
-            _subject: `Contact site — ${f.name.value}`,
-            _template: 'table',
-            ...(f.email.value ? { _replyto: f.email.value } : {}),
-            Nume: f.name.value,
+            _subject: `Total24 Automobile — Neue Kontaktanfrage von ${f.name.value}`,
+            _template: 'box',
+            ...(f.email.value ? {
+              _replyto: f.email.value,
+              _autoresponse:
+                `Hallo ${f.name.value},\n\n` +
+                `vielen Dank für Ihre Nachricht an Total24 Automobile. ` +
+                `Wir haben Ihre Anfrage erhalten und melden uns so schnell wie möglich bei Ihnen.\n\n` +
+                `Ihre Nachricht:\n"${f.message.value}"\n\n` +
+                `Mit freundlichen Grüßen\n` +
+                `Ihr Team von Total24 Automobile\n` +
+                `${c.phone} · ${c.email}`
+            } : {}),
+            Name: f.name.value,
             Telefon: f.phone.value,
-            Email: f.email.value || '—',
-            Mesaj: f.message.value
+            'E-Mail': f.email.value || '—',
+            Nachricht: f.message.value
           });
           note.style.color = 'var(--green)';
-          note.textContent = 'Mulțumim! Mesajul a fost trimis — te contactăm cât mai curând.';
+          note.textContent = 'Vielen Dank! Ihre Nachricht wurde gesendet — wir melden uns in Kürze.';
           f.reset();
         } catch (err) {
           note.style.color = 'var(--red)';
-          note.innerHTML = `Nu am putut trimite acum. Scrie-ne direct pe <a href="https://wa.me/${wa}" target="_blank" rel="noopener" style="color:var(--gold)">WhatsApp</a> sau sună-ne.`;
+          note.innerHTML = `Senden momentan nicht möglich. Schreiben Sie uns direkt auf <a href="https://wa.me/${wa}" target="_blank" rel="noopener" style="color:var(--gold)">WhatsApp</a> oder rufen Sie an.`;
         } finally {
           btn.disabled = false; btn.textContent = orig;
         }
       });
 
-      // Date structurate — dealer auto (SEO)
+      // Strukturierte Daten — Autohaus (SEO)
       T24.setCanonical(`${T24.siteUrl()}/contact.html`);
       T24.addJsonLd({
         '@context': 'https://schema.org', '@type': 'AutoDealer',

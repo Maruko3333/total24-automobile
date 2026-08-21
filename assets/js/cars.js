@@ -434,26 +434,36 @@ const Cars = {
       const note = document.getElementById('leadNote');
       const btn = lead.querySelector('button[type=submit]');
       const orig = btn.textContent;
-      btn.disabled = true; btn.textContent = 'Se trimite...';
+      btn.disabled = true; btn.textContent = 'Wird gesendet...';
       try {
         await T24.sendLead({
-          _subject: `Cerere ofertă — ${car.make} ${car.model} (${car.year})`,
-          _template: 'table',
-          ...(lead.email.value ? { _replyto: lead.email.value } : {}),
-          Mașina: `${car.make} ${car.model} ${car.year}`,
-          Preț: T24.price(car.price),
+          _subject: `Total24 Automobile — Fahrzeuganfrage: ${car.make} ${car.model} (${car.year})`,
+          _template: 'box',
+          ...(lead.email.value ? {
+            _replyto: lead.email.value,
+            _autoresponse:
+              `Hallo ${lead.name.value},\n\n` +
+              `vielen Dank für Ihr Interesse am ${car.make} ${car.model} (${car.year}) ` +
+              `zum Preis von ${T24.price(car.price)} bei Total24 Automobile. ` +
+              `Wir haben Ihre Anfrage erhalten und melden uns in Kürze mit einem Angebot.\n\n` +
+              `Mit freundlichen Grüßen\n` +
+              `Ihr Team von Total24 Automobile\n` +
+              `${c.phone} · ${c.email}`
+          } : {}),
+          Fahrzeug: `${car.make} ${car.model} ${car.year}`,
+          Preis: T24.price(car.price),
           Link: `${T24.siteUrl()}/masina.html?id=${car.id}`,
-          Nume: lead.name.value,
+          Name: lead.name.value,
           Telefon: lead.phone.value,
-          Email: lead.email.value || '—',
-          Finanțare: lead.finance.checked ? 'Da, dorește informații' : 'Nu'
+          'E-Mail': lead.email.value || '—',
+          Finanzierung: lead.finance.checked ? 'Ja, Informationen gewünscht' : 'Nein'
         });
         note.style.color = 'var(--green)';
-        note.textContent = 'Mulțumim! Cererea a fost trimisă — te contactăm cu o ofertă.';
+        note.textContent = 'Vielen Dank! Ihre Anfrage wurde gesendet — wir melden uns mit einem Angebot.';
         lead.reset();
       } catch (err) {
         note.style.color = 'var(--red)';
-        note.innerHTML = `Nu am putut trimite acum. Scrie-ne pe <a href="${T24.waCar(car)}" target="_blank" rel="noopener" style="color:var(--gold)">WhatsApp</a>.`;
+        note.innerHTML = `Senden momentan nicht möglich. Schreiben Sie uns auf <a href="${T24.waCar(car)}" target="_blank" rel="noopener" style="color:var(--gold)">WhatsApp</a>.`;
       } finally {
         btn.disabled = false; btn.textContent = orig;
       }
