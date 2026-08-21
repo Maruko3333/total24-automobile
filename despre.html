@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Despre Noi — Total24 Automobile</title>
-  <meta name="description" content="Total24 Automobile — echipă cu experiență în importul de automobile premium din Germania. Transparență, verificări complete și clienți mulțumiți.">
+  <meta name="description" content="Total24 Automobile — import de automobile din Germania din 2023, cu sediul în Fürth. Transparență, istoric complet și verificări disponibile pentru fiecare mașină.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -24,12 +24,12 @@
     <div class="container">
       <div class="about-grid">
         <div class="about-text">
-          <p>Suntem o echipă cu experiență în domeniul auto, specializată în importul de automobile premium din Germania. Ne asigurăm că fiecare mașină este atent verificată și oferim transparență totală clienților noștri.</p>
-          <p>De peste 3 ani aducem în România mașini de calitate, cu istoric complet și documente în regulă, la prețuri corecte — direct de la sursă, fără intermediari.</p>
+          <p>Suntem o echipă specializată în importul de automobile din Germania. Ne asigurăm că fiecare mașină este atent verificată și oferim transparență totală clienților noștri.</p>
+          <p>Din 2023 aducem în România mașini de calitate, cu istoric complet și documente în regulă, la prețuri corecte — direct de la sursă, fără intermediari.</p>
           <div class="about-features">
             <div class="about-feature">
               <div class="ic" id="af1"></div>
-              <div><h4>Experiență</h4><p>Peste 3 ani în domeniul auto și importul din Germania.</p></div>
+              <div><h4>Din 2023</h4><p>Importăm automobile din Germania, cu sediul în Fürth.</p></div>
             </div>
             <div class="about-feature">
               <div class="ic" id="af2"></div>
@@ -37,12 +37,12 @@
             </div>
             <div class="about-feature">
               <div class="ic" id="af3"></div>
-              <div><h4>Satisfacție</h4><p>Clienți mulțumiți și recomandări care vorbesc despre noi.</p></div>
+              <div><h4>Import direct</h4><p>Direct de la sursă din Germania, fără intermediari.</p></div>
             </div>
           </div>
         </div>
         <div class="about-visual">
-          <div class="no-img" id="aboutVisual"></div>
+          <img src="assets/img/brand/hero.jpg" alt="Total24 Automobile — showroom în Fürth">
         </div>
       </div>
     </div>
@@ -50,6 +50,11 @@
 
   <section class="stats-band">
     <div class="container" style="text-align:center;padding:52px 0">
+      <div class="stats-grid" style="grid-template-columns:repeat(3,1fr);padding:0 0 42px">
+        <div class="stat-big"><b>2023</b><span>Activitate din</span></div>
+        <div class="stat-big"><b>Fürth</b><span>Sediu în Germania</span></div>
+        <div class="stat-big"><b>Direct</b><span>Import fără intermediari</span></div>
+      </div>
       <p style="color:var(--text-soft);font-size:17px;max-width:660px;margin:0 auto 24px">
         Nu ne bazăm pe promisiuni goale. Vezi mașinile noastre și recenziile reale ale clienților,
         direct pe Mobile.de — cea mai mare platformă auto din Germania.
@@ -112,10 +117,9 @@
   <script>
     (async () => {
       await T24.mount('despre');
-      document.getElementById('af1').innerHTML = T24.icon('award', 24, 1.6);
+      document.getElementById('af1').innerHTML = T24.icon('calendar', 24, 1.6);
       document.getElementById('af2').innerHTML = T24.icon('shield', 24, 1.6);
-      document.getElementById('af3').innerHTML = T24.icon('star', 24, 1.6);
-      document.getElementById('aboutVisual').innerHTML = T24.icon('car', 64, 1.2) + '<p style="margin-top:10px">Adaugă o poză a showroom-ului<br>în assets/img/brand/</p>';
+      document.getElementById('af3').innerHTML = T24.icon('tag', 24, 1.6);
     })();
   </script>
 </body>
