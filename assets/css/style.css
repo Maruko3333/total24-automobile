@@ -738,10 +738,16 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 }
 .hero-photo .hero-bg {
   position: absolute; inset: 0; z-index: 0; will-change: transform;
-  background:
-    linear-gradient(90deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.55) 35%, rgba(0,0,0,.12) 68%, rgba(0,0,0,.05) 100%),
-    url('../img/brand/hero.jpg?v=5');
-  background-size: cover; background-position: center center; background-repeat: no-repeat;
+  background-color: #080808;
+  background-image:
+    linear-gradient(90deg, rgba(8,8,8,.94) 0%, rgba(8,8,8,.7) 28%, rgba(8,8,8,.2) 52%, rgba(0,0,0,0) 70%),
+    url('../img/brand/hero.jpg?v=6');
+  background-size: cover, contain;
+  background-position: center, right center;
+  background-repeat: no-repeat, no-repeat;
+}
+@media (max-width: 760px) {
+  .hero-photo .hero-bg { background-size: cover, cover; background-position: center, center; }
 }
 .hero-inner {
   position: relative; z-index: 2; width: 100%;
