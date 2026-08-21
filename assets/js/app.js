@@ -120,12 +120,12 @@ const T24 = {
 
   // ---- Header / Footer injection ----
   nav: [
-    { label: 'Acasă', href: 'index.html', key: 'home' },
-    { label: 'Stoc Auto', href: 'stoc.html', key: 'stoc' },
-    { label: 'Despre Noi', href: 'despre.html', key: 'despre' },
-    { label: 'Servicii', href: 'servicii.html', key: 'servicii' },
-    { label: 'Finanțare', href: 'finantare.html', key: 'finantare' },
-    { label: 'Contact', href: 'contact.html', key: 'contact' }
+    { label: 'Startseite', href: 'index.html', key: 'home' },
+    { label: 'Fahrzeuge', href: 'stoc.html', key: 'stoc' },
+    { label: 'Über uns', href: 'despre.html', key: 'despre' },
+    { label: 'Leistungen', href: 'servicii.html', key: 'servicii' },
+    { label: 'Finanzierung', href: 'finantare.html', key: 'finantare' },
+    { label: 'Kontakt', href: 'contact.html', key: 'contact' }
   ],
 
   renderHeader(active) {
@@ -144,8 +144,8 @@ const T24 = {
           <a href="mailto:${c.email}">${this.icon('mail', 15)} ${c.email}</a>
         </div>
         <div class="topbar-right">
-          <span>${this.icon('clock', 15)} Luni – Vineri: ${c.hours.weekdays}</span>
-          <span class="topbar-lang"><svg class="flag-ro" width="21" height="14" viewBox="0 0 30 20" aria-hidden="true"><rect width="10" height="20" fill="#002B7F"/><rect x="10" width="10" height="20" fill="#FCD116"/><rect x="20" width="10" height="20" fill="#CE1126"/></svg> RO ${this.caret(13)}</span>
+          <span>${this.icon('clock', 15)} Mo – Fr: ${c.hours.weekdays}</span>
+          <span class="topbar-lang"><svg class="flag-de" width="21" height="14" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#000000"/><rect y="6.67" width="30" height="6.66" fill="#DD0000"/><rect y="13.33" width="30" height="6.67" fill="#FFCE00"/></svg> DE ${this.caret(13)}</span>
         </div>
       </div>
     </div>
@@ -156,7 +156,7 @@ const T24 = {
         </a>
         <nav class="nav-links" id="navLinks">${links}</nav>
         <div class="nav-cta">
-          <a href="contact.html" class="btn btn-primary">${this.icon('phone', 16)} Contact rapid</a>
+          <a href="contact.html" class="btn btn-primary">${this.icon('phone', 16)} Schnellkontakt</a>
           <button class="nav-toggle" id="navToggle" aria-label="Meniu">${this.icon('menu', 26, 2)}</button>
         </div>
       </div>
@@ -334,7 +334,7 @@ const T24 = {
     bar.href = `https://wa.me/${wa}`;
     bar.className = 'wa-sticky';
     bar.target = '_blank'; bar.rel = 'noopener';
-    bar.innerHTML = `${this.icon('whatsapp', 22, 1.9)} <span>Întreabă pe WhatsApp</span>`;
+    bar.innerHTML = `${this.icon('whatsapp', 22, 1.9)} <span>Per WhatsApp anfragen</span>`;
     document.body.appendChild(bar);
   },
 

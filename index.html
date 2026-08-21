@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=10">
+  <link rel="stylesheet" href="assets/css/style.css?v=12">
   <link rel="icon" href="assets/img/brand/favicon.png">
   <link rel="canonical" href="https://maruko3333.github.io/total24-automobile/">
   <script type="application/ld+json">
@@ -45,11 +45,11 @@
   <section class="hero hero-photo">
     <div class="hero-bg"></div>
     <div class="hero-inner">
-      <h1>Mașini verificate.<br>Prețuri corecte.<br><span class="accent">Din Germania.</span></h1>
-      <p>Mașini atent selectate, verificate și pregătite pentru drum.</p>
+      <h1>Geprüfte Fahrzeuge.<br>Faire Preise.<br><span class="accent">Aus Deutschland.</span></h1>
+      <p>Sorgfältig ausgewählte Fahrzeuge mit transparenter Historie und persönlichem Service.</p>
       <div class="hero-actions">
-        <a href="stoc.html" class="btn btn-primary btn-lg">Vezi stoc auto <span id="heroArrow"></span></a>
-        <a href="contact.html" class="btn btn-ghost-light btn-lg">Contactează-ne</a>
+        <a href="stoc.html" class="btn btn-primary btn-lg">Fahrzeuge entdecken <span id="heroArrow"></span></a>
+        <a href="contact.html" class="btn btn-ghost-light btn-lg">Kontakt aufnehmen</a>
       </div>
     </div>
     <div class="hero-trust">
@@ -141,13 +141,12 @@
       document.getElementById('heroArrow').innerHTML = T24.icon('arrowRight', 17);
       document.getElementById('whyArrow').innerHTML = T24.icon('arrowRight', 16);
       document.getElementById('ctaArrow').innerHTML = T24.icon('arrowRight', 17);
-      // bara de încredere — 5 avantaje, bandă continuă
+      // Vertrauensleiste — 4 Vorteile, durchgehendes Band
       const trust = [
-        ['shield', 'Mașini verificate', 'Verificare tehnică<br>și istoric complet'],
-        ['doc', 'Istoric transparent', 'VIN și documente<br>disponibile'],
-        ['truck', 'Livrare la domiciliu', 'Transport sigur<br>în Germania'],
-        ['headset', 'Suport dedicat', 'De la alegere<br>până la livrare'],
-        ['calendar', '30+ mașini', 'în stoc în<br>fiecare lună']
+        ['shield', 'Geprüfte Fahrzeuge', 'Technisch geprüft und<br>in einwandfreiem Zustand'],
+        ['doc', 'Transparente Historie', 'Vollständige Historie und<br>alle Dokumente einsehbar'],
+        ['tag', 'Faire Preise', 'Marktgerechte Preise<br>ohne versteckte Kosten'],
+        ['headset', 'Persönliche Beratung', 'Individuelle Beratung<br>und persönlicher Service']
       ];
       document.getElementById('heroTrust').innerHTML =
         trust.map(([ic, t, d]) =>
