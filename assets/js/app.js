@@ -151,7 +151,9 @@ const T24 = {
     </div>
     <header class="header">
       <div class="container nav">
-        ${this.brandLogo()}
+        <a href="index.html" class="logo" aria-label="Total24 Automobile">
+          <img src="assets/img/brand/logo.png" alt="Total24 Automobile" class="logo-img">
+        </a>
         <nav class="nav-links" id="navLinks">${links}</nav>
         <div class="nav-cta">
           <a href="contact.html" class="btn btn-primary">${this.icon('phone', 16)} Contact rapid</a>
@@ -170,7 +172,9 @@ const T24 = {
       <div class="container">
         <div class="footer-grid">
           <div>
-            ${this.brandLogo('brand-logo-lg')}
+            <a href="index.html" class="logo" aria-label="Total24 Automobile">
+              <img src="assets/img/brand/logo.png" alt="Total24 Automobile" class="logo-img footer-logo-img">
+            </a>
             <p>${c.tagline}. Prima mână, verificate, cu km la service-ul oficial al mărcii.</p>
           </div>
           <div>
