@@ -284,7 +284,22 @@ const T24 = {
     });
   },
 
-  // Buton flotant WhatsApp (toate paginile)
+  // ---- Favorite (localStorage, fără cont) ----
+  favs: {
+    KEY: 't24_favs',
+    list() { try { return JSON.parse(localStorage.getItem(this.KEY)) || []; } catch (e) { return []; } },
+    has(id) { return this.list().includes(id); },
+    toggle(id) {
+      const l = this.list(); const i = l.indexOf(id);
+      if (i > -1) l.splice(i, 1); else l.push(id);
+      try { localStorage.setItem(this.KEY, JSON.stringify(l)); } catch (e) { /* private mode */ }
+      document.dispatchEvent(new CustomEvent('favchange'));
+      return i === -1;
+    },
+    count() { return this.list().length; }
+  },
+
+  // Buton flotant WhatsApp (desktop) + bară sticky (mobil)
   mountWhatsApp() {
     if (document.querySelector('.wa-float')) return;
     const wa = (this.config.company.whatsapp || '').replace(/\D/g, '');
@@ -292,11 +307,17 @@ const T24 = {
     const a = document.createElement('a');
     a.href = `https://wa.me/${wa}`;
     a.className = 'wa-float';
-    a.target = '_blank';
-    a.rel = 'noopener';
+    a.target = '_blank'; a.rel = 'noopener';
     a.setAttribute('aria-label', 'Scrie-ne pe WhatsApp');
     a.innerHTML = this.icon('whatsapp', 28, 1.9);
     document.body.appendChild(a);
+    // Bară sticky jos, doar pe mobil (CSS controlează vizibilitatea)
+    const bar = document.createElement('a');
+    bar.href = `https://wa.me/${wa}`;
+    bar.className = 'wa-sticky';
+    bar.target = '_blank'; bar.rel = 'noopener';
+    bar.innerHTML = `${this.icon('whatsapp', 22, 1.9)} <span>Întreabă pe WhatsApp</span>`;
+    document.body.appendChild(bar);
   },
 
   // Scroll reveal — inclusiv conținut încărcat dinamic (carduri)

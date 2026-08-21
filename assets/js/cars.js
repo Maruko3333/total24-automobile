@@ -12,12 +12,13 @@ const Cars = {
       ? `<span class="car-status status-${car.status}">${car.status === 'reserved' ? 'Rezervat' : 'Vândut'}</span>`
       : '';
     const meta = [car.year, T24.km(car.mileage), car.fuel, car.transmission].filter(Boolean).join(' · ');
+    const favCls = T24.favs.has(car.id) ? ' is-fav' : '';
     return `
     <div class="car-card">
       <a href="masina.html?id=${car.id}" class="car-media">
         ${img}
         ${statusBadge}
-        <span class="car-fav" aria-hidden="true">${T24.icon('heart', 18)}</span>
+        <span class="car-fav${favCls}" data-fav="${car.id}" role="button" tabindex="0" aria-label="Salvează la favorite">${T24.icon('heart', 18)}</span>
       </a>
       <div class="car-body">
         <a href="masina.html?id=${car.id}" class="car-title">${car.make} ${car.model}</a>
@@ -70,6 +71,12 @@ const Cars = {
     this.buildFilterOptions(cars);
     this.applyFilters();
 
+    // iconițe pe butoanele din toolbar
+    const foBtn = document.getElementById('filterOpen');
+    if (foBtn) foBtn.insertAdjacentHTML('afterbegin', T24.icon('menu', 15, 2) + ' ');
+    const ftBtn = document.getElementById('favToggle');
+    if (ftBtn) ftBtn.insertAdjacentHTML('afterbegin', T24.icon('heart', 14) + ' ');
+
     ['fMake', 'fModel', 'fYear', 'fKm', 'fFuel', 'fGear', 'fBody', 'fSort'].forEach(id => {
       const e = document.getElementById(id);
       if (e) e.addEventListener('change', () => {
@@ -84,6 +91,44 @@ const Cars = {
     });
     const reset = document.getElementById('fReset');
     if (reset) reset.addEventListener('click', () => this.reset());
+
+    // Favorite — inimă pe carduri (delegat), toggle + persistență
+    document.addEventListener('click', e => {
+      const b = e.target.closest('[data-fav]');
+      if (!b) return;
+      e.preventDefault();
+      const on = T24.favs.toggle(b.dataset.fav);
+      b.classList.toggle('is-fav', on);
+    });
+    const updFav = () => {
+      const c = document.getElementById('favCount');
+      if (c) c.textContent = T24.favs.count();
+    };
+    document.addEventListener('favchange', () => { updFav(); if (this.state.favOnly) this.applyFilters(); });
+    updFav();
+    const favT = document.getElementById('favToggle');
+    if (favT) favT.addEventListener('click', () => {
+      this.state.favOnly = !this.state.favOnly;
+      favT.classList.toggle('active', this.state.favOnly);
+      this.applyFilters();
+    });
+
+    // Filtre — drawer pe mobil
+    const side = document.querySelector('.filters-side');
+    const backdrop = document.getElementById('filterBackdrop');
+    const setDrawer = open => {
+      if (side) side.classList.toggle('open', open);
+      if (backdrop) backdrop.classList.toggle('show', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
+    const openB = document.getElementById('filterOpen');
+    const closeB = document.getElementById('filterClose');
+    if (openB) openB.addEventListener('click', () => setDrawer(true));
+    if (closeB) closeB.addEventListener('click', () => setDrawer(false));
+    if (backdrop) backdrop.addEventListener('click', () => setDrawer(false));
+    // aplicarea filtrului închide drawerul pe mobil
+    if (document.getElementById('fApplyCount'))
+      document.getElementById('fApplyCount').addEventListener('click', () => setDrawer(false));
   },
 
   buildFilterOptions(cars) {
@@ -138,6 +183,11 @@ const Cars = {
       return true;
     });
 
+    if (this.state.favOnly) {
+      const favs = T24.favs.list();
+      list = list.filter(c => favs.includes(c.id));
+    }
+
     switch (sort) {
       case 'price-asc': list.sort((a, b) => a.price - b.price); break;
       case 'price-desc': list.sort((a, b) => b.price - a.price); break;
@@ -154,15 +204,17 @@ const Cars = {
     const grid = document.getElementById('carsGrid');
     const count = document.getElementById('carsCount');
     const list = this.state.filtered;
-    if (count) count.innerHTML = `<b>${list.length}</b> mașini disponibile`;
+    const noun = list.length === 1 ? 'mașină disponibilă' : 'mașini disponibile';
+    if (count) count.innerHTML = `<b>${list.length}</b> ${this.state.favOnly ? 'favorite' : noun}`;
     const btn = document.getElementById('fApplyCount');
     if (btn) btn.textContent = `Filtrează (${list.length})`;
     if (!grid) return;
     if (!list.length) {
+      const fav = this.state.favOnly;
       grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">
-        ${T24.icon('search', 46, 1.4)}
-        <h3 style="margin:14px 0 6px">Nicio mașină găsită</h3>
-        <p>Încearcă să ajustezi filtrele.</p></div>`;
+        ${T24.icon(fav ? 'heart' : 'search', 46, 1.4)}
+        <h3 style="margin:14px 0 6px">${fav ? 'Nu ai mașini favorite încă' : 'Nicio mașină găsită'}</h3>
+        <p>${fav ? 'Apasă ♥ pe o mașină ca s-o salvezi aici.' : 'Încearcă să ajustezi filtrele.'}</p></div>`;
       return;
     }
     grid.innerHTML = list.map(c => this.card(c)).join('');
