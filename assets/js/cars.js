@@ -25,8 +25,8 @@ const Cars = {
         <div class="car-meta">${meta}</div>
         <div class="car-price">${T24.price(car.price)}</div>
         <div class="car-actions">
-          <a href="masina.html?id=${car.id}" class="btn btn-detail btn-block">Vezi detalii</a>
-          <a href="${T24.waCar(car)}" target="_blank" rel="noopener" class="btn btn-wa-outline btn-block">${T24.icon('whatsapp', 16)} WhatsApp</a>
+          <a href="masina.html?id=${car.id}" class="btn btn-primary car-cta">Vezi mașina ${T24.icon('arrowRight', 15)}</a>
+          <a href="${T24.waCar(car)}" target="_blank" rel="noopener" class="car-wa" aria-label="Întreabă pe WhatsApp">${T24.icon('whatsapp', 18)}</a>
         </div>
       </div>
     </div>`;
@@ -303,6 +303,22 @@ const Cars = {
       `<div class="thumb ${i === 0 ? 'active' : ''}" data-src="${src}"><img src="${src}" alt=""></div>`
     ).join('');
 
+    const mobileDe = c.mobileDeUrl || '';
+    const sub = [car.year, T24.km(car.mileage), car.fuel, car.transmission].filter(Boolean).join(' · ');
+
+    // Specificații-cheie (mari, vizibile) — doar cele cu valoare
+    const keyList = [
+      ['power', car.power ? car.power + ' CP' : null, 'Putere'],
+      ['gauge', T24.km(car.mileage), 'Kilometraj'],
+      ['fuel', car.fuel, 'Combustibil'],
+      ['gear', car.transmission, 'Transmisie'],
+      ['calendar', car.year, 'An'],
+      ['car', car.body, 'Caroserie']
+    ].filter(([, v]) => v);
+    const keySpecs = keyList.map(([ic, v, l]) =>
+      `<div class="key-spec"><span class="ic">${T24.icon(ic, 20)}</span><div><b>${v}</b><span>${l}</span></div></div>`).join('');
+
+    // Tabel detaliat complet
     const specs = [
       ['calendar', 'Prima înmatriculare', car.firstReg || car.year],
       ['gauge', 'Kilometraj', T24.km(car.mileage)],
@@ -320,21 +336,31 @@ const Cars = {
 
     wrap.innerHTML = `
       <div class="breadcrumb"><a href="index.html">Acasă</a> / <a href="stoc.html">Stoc Auto</a> / ${car.make} ${car.model}</div>
+      <div class="detail-head">
+        <h1>${car.make} ${car.model}</h1>
+        <div class="detail-sub">${sub}</div>
+      </div>
       <div class="detail-grid">
-        <div>
+        <div class="detail-left">
           <div class="gallery-main">${mainImg}</div>
           ${thumbs ? `<div class="gallery-thumbs">${thumbs}</div>` : ''}
         </div>
         <aside class="detail-panel">
-          <h1>${car.make} ${car.model}</h1>
-          <div class="sub">${car.year} · ${T24.km(car.mileage)} · ${car.fuel} · ${car.transmission}</div>
           <div class="detail-price">${T24.price(car.price)}</div>
           <a href="finantare.html?price=${car.price}" class="detail-finance">${T24.icon('percent', 15)} Finanțare de la <b>${monthly} €/lună</b></a>
+          <ul class="detail-trust">
+            <li>${T24.icon('checkCircle', 17)} Istoric verificat</li>
+            <li>${T24.icon('checkCircle', 17)} Documente complete</li>
+            <li>${T24.icon('checkCircle', 17)} Import inclus în preț</li>
+          </ul>
           <div class="detail-cta-row">
             <a href="${T24.waCar(car)}" target="_blank" rel="noopener" class="btn btn-wa btn-block">${T24.icon('whatsapp', 18)} WhatsApp</a>
             <a href="tel:${phone}" class="btn btn-primary btn-block">${T24.icon('phone', 18)} Sună acum</a>
           </div>
-          <div class="detail-note">${T24.icon('shield', 15)} Preț final · Import inclus · Documente complete</div>
+          ${mobileDe ? `<a href="${mobileDe}" target="_blank" rel="noopener" class="detail-mobilede">
+            <span>Publicat și pe Mobile.de</span>
+            <b>Vezi anunțul pe Mobile.de ${T24.icon('arrowRight', 14)}</b>
+          </a>` : ''}
 
           <div class="lead-box">
             <h3>Te interesează această mașină?</h3>
@@ -350,7 +376,8 @@ const Cars = {
       </div>
 
       <div class="spec-table">
-        <h3>Specificații tehnice</h3>
+        <h3>Specificații</h3>
+        <div class="key-specs">${keySpecs}</div>
         <div class="spec-grid">
           ${specs.map(([ic, k, v]) => `<div class="spec-cell"><span class="ic">${T24.icon(ic, 18)}</span><div><span class="k">${k}</span><span class="v">${v}</span></div></div>`).join('')}
         </div>

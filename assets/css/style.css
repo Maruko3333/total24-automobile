@@ -545,8 +545,14 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 .car-title:hover { color: var(--gold); }
 .car-meta { color: var(--text-muted); font-size: 14px; margin-bottom: 16px; }
 .car-price { font-family: var(--font-head); font-size: 26px; font-weight: 800; color: var(--gold); margin-bottom: 18px; }
-.car-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.car-actions { display: flex; align-items: stretch; gap: 10px; }
 .car-actions .btn { padding: 12px 14px; font-size: 14px; }
+.car-cta { flex: 1; justify-content: center; }
+.car-wa {
+  flex-shrink: 0; width: 48px; display: inline-grid; place-items: center; border-radius: 8px;
+  background: rgba(37,211,102,.12); border: 1px solid rgba(37,211,102,.4); color: #45c86f; transition: all .2s;
+}
+.car-wa:hover { background: #25D366; color: #fff; border-color: #25D366; }
 
 /* Contor stoc vizibil */
 .stoc-toolbar .count { font-size: 18px; font-weight: 500; }
@@ -580,6 +586,26 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 .spec-cell .ic { width: 38px; height: 38px; border-radius: 10px; background: var(--gold-soft); color: var(--gold); display: grid; place-items: center; flex-shrink: 0; }
 .spec-cell .k { display: block; color: var(--text-muted); font-size: 12.5px; }
 .spec-cell .v { display: block; color: var(--text); font-weight: 600; font-size: 15px; }
+
+/* ---- Detaliu: titlu sus, trust, Mobile.de, specificații-cheie ---- */
+.detail-head { margin-bottom: 24px; }
+.detail-head h1 { font-size: clamp(24px, 3vw, 34px); margin-bottom: 6px; }
+.detail-sub { color: var(--text-muted); font-size: 15px; }
+.detail-trust { display: grid; gap: 9px; margin-bottom: 20px; padding: 0; }
+.detail-trust li { display: flex; align-items: center; gap: 9px; color: var(--text-soft); font-size: 14.5px; }
+.detail-trust li svg { color: var(--gold); flex-shrink: 0; }
+.detail-mobilede {
+  display: flex; flex-direction: column; gap: 3px; margin-top: 16px;
+  padding: 13px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); transition: border-color .2s;
+}
+.detail-mobilede span { color: var(--text-muted); font-size: 12.5px; }
+.detail-mobilede b { display: inline-flex; align-items: center; gap: 6px; color: var(--gold); font-size: 14px; font-weight: 600; }
+.detail-mobilede:hover { border-color: var(--gold); }
+.key-specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 18px; }
+.key-spec { display: flex; align-items: center; gap: 12px; background: var(--bg-card); border: 1px solid var(--line-soft); border-radius: 12px; padding: 16px 18px; }
+.key-spec .ic { color: var(--gold); flex-shrink: 0; display: inline-flex; }
+.key-spec b { display: block; font-family: var(--font-head); font-weight: 700; font-size: 18px; color: var(--text); line-height: 1.1; }
+.key-spec span { display: block; color: var(--text-muted); font-size: 12px; margin-top: 2px; }
 
 @media (max-width: 400px) {
   .car-actions { grid-template-columns: 1fr; }
