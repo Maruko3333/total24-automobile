@@ -40,7 +40,7 @@
       </div>
 
       <div class="contact-map" style="margin-top:40px">
-        <iframe title="Hartă" loading="lazy" src="https://www.google.com/maps?q=F%C3%BCrth%2C%20Germania&output=embed"></iframe>
+        <iframe id="contactMapFrame" title="Hartă — Total24 Automobile" loading="lazy" src=""></iframe>
       </div>
     </div>
   </section>
@@ -53,8 +53,11 @@
       await T24.mount('contact');
       const c = T24.config.company;
       const wa = (c.whatsapp || '').replace(/\D/g, '');
-      const addr = `${c.name}, ${c.address.street}, ${c.address.zip} ${c.address.city}, ${c.address.country}`;
-      const navUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(addr)}`;
+      const mapAddr = `${c.address.street}, ${c.address.zip} ${c.address.city}, ${c.address.country}`;
+      const navUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(mapAddr)}`;
+      // Hartă la adresa exactă (sincron cu config)
+      const mapFrame = document.getElementById('contactMapFrame');
+      if (mapFrame) mapFrame.src = `https://www.google.com/maps?q=${encodeURIComponent(mapAddr)}&output=embed`;
 
       // Butoane acțiune rapidă
       document.getElementById('contactCTA').innerHTML = `
@@ -93,7 +96,7 @@
         image: `${T24.siteUrl()}/assets/img/brand/logo.png`,
         address: { '@type': 'PostalAddress', streetAddress: c.address.street, postalCode: c.address.zip, addressLocality: c.address.city, addressCountry: 'DE' },
         sameAs: [c.mobileDeUrl].filter(Boolean),
-        openingHours: ['Mo-Fr 09:00-18:00', 'Sa 09:00-14:00']
+        openingHours: ['Mo-Fr 08:00-17:00', 'Sa 09:00-12:00']
       });
     })();
   </script>
