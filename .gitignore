@@ -1,3 +1,8 @@
 node_modules/
 package-lock.json
 .DS_Store
+
+# Mobile.de — credențiale private (NU se urcă niciodată pe GitHub)
+scripts/mobilede.credentials.json
+scripts/mobilede-sample.json
+data/cars.json.bak
