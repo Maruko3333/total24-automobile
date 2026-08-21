@@ -727,7 +727,9 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
    pentru lizibilitatea textului în stânga; partea dreaptă rămâne clară. */
 .hero-photo {
   position: relative; display: flex; align-items: center; overflow: hidden;
-  min-height: 630px; padding: 116px 0 128px; background: #080808;
+  aspect-ratio: 2048 / 768;   /* înălțimea urmează poza → se vede TOATĂ, fără crop, pe ecrane ≥1280px */
+  min-height: 470px;          /* prag ca textul să încapă pe laptopuri mici (acolo poza se decupează ușor) */
+  padding: 92px 0 92px; background: #080808;
 }
 /* O SINGURĂ fotografie <img> full-width (object-fit) + overlay orizontal subtil.
    Compoziție: text stânga · BMW + showroom dreapta. Dreapta rămâne luminoasă. */
@@ -742,11 +744,9 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
   content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background: linear-gradient(90deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.30) 30%, rgba(0,0,0,.08) 58%, transparent 82%);
 }
-/* ecrane late: hero puțin mai înalt, dar compact (≤650px) */
-@media (min-width: 1700px) { .hero-photo { min-height: 650px; } }
-/* tabletă / mobil: mutăm cadrul spre dreapta ca BMW-ul să rămână vizibil */
-@media (max-width: 1024px) { .hero-photo .hero-image { object-position: 70% 58%; } }
-@media (max-width: 760px)  { .hero-photo .hero-image { object-position: 82% 64%; } }
+/* sub 1280px poza se decupează (prag min-height) → mutăm cadrul spre BMW */
+@media (max-width: 1279px) { .hero-photo .hero-image { object-position: 72% center; } }
+@media (max-width: 760px)  { .hero-photo .hero-image { object-position: 80% 62%; } }
 .hero-inner {
   position: relative; z-index: 2; width: 100%;
   padding-left: 5%; padding-right: 24px;
@@ -795,7 +795,7 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 
 /* ---- Responsive hero + nav ---- */
 @media (max-width: 760px) {
-  .hero-photo { display: block; min-height: 600px; padding: 100px 0 0; }
+  .hero-photo { display: block; aspect-ratio: auto; min-height: 600px; padding: 100px 0 0; }
   .hero-photo h1 { font-size: clamp(26px, 6.8vw, 40px); letter-spacing: -.4px; max-width: 90vw; }
   .hero-photo p { font-size: 15px; max-width: 100%; }
   .hero-inner { padding-right: 5%; }
