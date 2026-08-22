@@ -376,6 +376,7 @@ const Cars = {
             <span>Publicat și pe Mobile.de</span>
             <b>Vezi anunțul pe Mobile.de ${T24.icon('arrowRight', 14)}</b>
           </a>` : ''}
+          <div id="modelGuide"></div>
 
           <div class="lead-box">
             <h3>Te interesează această mașină?</h3>
@@ -421,6 +422,16 @@ const Cars = {
         setTimeout(() => { shareBtn.innerHTML = orig; }, 2200);
       }
     });
+
+    // Link către ghidul modelului (mașină → articol Ratgeber), dacă există
+    try {
+      const rg = await (await fetch('data/ratgeber.json', { cache: 'no-store' })).json();
+      const art = (rg.articles || []).find(a => a.relatedMake && a.relatedMake === car.make);
+      const mg = document.getElementById('modelGuide');
+      if (art && mg) mg.innerHTML = `<a href="artikel.html?slug=${art.slug}" class="detail-mobilede" style="margin-top:12px">
+        <span>Ratgeber zu diesem Modell</span>
+        <b>${art.title.split('–')[0].trim()} — mehr erfahren ${T24.icon('arrowRight', 14)}</b></a>`;
+    } catch (e) { /* silențios */ }
 
     // Lightbox full-screen (GLightbox) — click pe imaginea principală
     if (window.GLightbox && car.images && car.images.length) {

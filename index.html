@@ -130,6 +130,20 @@
     </div>
   </section>
 
+  <!-- REVIEWS / KUNDENSTIMMEN -->
+  <section class="section section--soft" id="reviewsSection" style="display:none">
+    <div class="container">
+      <div class="reviews-head">
+        <div class="rh-title">
+          <span class="eyebrow">Kundenstimmen</span>
+          <h2>Das sagen unsere Kunden</h2>
+        </div>
+        <div id="reviewsAgg"></div>
+      </div>
+      <div id="reviewsBody"></div>
+    </div>
+  </section>
+
   <!-- CUM CUMPĂR -->
   <section class="section">
     <div class="container">
@@ -164,6 +178,18 @@
           <p>Abholung im Showroom in Fürth oder Lieferung nach Absprache.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--soft">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Häufige Fragen</span>
+        <h2>Fragen &amp; Antworten</h2>
+        <p>Das Wichtigste rund um Kauf, Besichtigung, Finanzierung und Lieferung.</p>
+      </div>
+      <div class="faq-list" id="faqList"></div>
     </div>
   </section>
 
@@ -205,14 +231,66 @@
            <div><b>${t}</b><span>${d}</span></div></div>`).join('');
       // „De ce Total24" — 4 beneficii editoriale: keyword bold + o linie de sprijin
       const why = [
-        ['Geprüft', 'Technisch und optisch kontrolliert'],
-        ['Transparent', 'Vollständige Historie & Dokumente'],
-        ['Faire Preise', 'Marktgerecht, ohne versteckte Kosten'],
-        ['Persönlich', 'Individuelle Beratung, direkt vom Inhaber']
+        ['Persönlich geprüft', 'Jedes Fahrzeug wird vor dem Verkauf sorgfältig kontrolliert'],
+        ['Transparente Fahrzeughistorie', 'VIN, Dokumente und Wartungshistorie nachvollziehbar'],
+        ['Kein anonymer Online-Händler', 'Persönliche Beratung direkt in Fürth'],
+        ['Lieferung möglich', 'Deutschlandweit nach Absprache'],
+        ['Finanzierung', 'Flexible Finanzierungsmöglichkeiten']
       ];
       document.getElementById('whyList').innerHTML = why.map(([label, sub]) =>
         `<div class="why-li"><span class="ic">${T24.icon('check', 15, 2.6)}</span><div><b>${label}</b><small>${sub}</small></div></div>`).join('');
       Cars.renderFeatured('featuredGrid', 3);
+
+      // ---- Reviews / Kundenstimmen (din data/reviews.json — doar recenzii REALE) ----
+      const starSvg = '<svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.7 6.2.6-4.7 4.1 1.4 6.1L12 17l-5.5 3.2 1.4-6.1L3.2 9.9l6.2-.6z"/></svg>';
+      const starsHtml = r => `<span class="stars">${[1,2,3,4,5].map(i => `<span class="${i <= Math.round(r) ? '' : 'empty'}">${starSvg}</span>`).join('')}</span>`;
+      try {
+        const rv = await (await fetch('data/reviews.json', { cache: 'no-store' })).json();
+        const valid = (rv.reviews || []).filter(r => r && r.name && r.text);
+        const sec = document.getElementById('reviewsSection');
+        const agg = document.getElementById('reviewsAgg');
+        const body = document.getElementById('reviewsBody');
+        const src = rv.aggregate || {};
+        if (valid.length) {
+          const avg = src.rating || (valid.reduce((s, r) => s + (r.rating || 5), 0) / valid.length);
+          const cnt = src.count || valid.length;
+          agg.innerHTML = `<div class="rev-agg"><div class="num">${Number(avg).toFixed(1)}<small>${cnt} Bewertungen</small></div>
+            <div>${starsHtml(avg)}<div class="agg-src">${src.url ? `Quelle: <a href="${src.url}" target="_blank" rel="noopener">${src.source || 'Mobile.de'}</a>` : ''}</div></div></div>`;
+          body.className = 'review-grid';
+          body.innerHTML = valid.slice(0, 6).map(r => `
+            <div class="review-card">${starsHtml(r.rating || 5)}
+              <p class="review-quote">${r.text}</p>
+              <div class="review-author"><span class="av">${(r.name || '?').trim().charAt(0).toUpperCase()}</span>
+                <div class="who"><b>${r.name}</b><span>${[r.car, r.city].filter(Boolean).join(' · ')}</span></div></div>
+            </div>`).join('');
+          sec.style.display = '';
+        } else if (src.url) {
+          body.className = '';
+          body.innerHTML = `<div class="reviews-empty"><span class="ic">${T24.icon('star', 40, 1.4)}</span>
+            <h3>Echte Bewertungen auf Mobile.de</h3>
+            <p>Lesen Sie geprüfte Kundenbewertungen direkt auf Deutschlands größter Fahrzeugbörse.</p>
+            <a href="${src.url}" target="_blank" rel="noopener" class="btn btn-primary">Bewertungen ansehen ${T24.icon('arrowRight', 15)}</a></div>`;
+          sec.style.display = '';
+        }
+      } catch (e) { /* silențios */ }
+
+      // ---- FAQ (accordion nativ) + FAQPage JSON-LD pentru SEO ----
+      const plus = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>';
+      const faqs = [
+        ['Kann ich das Fahrzeug vor Ort besichtigen?', 'Ja, sehr gerne. Vereinbaren Sie einfach einen Termin — wir zeigen Ihnen das Fahrzeug persönlich in unserem Showroom in Fürth.'],
+        ['Sind die Fahrzeuge geprüft?', 'Ja. Jedes Fahrzeug wird vor dem Verkauf technisch und optisch kontrolliert. Fahrzeughistorie und Dokumente sind für Sie einsehbar.'],
+        ['Ist eine Finanzierung möglich?', 'Ja, wir bieten flexible Finanzierungsmöglichkeiten. Details finden Sie auf unserer <a href="finantare.html">Finanzierungsseite</a> oder sprechen Sie uns direkt an.'],
+        ['Kann das Fahrzeug geliefert werden?', 'Eine Lieferung ist deutschlandweit nach Absprache möglich. Kontaktieren Sie uns für die Details zu Ihrem Standort.'],
+        ['Welche Unterlagen erhalte ich beim Kauf?', 'Sie erhalten alle relevanten Fahrzeugdokumente — u. a. Fahrzeugbrief und -schein, Serviceheft (sofern vorhanden), Kaufvertrag und Rechnung.'],
+        ['Nehmen Sie mein altes Fahrzeug in Zahlung?', 'In vielen Fällen ja. Sprechen Sie uns an — wir prüfen gerne eine faire Inzahlungnahme Ihres aktuellen Fahrzeugs.'],
+        ['Finde ich Ihre Fahrzeuge auch auf Mobile.de?', 'Ja. Unser gesamter Bestand sowie echte Kundenbewertungen sind auf Mobile.de verfügbar — der größten Fahrzeugbörse Deutschlands.']
+      ];
+      document.getElementById('faqList').innerHTML = faqs.map(([q, a]) =>
+        `<details class="faq-item"><summary>${q}<span class="fq-ic">${plus}</span></summary><div class="fq-a">${a}</div></details>`).join('');
+      T24.addJsonLd({
+        '@context': 'https://schema.org', '@type': 'FAQPage',
+        mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a.replace(/<[^>]+>/g, '') } }))
+      });
     })();
   </script>
 </body>

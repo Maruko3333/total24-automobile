@@ -1,0 +1,19 @@
+{
+  "aggregate": {
+    "rating": null,
+    "count": null,
+    "source": "Mobile.de",
+    "url": "https://www.mobile.de/bewertungen/TotalAutomobileEinzelunternehmenInhPetrePaulVirjan"
+  },
+  "reviews": [
+    {
+      "name": "",
+      "city": "",
+      "car": "",
+      "date": "",
+      "rating": 5,
+      "text": ""
+    }
+  ],
+  "_hinweis": "ECHTE Bewertungen hier eintragen (aus Mobile.de / Google / WhatsApp mit Erlaubnis). Leere Einträge werden NICHT angezeigt. 'aggregate.rating' (z.B. 4.9) und 'count' (z.B. 37) nur eintragen, wenn sie den echten Mobile.de-Zahlen entsprechen. Beispiel eines Eintrags: { \"name\": \"Andreas M.\", \"city\": \"Nürnberg\", \"car\": \"Audi A3\", \"date\": \"2026-07\", \"rating\": 5, \"text\": \"Sehr freundlich und transparent...\" }"
+}

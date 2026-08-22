@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ratgeber | Total24 Automobile — Kaufberatung & Auto-Wissen</title>
+  <meta name="description" content="Ratgeber von Total24 Automobile: Kaufberatung, Fahrzeugvergleiche, Auto-Wissen, Finanzierung und alles rund um den Kauf eines Gebrauchtwagens aus Deutschland.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=47">
+  <link rel="icon" href="assets/img/brand/favicon.png">
+  <link rel="icon" href="assets/img/brand/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/brand/favicon-64.png">
+  <meta name="theme-color" content="#0e2b3e">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Total24 Automobile">
+  <meta property="og:title" content="Ratgeber | Total24 Automobile">
+  <meta property="og:description" content="Kaufberatung, Fahrzeugvergleiche und Auto-Wissen rund um geprüfte Gebrauchtwagen aus Deutschland.">
+  <meta property="og:image" content="https://maruko3333.github.io/total24-automobile/assets/img/brand/showroom.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://maruko3333.github.io/total24-automobile/ratgeber.html">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Ratgeber</h1>
+      <p>Kaufberatung, Fahrzeugvergleiche, Auto-Wissen und alles rund um den Kauf eines Gebrauchtwagens aus Deutschland.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:30px">
+    <div class="container">
+      <div class="ratgeber-cats" id="catGrid"></div>
+
+      <div class="section-head" style="text-align:left;max-width:none;margin-bottom:24px">
+        <h2 id="artListTitle">Alle Artikel</h2>
+        <p id="artListSub"></p>
+      </div>
+      <div class="article-grid" id="artGrid"></div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/app.js?v=3"></script>
+  <script src="assets/js/cars.js?v=3"></script>
+  <script src="assets/js/ratgeber.js?v=1"></script>
+  <script>
+    (async () => { await T24.mount('ratgeber'); Ratgeber.initHub(); })();
+  </script>
+</body>
+</html>

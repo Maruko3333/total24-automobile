@@ -144,8 +144,16 @@ const T24 = {
   nav: [
     { label: 'Startseite', href: 'index.html', key: 'home' },
     { label: 'Fahrzeuge', href: 'stoc.html', key: 'stoc' },
+    {
+      label: 'Ratgeber', href: 'ratgeber.html', key: 'ratgeber', children: [
+        { label: 'Kaufberatung', href: 'ratgeber.html?cat=kaufberatung', icon: 'search' },
+        { label: 'Fahrzeugvergleich', href: 'ratgeber.html?cat=vergleich', icon: 'gauge' },
+        { label: 'Auto-Wissen', href: 'ratgeber.html?cat=wissen', icon: 'wrench' },
+        { label: 'Auto aus Deutschland', href: 'ratgeber.html?cat=deutschland', icon: 'shield' },
+        { label: 'Finanzierung', href: 'ratgeber.html?cat=finanzierung', icon: 'percent' }
+      ]
+    },
     { label: 'Über uns', href: 'despre.html', key: 'despre' },
-    { label: 'Leistungen', href: 'servicii.html', key: 'servicii' },
     { label: 'Finanzierung', href: 'finantare.html', key: 'finantare' },
     { label: 'Kontakt', href: 'contact.html', key: 'contact' }
   ],
@@ -153,8 +161,13 @@ const T24 = {
   renderHeader(active) {
     const c = this.config.company;
     const links = this.nav.map(n => {
-      const caret = n.key === 'servicii' ? this.caret(13) : '';
-      return `<a href="${n.href}" class="${n.key === active ? 'active' : ''}">${n.label}${caret}</a>`;
+      const cls = n.key === active ? 'active' : '';
+      if (n.children) {
+        const items = n.children.map(ch =>
+          `<a href="${ch.href}"><span class="ic">${this.icon(ch.icon, 16)}</span>${ch.label}</a>`).join('');
+        return `<div class="nav-item"><a href="${n.href}" class="${cls}">${n.label}${this.caret(13)}</a><div class="nav-dd">${items}</div></div>`;
+      }
+      return `<a href="${n.href}" class="${cls}">${n.label}</a>`;
     }).join('');
     const a = c.address;
     return `
@@ -216,6 +229,7 @@ const T24 = {
             <h5>Unternehmen</h5>
             <ul class="footer-links">
               <li><a href="despre.html">Über uns</a></li>
+              <li><a href="ratgeber.html">Ratgeber</a></li>
               <li><a href="servicii.html">Leistungen</a></li>
               <li><a href="finantare.html">Finanzierung</a></li>
             </ul>

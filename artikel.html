@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ratgeber-Artikel | Total24 Automobile</title>
+  <meta name="description" content="Ratgeber und Kaufberatung rund um geprüfte Gebrauchtwagen aus Deutschland — von Total24 Automobile in Fürth.">
+  <!-- OG implicit (STATIC) — Crawler (WhatsApp/Facebook) rulează fără JS.
+       ratgeber.js rescrie OG per-articol în browser; social vede cardul de firmă. -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Total24 Automobile">
+  <meta property="og:title" content="Ratgeber | Total24 Automobile">
+  <meta property="og:description" content="Kaufberatung und Auto-Wissen rund um geprüfte Gebrauchtwagen aus Deutschland.">
+  <meta property="og:image" content="https://maruko3333.github.io/total24-automobile/assets/img/brand/showroom.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=47">
+  <link rel="icon" href="assets/img/brand/favicon.png">
+  <link rel="icon" href="assets/img/brand/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/brand/favicon-64.png">
+  <meta name="theme-color" content="#0e2b3e">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <section class="article">
+    <div id="articleWrap"></div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/app.js?v=3"></script>
+  <script src="assets/js/cars.js?v=3"></script>
+  <script src="assets/js/ratgeber.js?v=1"></script>
+  <script>
+    (async () => { await T24.mount('ratgeber'); Ratgeber.initArticle(); })();
+  </script>
+</body>
+</html>
