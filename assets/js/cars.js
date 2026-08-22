@@ -303,7 +303,6 @@ const Cars = {
     this.setDetailSEO(car);
     const c = T24.config.company;
     const phone = c.phone;
-    const monthly = T24.monthly(car.price);
 
     const mainImg = (car.images && car.images.length)
       ? `<img src="${car.images[0]}" id="galMain" alt="${car.make} ${car.model}">`
@@ -356,15 +355,16 @@ const Cars = {
         </div>
         <aside class="detail-panel">
           <div class="detail-price">${T24.price(car.price)}</div>
-          <a href="finantare.html?price=${car.price}" class="detail-finance">${T24.icon('percent', 15)} Finanțare de la <b>${monthly} €/lună</b></a>
+          <a href="finantare.html" class="detail-finance">${T24.icon('percent', 15)} <b>Finanzierung möglich</b> — jetzt anfragen</a>
           <ul class="detail-trust">
             <li>${T24.icon('checkCircle', 17)} Prima mână — un singur proprietar</li>
             <li>${T24.icon('checkCircle', 17)} Km făcuți doar la service-ul oficial</li>
             <li>${T24.icon('checkCircle', 17)} Istoric clar și documente complete</li>
           </ul>
+          <a href="${T24.waCar(car)}" target="_blank" rel="noopener" class="btn btn-wa btn-block" style="margin-bottom:12px">${T24.icon('whatsapp', 18)} Über dieses Fahrzeug sprechen</a>
           <div class="detail-cta-row">
-            <a href="${T24.waCar(car)}" target="_blank" rel="noopener" class="btn btn-wa btn-block">${T24.icon('whatsapp', 18)} WhatsApp</a>
-            <a href="tel:${phone}" class="btn btn-primary btn-block">${T24.icon('phone', 18)} Sună acum</a>
+            <a href="tel:${phone}" class="btn btn-primary btn-block">${T24.icon('phone', 18)} Anrufen</a>
+            <a href="mailto:${c.email}?subject=${encodeURIComponent(`Anfrage: ${car.make} ${car.model} ${car.year}`)}" class="btn btn-outline btn-block">${T24.icon('mail', 18)} E-Mail</a>
           </div>
           ${mobileDe ? `<a href="${mobileDe}" target="_blank" rel="noopener" class="detail-mobilede">
             <span>Publicat și pe Mobile.de</span>

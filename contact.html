@@ -3,13 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kontakt — Total24 Automobile</title>
+  <title>Kontakt | Total24 Automobile Fürth</title>
   <meta name="description" content="Kontaktieren Sie Total24 Automobile in Fürth, Deutschland. Telefon, E-Mail, Öffnungszeiten und Kontaktformular.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css?v=24">
   <link rel="icon" href="assets/img/brand/favicon.png">
+  <link rel="icon" href="assets/img/brand/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/brand/favicon-64.png">
+  <meta name="theme-color" content="#0d0f12">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Total24 Automobile">
+  <meta property="og:image" content="https://maruko3333.github.io/total24-automobile/assets/img/brand/hero-final.jpg">
+  <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
   <div id="site-header"></div>
@@ -25,17 +32,21 @@
     <div class="container">
       <div class="contact-cta" id="contactCTA"></div>
       <div class="contact-grid">
-        <div class="contact-info" id="contactInfo"></div>
+        <div>
+          <h3 class="contact-col-title">Besuchen Sie uns</h3>
+          <div class="contact-info" id="contactInfo"></div>
+        </div>
         <div class="contact-form">
-          <h3 style="margin-bottom:20px">Schreiben Sie uns</h3>
+          <h3 style="margin-bottom:20px">Kontakt aufnehmen</h3>
           <form id="contactForm">
             <div class="field"><label>Name</label><input type="text" name="name" required></div>
             <div class="field"><label>Telefon</label><input type="tel" name="phone" required></div>
             <div class="field"><label>E-Mail</label><input type="email" name="email"></div>
             <div class="field"><label>Nachricht</label><textarea name="message" required></textarea></div>
-            <button type="submit" class="btn btn-primary btn-block">Nachricht senden</button>
+            <button type="submit" class="btn btn-primary btn-block">Anfrage senden</button>
           </form>
           <p id="formNote" style="margin-top:14px;font-size:13px;color:var(--text-muted)"></p>
+          <p class="contact-mobilede-note" id="contactMobileDe"></p>
         </div>
       </div>
 
@@ -76,6 +87,10 @@
       document.getElementById('contactInfo').innerHTML = info.map(([ic, t, d]) =>
         `<div class="info-item"><div class="ic">${T24.icon(ic, 22, 1.7)}</div>
          <div><h4>${t}</h4><p>${d}</p></div></div>`).join('');
+
+      // „Auch über Mobile.de erreichbar" — link către profilul dealerului
+      if (c.mobileDeUrl) document.getElementById('contactMobileDe').innerHTML =
+        `Auch über <a href="${c.mobileDeUrl}" target="_blank" rel="noopener">Mobile.de erreichbar ${T24.icon('arrowRight', 13)}</a>`;
 
       // Formular -> E-Mail (FormSubmit), gebrandet + mit Auto-Antwort; Fallback WhatsApp
       document.getElementById('contactForm').addEventListener('submit', async e => {

@@ -12,8 +12,10 @@ base = cfg['meta'].get('siteUrl', '').rstrip('/')
 today = datetime.date.today().isoformat()
 
 pages = ['index.html', 'stoc.html', 'despre.html', 'servicii.html', 'finantare.html', 'contact.html']
+legal = ['impressum.html', 'datenschutz.html', 'agb.html']
 urls = [(f'{base}/{p}', '0.8' if p != 'index.html' else '1.0') for p in pages]
 urls += [(f'{base}/masina.html?id={c["id"]}', '0.7') for c in cars if c.get('status') == 'available']
+urls += [(f'{base}/{p}', '0.3') for p in legal]
 
 def esc(u): return u.replace('&', '&amp;')
 

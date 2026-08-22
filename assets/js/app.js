@@ -68,11 +68,12 @@ const T24 = {
   price(n) { return Number(n).toLocaleString('de-DE') + ' €'; },
   km(n) { return Number(n).toLocaleString('de-DE') + ' km'; },
 
-  // WhatsApp deep-link pentru o mașină
+  // WhatsApp deep-link pentru o mașină — mesaj contextual (marcă, model, an, km, preț)
   waCar(car, extra = '') {
     const wa = (this.config.company.whatsapp || '').replace(/\D/g, '');
+    const km = car.mileage ? `, ${this.km(car.mileage)}` : '';
     const msg = encodeURIComponent(
-      `Hallo! Ich interessiere mich für den ${car.make} ${car.model} (${car.year}) – ${this.price(car.price)}. ${extra}Ist er noch verfügbar?`);
+      `Hallo! Ich interessiere mich für den ${car.make} ${car.model} (${car.year}${km}) – ${this.price(car.price)}. ${extra}Ist das Fahrzeug noch verfügbar?`);
     return `https://wa.me/${wa}?text=${msg}`;
   },
 
@@ -167,41 +168,55 @@ const T24 = {
   renderFooter() {
     const c = this.config.company;
     const y = new Date().getFullYear();
-    const links = this.nav.map(n => `<li><a href="${n.href}">${n.label}</a></li>`).join('');
+    const wa = (c.whatsapp || '').replace(/\D/g, '');
+    const mobile = c.mobileDeUrl || '';
     return `
     <footer class="footer">
       <div class="container">
         <div class="footer-grid">
-          <div>
+          <div class="footer-brand">
             <a href="index.html" class="logo" aria-label="Total24 Automobile">
               <img src="assets/img/brand/logo.png" alt="Total24 Automobile" class="logo-img footer-logo-img">
             </a>
-            <p>${c.tagline} — geprüfte Fahrzeuge aus erster Hand, scheckheftgepflegt.</p>
+            <p>Geprüfte Fahrzeuge. Faire Preise.</p>
+            ${mobile ? `<a href="${mobile}" target="_blank" rel="noopener" class="footer-mobilede">
+              <span class="fm-ic">${this.icon('checkCircle', 18, 1.7)}</span>
+              <span class="fm-txt"><b>Verifiziert auf Mobile.de</b><small>Zum Händlerprofil ${this.icon('arrowRight', 12)}</small></span>
+            </a>` : ''}
           </div>
           <div>
-            <h5>Navigation</h5>
-            <ul class="footer-links">${links}</ul>
+            <h5>Fahrzeuge</h5>
+            <ul class="footer-links">
+              <li><a href="stoc.html">Fahrzeuge</a></li>
+              <li><a href="stoc.html">Marken</a></li>
+              <li><a href="contact.html">Kontakt</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5>Unternehmen</h5>
+            <ul class="footer-links">
+              <li><a href="despre.html">Über uns</a></li>
+              <li><a href="servicii.html">Leistungen</a></li>
+              <li><a href="finantare.html">Finanzierung</a></li>
+            </ul>
           </div>
           <div>
             <h5>Kontakt</h5>
             <ul class="footer-links">
+              <li>${c.address.zip} ${c.address.city}, ${c.address.country}</li>
               <li><a href="tel:${c.phone}">${c.phone}</a></li>
               <li><a href="mailto:${c.email}">${c.email}</a></li>
-              <li>${c.address.street}, ${c.address.zip} ${c.address.city}</li>
-            </ul>
-          </div>
-          <div>
-            <h5>Öffnungszeiten</h5>
-            <ul class="footer-links">
-              <li>Mo – Fr: ${c.hours.weekdays}</li>
-              <li>Sa: ${c.hours.saturday}</li>
-              <li>So: ${c.hours.sunday}</li>
+              <li><a href="https://wa.me/${wa}" target="_blank" rel="noopener">WhatsApp</a></li>
             </ul>
           </div>
         </div>
         <div class="footer-bottom">
-          <span>© ${y} Total24 Automobile. Alle Rechte vorbehalten.</span>
-          <span>Datenschutz · AGB</span>
+          <span>© ${y} ${c.name}. Alle Rechte vorbehalten.</span>
+          <span class="footer-legal">
+            <a href="impressum.html">Impressum</a>
+            <a href="datenschutz.html">Datenschutz</a>
+            <a href="agb.html">AGB</a>
+          </span>
         </div>
       </div>
     </footer>`;
@@ -330,12 +345,13 @@ const T24 = {
     a.setAttribute('aria-label', 'Scrie-ne pe WhatsApp');
     a.innerHTML = this.icon('whatsapp', 28, 1.9);
     document.body.appendChild(a);
-    // Bară sticky jos, doar pe mobil (CSS controlează vizibilitatea)
-    const bar = document.createElement('a');
-    bar.href = `https://wa.me/${wa}`;
-    bar.className = 'wa-sticky';
-    bar.target = '_blank'; bar.rel = 'noopener';
-    bar.innerHTML = `${this.icon('whatsapp', 22, 1.9)} <span>Per WhatsApp anfragen</span>`;
+    // Bară CTA sticky jos, doar pe mobil (CSS controlează vizibilitatea): Anrufen + WhatsApp
+    const phone = this.config.company.phone || '';
+    const bar = document.createElement('div');
+    bar.className = 'mobile-cta';
+    bar.innerHTML =
+      `<a href="tel:${phone}" class="mcta mcta-call" aria-label="Anrufen">${this.icon('phone', 20, 1.9)}<span>Anrufen</span></a>` +
+      `<a href="https://wa.me/${wa}" target="_blank" rel="noopener" class="mcta mcta-wa" aria-label="WhatsApp schreiben">${this.icon('whatsapp', 20, 1.9)}<span>WhatsApp</span></a>`;
     document.body.appendChild(bar);
   },
 
