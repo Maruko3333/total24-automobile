@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin â€” Total24 Automobile</title>
+  <title>Admin — Total24 Automobile</title>
   <meta name="robots" content="noindex,nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,16 +57,16 @@
   <div class="admin-wrap">
     <div class="container">
       <div class="admin-banner">
-        ðŸ”’ <b>Panou intern.</b> ModificÄƒrile se salveazÄƒ Ã®n browserul tÄƒu. Ca sÄƒ aparÄƒ pe site: apasÄƒ <b>â€žExportÄƒ cars.json"</b>,
-        Ã®nlocuieÈ™te fiÈ™ierul <b>data/cars.json</b> din proiect È™i fÄƒ <b>commit + push pe GitHub</b>.
+        🔒 <b>Panou intern.</b> Modificările se salvează în browserul tău. Ca să apară pe site: apasă <b>„Exportă cars.json"</b>,
+        înlocuiește fișierul <b>data/cars.json</b> din proiect și fă <b>commit + push pe GitHub</b>.
       </div>
       <div class="admin-head">
-        <h1>Administrare stoc <span style="color:var(--text-muted);font-size:16px">(<span id="adminCount">0</span> maÈ™ini)</span></h1>
+        <h1>Administrare stoc <span style="color:var(--text-muted);font-size:16px">(<span id="adminCount">0</span> mașini)</span></h1>
         <div class="actions">
           <span id="adminStatus"></span>
-          <button class="btn btn-primary btn-sm" id="btnNew">+ AdaugÄƒ maÈ™inÄƒ</button>
-          <button class="btn btn-outline btn-sm" id="btnExport">ExportÄƒ cars.json</button>
-          <button class="btn btn-outline btn-sm" id="btnImport">ImportÄƒ</button>
+          <button class="btn btn-primary btn-sm" id="btnNew">+ Adaugă mașină</button>
+          <button class="btn btn-outline btn-sm" id="btnExport">Exportă cars.json</button>
+          <button class="btn btn-outline btn-sm" id="btnImport">Importă</button>
           <input type="file" id="importFile" accept="application/json" hidden>
         </div>
       </div>
@@ -77,44 +77,44 @@
   <!-- FORM MODAL -->
   <div class="modal" id="formModal">
     <div class="modal-card">
-      <h2 id="formTitle">AdaugÄƒ maÈ™inÄƒ</h2>
+      <h2 id="formTitle">Adaugă mașină</h2>
       <form id="carForm">
         <div class="form-grid">
-          <div><label>MarcÄƒ</label><input name="make" required placeholder="BMW"></div>
+          <div><label>Marcă</label><input name="make" required placeholder="BMW"></div>
           <div><label>Model</label><input name="model" required placeholder="X5 xDrive40d"></div>
-          <div><label>An fabricaÈ›ie</label><input name="year" type="number" required placeholder="2021"></div>
-          <div><label>Prima Ã®nmatriculare</label><input name="firstReg" placeholder="2021-04"></div>
-          <div><label>PreÈ› (â‚¬)</label><input name="price" type="number" required placeholder="54900"></div>
+          <div><label>An fabricație</label><input name="year" type="number" required placeholder="2021"></div>
+          <div><label>Prima înmatriculare</label><input name="firstReg" placeholder="2021-04"></div>
+          <div><label>Preț (€)</label><input name="price" type="number" required placeholder="54900"></div>
           <div><label>Kilometraj</label><input name="mileage" type="number" required placeholder="68000"></div>
           <div><label>Combustibil</label>
-            <select name="fuel"><option>Diesel</option><option>BenzinÄƒ</option><option>Hibrid</option><option>Electric</option><option>GPL</option></select></div>
+            <select name="fuel"><option>Diesel</option><option>Benzină</option><option>Hibrid</option><option>Electric</option><option>GPL</option></select></div>
           <div><label>Transmisie</label>
-            <select name="transmission"><option>AutomatÄƒ</option><option>ManualÄƒ</option></select></div>
+            <select name="transmission"><option>Automată</option><option>Manuală</option></select></div>
           <div><label>Putere (CP)</label><input name="power" type="number" placeholder="340"></div>
           <div><label>Motor</label><input name="engine" placeholder="3.0d"></div>
-          <div><label>Capacitate (cmÂ³)</label><input name="capacity" type="number" placeholder="2993"></div>
+          <div><label>Capacitate (cm³)</label><input name="capacity" type="number" placeholder="2993"></div>
           <div><label>Culoare</label><input name="color" placeholder="Negru Metalizat"></div>
           <div><label>Caroserie</label>
-            <select name="body"><option>Sedan</option><option>SUV</option><option>Break</option><option>Hatchback</option><option>CoupÃ©</option><option>Cabrio</option><option>Monovolum</option></select></div>
-          <div><label>COâ‚‚ (g/km)</label><input name="co2" type="number" placeholder="179"></div>
-          <div><label>UÈ™i</label><input name="doors" type="number" placeholder="5"></div>
+            <select name="body"><option>Sedan</option><option>SUV</option><option>Break</option><option>Hatchback</option><option>Coupé</option><option>Cabrio</option><option>Monovolum</option></select></div>
+          <div><label>CO₂ (g/km)</label><input name="co2" type="number" placeholder="179"></div>
+          <div><label>Uși</label><input name="doors" type="number" placeholder="5"></div>
           <div><label>Locuri</label><input name="seats" type="number" placeholder="5"></div>
-          <div class="full"><label>DotÄƒri (separate prin virgulÄƒ)</label>
-            <input name="features" placeholder="TrapÄƒ panoramicÄƒ, NavigaÈ›ie, Scaune Ã®ncÄƒlzite"></div>
-          <div class="full"><label>Descriere</label><textarea name="description" placeholder="Descriere maÈ™inÄƒ..."></textarea></div>
+          <div class="full"><label>Dotări (separate prin virgulă)</label>
+            <input name="features" placeholder="Trapă panoramică, Navigație, Scaune încălzite"></div>
+          <div class="full"><label>Descriere</label><textarea name="description" placeholder="Descriere mașină..."></textarea></div>
           <div><label>Status</label>
-            <select name="status"><option value="available">DisponibilÄƒ</option><option value="reserved">RezervatÄƒ</option><option value="sold">VÃ¢ndutÄƒ</option></select></div>
-          <div class="form-check" style="align-self:end"><input type="checkbox" name="featured" id="featured"><label for="featured" style="margin:0;text-transform:none">AfiÈ™eazÄƒ pe prima paginÄƒ (recomandatÄƒ)</label></div>
+            <select name="status"><option value="available">Disponibilă</option><option value="reserved">Rezervată</option><option value="sold">Vândută</option></select></div>
+          <div class="form-check" style="align-self:end"><input type="checkbox" name="featured" id="featured"><label for="featured" style="margin:0;text-transform:none">Afișează pe prima pagină (recomandată)</label></div>
           <div class="full">
             <label>Fotografii</label>
-            <div class="img-drop" onclick="document.getElementById('imgInput').click()">ðŸ“· Click pentru a Ã®ncÄƒrca poze (se redimensioneazÄƒ automat)</div>
+            <div class="img-drop" onclick="document.getElementById('imgInput').click()">📷 Click pentru a încărca poze (se redimensionează automat)</div>
             <input type="file" id="imgInput" accept="image/*" multiple hidden>
             <div class="img-preview" id="imgPreview"></div>
           </div>
         </div>
         <div class="modal-foot">
-          <button type="button" class="btn btn-outline" id="btnCancel">AnuleazÄƒ</button>
-          <button type="submit" class="btn btn-primary">SalveazÄƒ</button>
+          <button type="button" class="btn btn-outline" id="btnCancel">Anulează</button>
+          <button type="submit" class="btn btn-primary">Salvează</button>
         </div>
       </form>
     </div>

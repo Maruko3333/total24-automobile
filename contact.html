@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kontakt â€” Total24 Automobile</title>
-  <meta name="description" content="Kontaktieren Sie Total24 Automobile in FÃ¼rth, Deutschland. Telefon, E-Mail, Ã–ffnungszeiten und Kontaktformular.">
+  <title>Kontakt — Total24 Automobile</title>
+  <meta name="description" content="Kontaktieren Sie Total24 Automobile in Fürth, Deutschland. Telefon, E-Mail, Öffnungszeiten und Kontaktformular.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
   <section class="page-hero">
     <div class="container">
       <h1>Kontakt</h1>
-      <p>Wir sind fÃ¼r Sie da â€” schreiben oder rufen Sie uns an.</p>
+      <p>Wir sind für Sie da — schreiben oder rufen Sie uns an.</p>
     </div>
   </section>
 
@@ -40,7 +40,7 @@
       </div>
 
       <div class="contact-map" style="margin-top:40px">
-        <iframe id="contactMapFrame" title="Karte â€” Total24 Automobile" loading="lazy" src=""></iframe>
+        <iframe id="contactMapFrame" title="Karte — Total24 Automobile" loading="lazy" src=""></iframe>
       </div>
     </div>
   </section>
@@ -67,11 +67,11 @@
 
       // Kontaktdaten
       const info = [
-        ['pin', 'Adresse', `${c.name} Â· ${c.address.street}<br>${c.address.zip} ${c.address.city}, ${c.address.country}<br><a href="${navUrl}" target="_blank" rel="noopener" style="color:var(--gold)">In Google Maps Ã¶ffnen â†’</a>`],
+        ['pin', 'Adresse', `${c.name} · ${c.address.street}<br>${c.address.zip} ${c.address.city}, ${c.address.country}<br><a href="${navUrl}" target="_blank" rel="noopener" style="color:var(--gold)">In Google Maps öffnen →</a>`],
         ['phone', 'Telefon', `<a href="tel:${c.phone}">${c.phone}</a>`],
         ['whatsapp', 'WhatsApp', `<a href="https://wa.me/${wa}" target="_blank" rel="noopener">Schreiben Sie uns auf WhatsApp</a>`],
         ['mail', 'E-Mail', `<a href="mailto:${c.email}">${c.email}</a>`],
-        ['clock', 'Ã–ffnungszeiten', `Mo â€“ Fr: ${c.hours.weekdays}<br>Sa: ${c.hours.saturday}<br>So: geschlossen`]
+        ['clock', 'Öffnungszeiten', `Mo – Fr: ${c.hours.weekdays}<br>Sa: ${c.hours.saturday}<br>So: geschlossen`]
       ];
       document.getElementById('contactInfo').innerHTML = info.map(([ic, t, d]) =>
         `<div class="info-item"><div class="ic">${T24.icon(ic, 22, 1.7)}</div>
@@ -87,36 +87,36 @@
         btn.disabled = true; btn.textContent = 'Wird gesendet...';
         try {
           await T24.sendLead({
-            _subject: `Total24 Automobile â€” Neue Kontaktanfrage von ${f.name.value}`,
+            _subject: `Total24 Automobile — Neue Kontaktanfrage von ${f.name.value}`,
             _template: 'box',
             ...(f.email.value ? {
               _replyto: f.email.value,
               _autoresponse:
                 `Hallo ${f.name.value},\n\n` +
-                `vielen Dank fÃ¼r Ihre Nachricht an Total24 Automobile. ` +
-                `Wir haben Ihre Anfrage erhalten und melden uns so schnell wie mÃ¶glich bei Ihnen.\n\n` +
+                `vielen Dank für Ihre Nachricht an Total24 Automobile. ` +
+                `Wir haben Ihre Anfrage erhalten und melden uns so schnell wie möglich bei Ihnen.\n\n` +
                 `Ihre Nachricht:\n"${f.message.value}"\n\n` +
-                `Mit freundlichen GrÃ¼ÃŸen\n` +
+                `Mit freundlichen Grüßen\n` +
                 `Ihr Team von Total24 Automobile\n` +
-                `${c.phone} Â· ${c.email}`
+                `${c.phone} · ${c.email}`
             } : {}),
             Name: f.name.value,
             Telefon: f.phone.value,
-            'E-Mail': f.email.value || 'â€”',
+            'E-Mail': f.email.value || '—',
             Nachricht: f.message.value
           });
           note.style.color = 'var(--green)';
-          note.textContent = 'Vielen Dank! Ihre Nachricht wurde gesendet â€” wir melden uns in KÃ¼rze.';
+          note.textContent = 'Vielen Dank! Ihre Nachricht wurde gesendet — wir melden uns in Kürze.';
           f.reset();
         } catch (err) {
           note.style.color = 'var(--red)';
-          note.innerHTML = `Senden momentan nicht mÃ¶glich. Schreiben Sie uns direkt auf <a href="https://wa.me/${wa}" target="_blank" rel="noopener" style="color:var(--gold)">WhatsApp</a> oder rufen Sie an.`;
+          note.innerHTML = `Senden momentan nicht möglich. Schreiben Sie uns direkt auf <a href="https://wa.me/${wa}" target="_blank" rel="noopener" style="color:var(--gold)">WhatsApp</a> oder rufen Sie an.`;
         } finally {
           btn.disabled = false; btn.textContent = orig;
         }
       });
 
-      // Strukturierte Daten â€” Autohaus (SEO)
+      // Strukturierte Daten — Autohaus (SEO)
       T24.setCanonical(`${T24.siteUrl()}/contact.html`);
       T24.addJsonLd({
         '@context': 'https://schema.org', '@type': 'AutoDealer',

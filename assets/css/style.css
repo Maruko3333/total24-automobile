@@ -245,18 +245,30 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 600; line-height: 1
    6. SECTIONS — HOME
    ============================================================ */
 
-/* ---- „De ce Total24" (50/50 editorial) ---- */
+/* ---- „De ce Total24" (50/50 editorial, brand) ---- */
 .why-split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
 .why-photo {
-  min-height: 380px; border-radius: var(--radius); border: 1px solid var(--line-soft);
+  position: relative; min-height: 420px; border-radius: var(--radius); overflow: hidden;
+  border: 1px solid var(--line-soft);
   background: url('../img/brand/hero-final.jpg') center/cover no-repeat;
 }
+.why-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(120deg, transparent 42%, rgba(6,7,9,.6)); }
+.why-photo-cap {
+  position: absolute; left: 16px; bottom: 16px; z-index: 2;
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 8px 14px; border-radius: 8px;
+  background: rgba(10,10,10,.7); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,.12);
+  color: #fff; font-size: 12px; font-weight: 700; font-family: var(--font-head); letter-spacing: .6px; text-transform: uppercase;
+}
+.why-photo-cap .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
 .why-text .eyebrow { color: var(--gold); font-size: 13px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 12px; display: block; }
 .why-text h2 { font-size: clamp(28px, 3.4vw, 40px); margin-bottom: 16px; }
 .why-text > p { color: var(--text-soft); font-size: 16.5px; line-height: 1.8; margin-bottom: 26px; }
-.why-list { display: grid; gap: 14px; margin-bottom: 30px; }
-.why-li { display: flex; align-items: center; gap: 13px; color: var(--text); font-size: 15.5px; }
-.why-li .ic { color: var(--gold); flex-shrink: 0; display: inline-flex; }
+.why-list { display: grid; gap: 18px; margin-bottom: 32px; }
+.why-li { display: flex; align-items: flex-start; gap: 14px; }
+.why-li .ic { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: var(--gold-soft); color: var(--gold); margin-top: 1px; }
+.why-li b { display: block; color: var(--text); font-size: 16px; font-weight: 700; font-family: var(--font-head); letter-spacing: .2px; }
+.why-li small { display: block; color: var(--text-soft); font-size: 14px; font-weight: 400; margin-top: 2px; line-height: 1.45; }
 
 /* ---- Carduri stoc „featured" (mari, aerisite) ---- */
 .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
@@ -277,13 +289,14 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 600; line-height: 1
 .feat-link { display: inline-flex; align-items: center; gap: 6px; color: var(--text-soft); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .6px; }
 .feat-card:hover .feat-link { color: var(--gold); }
 
-/* ---- Pași „So funktioniert's" ---- */
+/* ---- Pași „So funktioniert's" — premium: număr mare subtil + icon mic ---- */
 .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
-.step-card { background: var(--bg-card); border: 1px solid var(--line-soft); border-radius: 14px; padding: 28px 22px; transition: all .25s; }
-.step-card:hover { border-color: var(--line); transform: translateY(-3px); }
-.step-num { width: 42px; height: 42px; border-radius: 12px; background: var(--gold-soft); color: var(--gold); display: grid; place-items: center; font-family: var(--font-head); font-weight: 800; font-size: 18px; margin-bottom: 16px; }
-.step-card h3 { font-size: 17px; margin-bottom: 8px; }
-.step-card p { color: var(--text-soft); font-size: 14px; }
+.step-card { position: relative; overflow: hidden; background: var(--bg-card); border: 1px solid var(--line-soft); border-radius: 14px; padding: 30px 24px 26px; transition: all .25s; }
+.step-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+.step-no { position: absolute; top: 6px; right: 16px; font-family: var(--font-head); font-weight: 800; font-size: 76px; line-height: 1; color: var(--gold); opacity: .09; letter-spacing: -3px; pointer-events: none; user-select: none; }
+.step-ic { position: relative; z-index: 1; width: 46px; height: 46px; border-radius: 12px; background: var(--gold-soft); color: var(--gold); display: grid; place-items: center; margin-bottom: 18px; }
+.step-card h3 { position: relative; z-index: 1; font-size: 17px; margin-bottom: 8px; }
+.step-card p { position: relative; z-index: 1; color: var(--text-soft); font-size: 14px; }
 
 /* ---- CTA band + CTA final full-width ---- */
 .cta-band {
@@ -364,6 +377,18 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 600; line-height: 1
 .contact-map iframe { width: 100%; height: 100%; min-height: 340px; border: 0; filter: grayscale(.4) invert(.9) hue-rotate(180deg); }
 .contact-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
 .contact-cta .btn { flex: 1; min-width: 210px; justify-content: center; padding: 15px 18px; font-size: 15px; }
+
+/* ---- Über uns: date reale firmă + locație ---- */
+.about-contact { display: grid; grid-template-columns: .92fr 1.08fr; gap: 44px; align-items: stretch; }
+.about-contact .eyebrow { color: var(--gold); font-size: 13px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 12px; display: block; }
+.about-contact h2 { font-size: clamp(26px, 3vw, 34px); margin-bottom: 12px; }
+.about-contact > .about-contact-info > p { color: var(--text-soft); font-size: 16px; line-height: 1.7; }
+.contact-facts { display: grid; gap: 16px; margin-top: 26px; }
+.contact-fact { display: flex; gap: 14px; align-items: flex-start; }
+.contact-fact .ic { flex-shrink: 0; width: 44px; height: 44px; border-radius: 11px; background: var(--gold-soft); color: var(--gold); display: grid; place-items: center; }
+.contact-fact .k { display: block; color: var(--text-muted); font-size: 11.5px; text-transform: uppercase; letter-spacing: .8px; margin-bottom: 3px; }
+.contact-fact .v { display: block; color: var(--text); font-size: 15.5px; font-weight: 500; }
+.contact-fact a.v:hover { color: var(--gold); }
 
 /* ============================================================
    8. CARDS — STOC (mașini)
@@ -686,7 +711,7 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
   .detail-panel { position: static; }
   .contact-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
-  .about-grid, .finance-grid, .tradein-band { grid-template-columns: 1fr; }
+  .about-grid, .finance-grid, .tradein-band, .about-contact { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr 1fr; }
   .stats-grid { grid-template-columns: 1fr 1fr; gap: 34px 20px; }
   /* stoc: filtre în drawer */
