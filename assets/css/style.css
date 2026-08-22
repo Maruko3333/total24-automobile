@@ -211,12 +211,12 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1
   border: 1px solid rgba(255,255,255,.10); border-radius: 10px;
   box-shadow: 0 8px 22px rgba(6,16,24,.16);
 }
-.trust-strip .trust-item { position: relative; flex: 1; display: flex; align-items: center; gap: 10px; padding: 11px 14px; min-width: 0; }
-.trust-strip .trust-item + .trust-item::before { content: ""; position: absolute; left: 0; top: 28%; bottom: 28%; width: 1px; background: rgba(255,255,255,.10); }
-.trust-strip .trust-item .ic { color: var(--blue-hi); flex-shrink: 0; display: inline-flex; opacity: .9; }
-.trust-strip .trust-item .ic svg { width: 16px; height: 16px; }
-.trust-strip .trust-item b { display: block; color: rgba(255,255,255,.95); font-size: 12px; font-family: var(--font-head); font-weight: 700; margin-bottom: 1px; }
-.trust-strip .trust-item span { display: block; color: rgba(255,255,255,.52); font-size: 11px; line-height: 1.3; }
+.trust-strip .trust-item { position: relative; flex: 1; display: flex; align-items: center; gap: 14px; padding: 18px 20px; min-width: 0; }
+.trust-strip .trust-item + .trust-item::before { content: ""; position: absolute; left: 0; top: 26%; bottom: 26%; width: 1px; background: rgba(255,255,255,.12); }
+.trust-strip .trust-item .ic { color: var(--blue-hi); flex-shrink: 0; display: inline-flex; opacity: 1; }
+.trust-strip .trust-item .ic svg { width: 26px; height: 26px; }
+.trust-strip .trust-item b { display: block; color: #fff; font-size: 15px; font-family: var(--font-head); font-weight: 700; margin-bottom: 3px; }
+.trust-strip .trust-item span { display: block; color: rgba(255,255,255,.7); font-size: 13px; line-height: 1.4; }
 
 /* ============================================================
    6. SECTIONS — HOME
