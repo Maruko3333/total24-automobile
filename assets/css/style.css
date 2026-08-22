@@ -47,8 +47,8 @@
   --shadow-sm:   0 3px 12px rgba(16,42,60,.05);
 
   --container:      1240px;
-  --space-section:  66px;
-  --header-offset:  76px;
+  --space-section:  58px;
+  --header-offset:  70px;
 
   --font:        'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-head:   'Manrope', var(--font);
@@ -141,9 +141,9 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1
   transition: box-shadow .25s ease;
 }
 .header.is-stuck { box-shadow: 0 6px 24px rgba(10,33,48,.28); }
-.nav { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.nav { display: flex; align-items: center; justify-content: space-between; height: 54px; }
 .logo { display: flex; align-items: center; }
-.logo-img { height: 46px; width: auto; max-width: 190px; object-fit: contain; display: block; }
+.logo-img { height: 40px; width: auto; max-width: 176px; object-fit: contain; display: block; }
 .footer-logo-img { height: 52px; max-width: 210px; }
 .nav-links { display: flex; align-items: center; gap: 22px; }
 .nav-links a { position: relative; display: inline-flex; align-items: center; color: rgba(255,255,255,.8); font-weight: 500; font-size: 13px; letter-spacing: .2px; }
@@ -168,7 +168,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1
    ============================================================ */
 .hero-cine {
   position: relative; overflow: hidden; background: #0a1620;
-  width: 100%; height: clamp(460px, 40vw, 750px);   /* înălțime FIXĂ (plafonată) — secțiunea NU crește pe 1920/2560/3840; imaginea e doar crop-uită (cover) */
+  width: 100%; height: clamp(440px, 36vw, 600px);   /* înălțime FIXĂ (plafonată) — secțiunea NU crește pe 1920/2560/3840; imaginea e doar crop-uită (cover). ~500–560px pe desktopuri obișnuite */
   display: flex; align-items: center;
 }
 .hero-bg-pic { position: absolute; inset: 0; z-index: 0; display: block; }
@@ -186,25 +186,25 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1
   padding: 6px 12px; border-radius: 100px;
   font-size: 11.5px; font-weight: 600; letter-spacing: .7px; text-transform: uppercase; margin-bottom: 16px;
 }
-.hero-cine h1 { color: #fff; font-size: clamp(25px, 2.5vw, 35px); line-height: 1.08; letter-spacing: -.6px; margin-bottom: 12px; max-width: 460px; text-shadow: 0 2px 18px rgba(0,0,0,.6), 0 1px 3px rgba(0,0,0,.5); }
+.hero-cine h1 { color: #fff; font-size: clamp(24px, 2.2vw, 32px); font-weight: 800; line-height: 1.16; letter-spacing: -.5px; margin-bottom: 16px; max-width: 480px; text-shadow: 0 2px 18px rgba(0,0,0,.6), 0 1px 3px rgba(0,0,0,.5); }
 .hero-cine h1 .accent { color: var(--blue-hi); display: block; }
-.hero-cine p { color: rgba(255,255,255,.85); font-size: 15.5px; line-height: 1.5; margin-bottom: 22px; max-width: 400px; text-shadow: 0 1px 12px rgba(0,0,0,.6), 0 1px 3px rgba(0,0,0,.5); }
+.hero-cine p { color: rgba(255,255,255,.82); font-size: 15.5px; line-height: 1.6; margin-bottom: 26px; max-width: 410px; text-shadow: 0 1px 12px rgba(0,0,0,.6), 0 1px 3px rgba(0,0,0,.5); }
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
-/* Bară beneficii — glass dark, integrată cu hero-ul (flotantă peste marginea de jos) */
-.trust-strip { position: relative; z-index: 3; margin-top: -46px; margin-bottom: 6px; }
+/* Bară beneficii — discretă, integrată subtil în marginea de jos a hero-ului */
+.trust-strip { position: relative; z-index: 3; margin-top: -34px; margin-bottom: 6px; }
 .trust-strip .container {
-  display: flex; gap: 0; max-width: 1020px; padding: 2px 6px;
-  background: rgba(10,26,38,.62); backdrop-filter: blur(18px);
-  border: 1px solid rgba(255,255,255,.13); border-radius: 12px;
-  box-shadow: 0 12px 30px rgba(6,16,24,.22);
+  display: flex; gap: 0; max-width: 1000px; padding: 0 4px;
+  background: rgba(9,22,32,.42); backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.10); border-radius: 10px;
+  box-shadow: 0 8px 22px rgba(6,16,24,.16);
 }
-.trust-strip .trust-item { position: relative; flex: 1; display: flex; align-items: center; gap: 11px; padding: 14px 16px; min-width: 0; }
-.trust-strip .trust-item + .trust-item::before { content: ""; position: absolute; left: 0; top: 26%; bottom: 26%; width: 1px; background: rgba(255,255,255,.12); }
-.trust-strip .trust-item .ic { color: var(--blue-hi); flex-shrink: 0; display: inline-flex; }
-.trust-strip .trust-item .ic svg { width: 19px; height: 19px; }
-.trust-strip .trust-item b { display: block; color: #fff; font-size: 12.5px; font-family: var(--font-head); font-weight: 700; margin-bottom: 1px; }
-.trust-strip .trust-item span { display: block; color: rgba(255,255,255,.6); font-size: 11.5px; line-height: 1.3; }
+.trust-strip .trust-item { position: relative; flex: 1; display: flex; align-items: center; gap: 10px; padding: 11px 14px; min-width: 0; }
+.trust-strip .trust-item + .trust-item::before { content: ""; position: absolute; left: 0; top: 28%; bottom: 28%; width: 1px; background: rgba(255,255,255,.10); }
+.trust-strip .trust-item .ic { color: var(--blue-hi); flex-shrink: 0; display: inline-flex; opacity: .9; }
+.trust-strip .trust-item .ic svg { width: 16px; height: 16px; }
+.trust-strip .trust-item b { display: block; color: rgba(255,255,255,.95); font-size: 12px; font-family: var(--font-head); font-weight: 700; margin-bottom: 1px; }
+.trust-strip .trust-item span { display: block; color: rgba(255,255,255,.52); font-size: 11px; line-height: 1.3; }
 
 /* ============================================================
    6. SECTIONS — HOME
@@ -239,7 +239,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1
   box-shadow: var(--shadow-sm); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
 .feat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: #d3dde5; }
-.feat-media { aspect-ratio: 16/10; background: var(--bg-soft); overflow: hidden; }
+.feat-media { position: relative; aspect-ratio: 16/10; background: var(--bg-soft); overflow: hidden; }
 .feat-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
 .feat-card:hover .feat-media img { transform: scale(1.03); }
 .feat-body { padding: 16px 18px 18px; display: flex; flex-direction: column; flex: 1; }
@@ -354,7 +354,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1
 .car-media { position: relative; display: block; aspect-ratio: 16/10; background: var(--bg-soft); overflow: hidden; }
 .car-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
 .car-card:hover .car-media img { transform: scale(1.03); }
-.car-badge { position: absolute; top: 12px; left: 12px; background: rgba(14,43,62,.9); color: #fff; font-size: 12px; font-weight: 600; padding: 5px 11px; border-radius: 7px; }
+.car-badge { position: absolute; top: 12px; left: 12px; z-index: 2; background: var(--blue); color: #fff; font-size: 11.5px; font-weight: 700; letter-spacing: .4px; padding: 5px 11px; border-radius: 7px; box-shadow: 0 3px 10px rgba(28,163,224,.32); }
 .car-status { position: absolute; top: 12px; left: 12px; z-index: 2; font-size: 12px; font-weight: 700; padding: 5px 11px; border-radius: 7px; }
 .car-status.status-reserved { background: rgba(28,163,224,.92); color: #fff; }
 .car-status.status-sold { background: rgba(214,72,72,.92); color: #fff; }
@@ -378,14 +378,16 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1
 .car-wa { flex-shrink: 0; width: 48px; display: inline-grid; place-items: center; border-radius: 8px; background: rgba(37,211,102,.12); border: 1px solid rgba(37,211,102,.4); color: #1f9c66; transition: all .2s; }
 .car-wa:hover { background: var(--wa); color: #fff; border-color: var(--wa); }
 
-/* Placeholder card fără foto */
+/* Placeholder card fără foto — brand discret pe navy (nu „proiect neterminat") */
 .feat-media .no-img, .car-media .no-img {
-  width: 100%; height: 100%; display: grid; place-items: center; flex-direction: column; gap: 8px;
-  color: #9aa8b2; background: linear-gradient(135deg, #eef3f7 0%, #f7fafc 100%);
+  width: 100%; height: 100%; display: grid; place-items: center; gap: 10px; text-align: center;
+  background: linear-gradient(135deg, #0e2b3e 0%, #0a2130 100%);
+  color: rgba(255,255,255,.5);
 }
-.feat-media .no-img svg, .car-media .no-img svg { color: var(--blue-hi); }
+.feat-media .no-img svg, .car-media .no-img svg { color: rgba(70,182,233,.55); }
 .feat-media .no-img::after, .car-media .no-img::after {
-  content: "Keine Fotos verfügbar"; font-size: 12px; letter-spacing: .6px; color: #9aa8b2; text-transform: uppercase;
+  content: "TOTAL24 AUTOMOBILE"; font-family: var(--font-head); font-weight: 800;
+  font-size: 12.5px; letter-spacing: 2.2px; color: rgba(255,255,255,.62); text-transform: uppercase;
 }
 
 /* Stoc: layout + toolbar */
