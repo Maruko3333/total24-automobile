@@ -198,6 +198,11 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1
 .hero-cine p { color: rgba(255,255,255,.82); font-size: 15.5px; line-height: 1.6; margin-bottom: 26px; max-width: 410px; text-shadow: 0 1px 12px rgba(0,0,0,.6), 0 1px 3px rgba(0,0,0,.5); }
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
+/* Siglă în colțul stânga-jos al imaginii hero (aliniată cu textul, deasupra benzii de încredere) */
+.hero-brand { position: absolute; left: 0; right: 0; bottom: 52px; z-index: 2; pointer-events: none; }
+.hero-brand .container { display: flex; }
+.hero-brand-img { height: 66px; width: auto; opacity: .92; filter: drop-shadow(0 2px 12px rgba(0,0,0,.6)); }
+
 /* Bară beneficii — discretă, integrată subtil în marginea de jos a hero-ului */
 .trust-strip { position: relative; z-index: 3; margin-top: -34px; margin-bottom: 6px; }
 .trust-strip .container {
@@ -606,6 +611,8 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
     border-bottom: 1px solid rgba(255,255,255,.1); gap: 18px;
   }
   .hero-cine { height: clamp(440px, 56vh, 540px); }
+  .hero-brand { bottom: 40px; }
+  .hero-brand-img { height: 52px; }
   /* Beneficii: panou dark full-width, 2×2 pe tabletă */
   .trust-strip { margin-top: 0; margin-bottom: 0; }
   .trust-strip .container {
@@ -649,6 +656,7 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
   .nav-cta .btn { display: none; }
   /* Hero overlay compact pe mobil (imaginea cover, text jos, gradient de lizibilitate) */
   .hero-cine { height: clamp(400px, 62vh, 480px); align-items: flex-end; }
+  .hero-brand { display: none; }   /* pe telefon textul coboară jos → sigla din header e suficientă */
   .hero-bg { object-position: 62% 50%; }
   .hero-cine::after { background: linear-gradient(0deg, rgba(6,16,24,.93) 0%, rgba(6,16,24,.56) 36%, rgba(6,16,24,.12) 64%, transparent 84%); }
   .hero-cine .container { padding-bottom: 26px; }
