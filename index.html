@@ -262,18 +262,26 @@
         const agg = document.getElementById('reviewsAgg');
         const body = document.getElementById('reviewsBody');
         const src = rv.aggregate || {};
-        if (valid.length) {
+        const hasRating = typeof src.rating === 'number' && src.rating > 0;
+        if (valid.length || hasRating) {
           const avg = src.rating || (valid.reduce((s, r) => s + (r.rating || 5), 0) / valid.length);
           const cnt = src.count || valid.length;
           agg.innerHTML = `<div class="rev-agg"><div class="num">${Number(avg).toFixed(1)}<small>${cnt} ${T24.t('reviews.count')}</small></div>
             <div>${starsHtml(avg)}<div class="agg-src">${src.url ? `${T24.t('reviews.source')} <a href="${src.url}" target="_blank" rel="noopener">${src.source || 'Mobile.de'}</a>` : ''}</div></div></div>`;
-          body.className = 'review-grid';
-          body.innerHTML = valid.slice(0, 6).map(r => `
-            <div class="review-card">${starsHtml(r.rating || 5)}
-              <p class="review-quote">${r.text}</p>
-              <div class="review-author"><span class="av">${(r.name || '?').trim().charAt(0).toUpperCase()}</span>
-                <div class="who"><b>${r.name}</b><span>${[r.car, r.city].filter(Boolean).join(' · ')}</span></div></div>
-            </div>`).join('');
+          if (valid.length) {
+            body.className = 'review-grid';
+            body.innerHTML = valid.slice(0, 6).map(r => `
+              <div class="review-card">${starsHtml(r.rating || 5)}
+                <p class="review-quote">${r.text}</p>
+                <div class="review-author"><span class="av">${(r.name || '?').trim().charAt(0).toUpperCase()}</span>
+                  <div class="who"><b>${r.name}</b><span>${[r.car, r.city].filter(Boolean).join(' · ')}</span></div></div>
+              </div>`).join('');
+          } else {
+            // Doar rating (fără texte de recenzii) → notă mare + link către sursă
+            body.className = '';
+            body.innerHTML = src.url ? `<div style="text-align:center;margin-top:8px">
+              <a href="${src.url}" target="_blank" rel="noopener" class="btn btn-primary">${T24.t('reviews.empty.btn')} ${T24.icon('arrowRight', 15)}</a></div>` : '';
+          }
           sec.style.display = '';
         } else if (src.url) {
           body.className = '';
