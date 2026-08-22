@@ -181,6 +181,21 @@
     </div>
   </section>
 
+  <!-- RATGEBER TEASER -->
+  <section class="section" id="ratgeberTeaser">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Ratgeber</span>
+        <h2>Kaufberatung & Auto-Wissen</h2>
+        <p>Alles rund um Kauf, Finanzierung und Fahrzeuge aus Deutschland — verständlich erklärt.</p>
+      </div>
+      <div class="article-grid" id="ratgeberGrid"></div>
+      <div style="text-align:center;margin-top:40px">
+        <a href="ratgeber.html" class="btn btn-outline">Alle Ratgeber ansehen <span id="rgArrow"></span></a>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <section class="section section--soft">
     <div class="container">
@@ -206,6 +221,7 @@
 
   <script src="assets/js/app.js?v=3"></script>
   <script src="assets/js/cars.js?v=3"></script>
+  <script src="assets/js/ratgeber.js?v=1"></script>
   <script>
     (async () => {
       await T24.mount('home');
@@ -231,6 +247,7 @@
            <div><b>${t}</b><span>${d}</span></div></div>`).join('');
       // „De ce Total24" — 4 beneficii editoriale: keyword bold + o linie de sprijin
       const why = [
+        ['Aus erster Hand', 'Alle unsere Fahrzeuge mit nur einem Vorbesitzer'],
         ['Persönlich geprüft', 'Jedes Fahrzeug wird vor dem Verkauf sorgfältig kontrolliert'],
         ['Transparente Fahrzeughistorie', 'VIN, Dokumente und Wartungshistorie nachvollziehbar'],
         ['Kein anonymer Online-Händler', 'Persönliche Beratung direkt in Fürth'],
@@ -240,6 +257,8 @@
       document.getElementById('whyList').innerHTML = why.map(([label, sub]) =>
         `<div class="why-li"><span class="ic">${T24.icon('check', 15, 2.6)}</span><div><b>${label}</b><small>${sub}</small></div></div>`).join('');
       Cars.renderFeatured('featuredGrid', 3);
+      document.getElementById('rgArrow').innerHTML = T24.icon('arrowRight', 16);
+      Ratgeber.renderLatest('ratgeberGrid', 3);
 
       // ---- Reviews / Kundenstimmen (din data/reviews.json — doar recenzii REALE) ----
       const starSvg = '<svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.7 6.2.6-4.7 4.1 1.4 6.1L12 17l-5.5 3.2 1.4-6.1L3.2 9.9l6.2-.6z"/></svg>';
@@ -279,6 +298,7 @@
       const faqs = [
         ['Kann ich das Fahrzeug vor Ort besichtigen?', 'Ja, sehr gerne. Vereinbaren Sie einfach einen Termin — wir zeigen Ihnen das Fahrzeug persönlich in unserem Showroom in Fürth.'],
         ['Sind die Fahrzeuge geprüft?', 'Ja. Jedes Fahrzeug wird vor dem Verkauf technisch und optisch kontrolliert. Fahrzeughistorie und Dokumente sind für Sie einsehbar.'],
+        ['Sind die Fahrzeuge aus erster Hand?', 'Ja. Unsere Fahrzeuge stammen aus erster Hand — mit nur einem Vorbesitzer und nachvollziehbarer Historie.'],
         ['Ist eine Finanzierung möglich?', 'Ja, wir bieten flexible Finanzierungsmöglichkeiten. Details finden Sie auf unserer <a href="finantare.html">Finanzierungsseite</a> oder sprechen Sie uns direkt an.'],
         ['Kann das Fahrzeug geliefert werden?', 'Eine Lieferung ist deutschlandweit nach Absprache möglich. Kontaktieren Sie uns für die Details zu Ihrem Standort.'],
         ['Welche Unterlagen erhalte ich beim Kauf?', 'Sie erhalten alle relevanten Fahrzeugdokumente — u. a. Fahrzeugbrief und -schein, Serviceheft (sofern vorhanden), Kaufvertrag und Rechnung.'],

@@ -149,7 +149,7 @@ const T24 = {
         { label: 'Kaufberatung', href: 'ratgeber.html?cat=kaufberatung', icon: 'search' },
         { label: 'Fahrzeugvergleich', href: 'ratgeber.html?cat=vergleich', icon: 'gauge' },
         { label: 'Auto-Wissen', href: 'ratgeber.html?cat=wissen', icon: 'wrench' },
-        { label: 'Auto aus Deutschland', href: 'ratgeber.html?cat=deutschland', icon: 'shield' },
+        { label: 'Auto aus Deutschland', href: 'deutschland.html', icon: 'shield' },
         { label: 'Finanzierung', href: 'ratgeber.html?cat=finanzierung', icon: 'percent' }
       ]
     },

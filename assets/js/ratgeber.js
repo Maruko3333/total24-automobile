@@ -36,6 +36,18 @@ const Ratgeber = {
       </div></a>`;
   },
 
+  // ---- Teaser pe HOME: cele mai noi N articole ----
+  async renderLatest(elId, n = 3) {
+    const el = document.getElementById(elId);
+    if (!el) return;
+    await this.load();
+    const arts = (this.data.articles || []).slice()
+      .sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')))
+      .slice(0, n);
+    if (!arts.length) { const s = document.getElementById('ratgeberTeaser'); if (s) s.style.display = 'none'; return; }
+    el.innerHTML = arts.map(a => this.artCard(a)).join('');
+  },
+
   // ==========================================================
   //  HUB — ratgeber.html
   // ==========================================================
