@@ -23,8 +23,8 @@
 
   <section class="page-hero">
     <div class="container">
-      <h1>Fahrzeuge</h1>
-      <p>Wählen Sie aus unseren aktuellen Angeboten.</p>
+      <h1 data-i18n="nav.cars">Fahrzeuge</h1>
+      <p data-i18n="stoc.sub">Wählen Sie aus unseren aktuellen Angeboten.</p>
     </div>
   </section>
 
@@ -34,34 +34,34 @@
         <!-- FILTER -->
         <aside class="filters-side" id="filtersSide">
           <div class="filters-head">
-            <h3>Filter</h3>
-            <button class="filters-close" id="filterClose" aria-label="Filter schließen">✕</button>
+            <h3 data-i18n="stoc.filter">Filter</h3>
+            <button class="filters-close" id="filterClose" aria-label="Filter">✕</button>
           </div>
-          <div class="field"><label>Marke</label><select id="fMake"></select></div>
-          <div class="field"><label>Modell</label><select id="fModel"></select></div>
+          <div class="field"><label data-i18n="stoc.f.make">Marke</label><select id="fMake"></select></div>
+          <div class="field"><label data-i18n="stoc.f.model">Modell</label><select id="fModel"></select></div>
           <div class="field">
-            <label>Höchstpreis</label>
+            <label data-i18n="stoc.f.maxprice">Höchstpreis</label>
             <div class="range-wrap">
-              <div class="range-values"><span>bis</span><span id="priceVal">30.000 €</span></div>
+              <div class="range-values"><span data-i18n="stoc.f.upto">bis</span><span id="priceVal">30.000 €</span></div>
               <input type="range" id="fPrice" min="0" max="80000" step="1000" value="80000">
               <div class="range-values" style="margin-top:6px"><span>0 €</span><span id="priceMax">80.000 €</span></div>
             </div>
           </div>
-          <div class="field"><label>Baujahr</label><select id="fYear"></select></div>
-          <div class="field"><label>Max. Kilometerstand</label>
+          <div class="field"><label data-i18n="stoc.f.year">Baujahr</label><select id="fYear"></select></div>
+          <div class="field"><label data-i18n="stoc.f.maxkm">Max. Kilometerstand</label>
             <select id="fKm">
-              <option value="">Beliebig</option>
-              <option value="50000">bis 50.000 km</option>
-              <option value="100000">bis 100.000 km</option>
-              <option value="150000">bis 150.000 km</option>
-              <option value="200000">bis 200.000 km</option>
+              <option value="" data-i18n="stoc.f.any">Beliebig</option>
+              <option value="50000" data-i18n="stoc.f.km50">bis 50.000 km</option>
+              <option value="100000" data-i18n="stoc.f.km100">bis 100.000 km</option>
+              <option value="150000" data-i18n="stoc.f.km150">bis 150.000 km</option>
+              <option value="200000" data-i18n="stoc.f.km200">bis 200.000 km</option>
             </select>
           </div>
-          <div class="field"><label>Kraftstoff</label><select id="fFuel"></select></div>
-          <div class="field"><label>Getriebe</label><select id="fGear"></select></div>
-          <div class="field"><label>Karosserie</label><select id="fBody"></select></div>
-          <button class="btn btn-primary btn-block" id="fApplyCount">Filtern</button>
-          <button class="btn btn-ghost btn-block" id="fReset" style="margin-top:8px">Filter zurücksetzen</button>
+          <div class="field"><label data-i18n="stoc.f.fuel">Kraftstoff</label><select id="fFuel"></select></div>
+          <div class="field"><label data-i18n="stoc.f.gear">Getriebe</label><select id="fGear"></select></div>
+          <div class="field"><label data-i18n="stoc.f.body">Karosserie</label><select id="fBody"></select></div>
+          <button class="btn btn-primary btn-block" id="fApplyCount" data-i18n="stoc.f.apply">Filtern</button>
+          <button class="btn btn-ghost btn-block" id="fReset" style="margin-top:8px" data-i18n="stoc.f.reset">Filter zurücksetzen</button>
         </aside>
 
         <!-- ERGEBNISSE -->
@@ -69,16 +69,16 @@
           <div class="stoc-toolbar">
             <span class="count" id="carsCount"><b>0</b> Fahrzeuge verfügbar</span>
             <div class="toolbar-actions">
-              <button class="btn-filter-m" id="filterOpen">Filter</button>
-              <button class="fav-toggle" id="favToggle" aria-pressed="false">Meine Favoriten <b id="favCount">0</b></button>
+              <button class="btn-filter-m" id="filterOpen"><span data-i18n="stoc.filter">Filter</span></button>
+              <button class="fav-toggle" id="favToggle" aria-pressed="false"><span data-i18n="stoc.favs">Meine Favoriten</span> <b id="favCount">0</b></button>
               <div class="sort-box">
-                <label>Sortieren:</label>
+                <label data-i18n="stoc.sortby">Sortieren:</label>
                 <select id="fSort">
-                  <option value="">Empfohlen</option>
-                  <option value="year-desc">Neueste</option>
-                  <option value="price-asc">Preis aufsteigend</option>
-                  <option value="price-desc">Preis absteigend</option>
-                  <option value="km-asc">Wenig Kilometer</option>
+                  <option value="" data-i18n="stoc.sort.rec">Empfohlen</option>
+                  <option value="year-desc" data-i18n="stoc.sort.new">Neueste</option>
+                  <option value="price-asc" data-i18n="stoc.sort.priceasc">Preis aufsteigend</option>
+                  <option value="price-desc" data-i18n="stoc.sort.pricedesc">Preis absteigend</option>
+                  <option value="km-asc" data-i18n="stoc.sort.kmasc">Wenig Kilometer</option>
                 </select>
               </div>
             </div>
@@ -92,8 +92,8 @@
 
   <div id="site-footer"></div>
 
-  <script src="assets/js/app.js?v=4"></script>
-  <script src="assets/js/cars.js?v=4"></script>
+  <script src="assets/js/app.js?v=6"></script>
+  <script src="assets/js/cars.js?v=6"></script>
   <script>
     (async () => { await T24.mount('stoc'); Cars.initStoc(); })();
   </script>

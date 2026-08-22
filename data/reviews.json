@@ -1,19 +1,43 @@
 {
   "aggregate": {
-    "rating": null,
-    "count": null,
+    "rating": 4.9,
+    "count": 24,
     "source": "Mobile.de",
     "url": "https://www.mobile.de/bewertungen/TotalAutomobileEinzelunternehmenInhPetrePaulVirjan"
   },
   "reviews": [
     {
-      "name": "",
+      "name": "Claudiu",
       "city": "",
       "car": "",
-      "date": "",
+      "date": "2026-06",
       "rating": 5,
-      "text": ""
+      "text": "Der Autokauf bei Total24 Automobile war eine sehr positive Erfahrung – eine glatte 10! Vom ersten Telefonat bis zum Abschluss des Kaufs war alles transparent und man stand jederzeit für Fragen zur Verfügung. Eine rundum angenehme Erfahrung. Absolut empfehlenswert!"
+    },
+    {
+      "name": "Thomas",
+      "city": "",
+      "car": "",
+      "date": "2026-06",
+      "rating": 5,
+      "text": "Freundlicher Verkäufer, Auto war sauber und in gutem Zustand. Vielen Dank!"
+    },
+    {
+      "name": "Marius",
+      "city": "",
+      "car": "",
+      "date": "2026-06",
+      "rating": 5,
+      "text": "Alles war perfekt: schneller Termin, freundlich und guter Kaffee."
+    },
+    {
+      "name": "Paul V.",
+      "city": "",
+      "car": "",
+      "date": "2026-06",
+      "rating": 5,
+      "text": "Alles sehr professionell."
     }
   ],
-  "_hinweis": "ECHTE Bewertungen hier eintragen (aus Mobile.de / Google / WhatsApp mit Erlaubnis). Leere Einträge werden NICHT angezeigt. 'aggregate.rating' (z.B. 4.9) und 'count' (z.B. 37) nur eintragen, wenn sie den echten Mobile.de-Zahlen entsprechen. Beispiel eines Eintrags: { \"name\": \"Andreas M.\", \"city\": \"Nürnberg\", \"car\": \"Audi A3\", \"date\": \"2026-07\", \"rating\": 5, \"text\": \"Sehr freundlich und transparent...\" }"
+  "_hinweis": "Echte Bewertungen von der Mobile.de-Händlerseite (Stand: 24 Bewertungen, Ø 4,9). Neue Bewertungen hier ergänzen; leere Einträge (ohne name/text) werden nicht angezeigt."
 }

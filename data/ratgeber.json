@@ -1,10 +1,35 @@
 {
   "categories": [
-    { "key": "kaufberatung", "label": "Kaufberatung", "icon": "search", "desc": "So finden Sie das richtige Fahrzeug — Schritt für Schritt." },
-    { "key": "vergleich", "label": "Fahrzeugvergleich", "icon": "gauge", "desc": "BMW, Audi, Mercedes & Co. im direkten Vergleich." },
-    { "key": "wissen", "label": "Auto-Wissen", "icon": "wrench", "desc": "Motoren, TÜV, Wartung und typische Probleme." },
-    { "key": "deutschland", "label": "Auto aus Deutschland", "icon": "shield", "desc": "Alles rund um den Kauf eines Fahrzeugs in Deutschland." },
-    { "key": "finanzierung", "label": "Finanzierung", "icon": "percent", "desc": "Kosten, Raten und Finanzierungsmöglichkeiten." }
+    {
+      "key": "kaufberatung",
+      "label": "Kaufberatung",
+      "icon": "search",
+      "desc": "So finden Sie das richtige Fahrzeug — Schritt für Schritt."
+    },
+    {
+      "key": "vergleich",
+      "label": "Fahrzeugvergleich",
+      "icon": "gauge",
+      "desc": "BMW, Audi, Mercedes & Co. im direkten Vergleich."
+    },
+    {
+      "key": "wissen",
+      "label": "Auto-Wissen",
+      "icon": "wrench",
+      "desc": "Motoren, TÜV, Wartung und typische Probleme."
+    },
+    {
+      "key": "deutschland",
+      "label": "Auto aus Deutschland",
+      "icon": "shield",
+      "desc": "Alles rund um den Kauf eines Fahrzeugs in Deutschland."
+    },
+    {
+      "key": "finanzierung",
+      "label": "Finanzierung",
+      "icon": "percent",
+      "desc": "Kosten, Raten und Finanzierungsmöglichkeiten."
+    }
   ],
   "articles": [
     {
@@ -12,73 +37,172 @@
       "category": "deutschland",
       "title": "Gebrauchtwagen aus Deutschland kaufen – der komplette Guide",
       "excerpt": "Warum sich ein Gebrauchtwagen aus Deutschland lohnt, worauf Sie achten müssen, welche Dokumente Sie brauchen und wie der Kauf Schritt für Schritt abläuft.",
-      "image": "assets/img/brand/showroom.jpg",
+      "image": "assets/img/ratgeber/deutschland.svg",
       "date": "2026-08-22",
       "readingTime": 9,
       "relatedMake": null,
       "lead": "Ein Gebrauchtwagen aus Deutschland gilt als sichere Wahl — gepflegte Fahrzeuge, lückenlose Historie und ein transparenter Markt. Aber worauf kommt es wirklich an? Dieser Guide führt Sie durch alles Wichtige: Vorteile, Prüfpunkte, Dokumente, Kosten und den Ablauf.",
       "toc": true,
       "blocks": [
-        { "t": "h2", "id": "warum", "text": "Warum ein Gebrauchtwagen aus Deutschland?" },
-        { "t": "p", "html": "Deutschland hat einen der größten und transparentesten Gebrauchtwagenmärkte Europas. Viele Fahrzeuge stammen aus erster Hand, werden regelmäßig in der Markenwerkstatt gewartet und sind gut dokumentiert. Dazu kommt eine strenge technische Überwachung (HU/TÜV), die den Zustand nachvollziehbar macht." },
-        { "t": "ul", "items": [
-          "<strong>Gepflegte Fahrzeuge:</strong> häufig scheckheftgepflegt und aus erster Hand.",
-          "<strong>Transparente Historie:</strong> Serviceheft, Rechnungen und HU-Berichte sind meist vorhanden.",
-          "<strong>Große Auswahl:</strong> praktisch jedes Modell, jede Motorisierung und Ausstattung verfügbar.",
-          "<strong>Faire Preise:</strong> ein großer, offener Markt sorgt für marktgerechte Preise."
-        ]},
-        { "t": "h2", "id": "achten", "text": "Worauf Sie beim Kauf achten sollten" },
-        { "t": "p", "html": "Ein guter Gebrauchtwagen erkennt man nicht nur am Preis. Diese Punkte sollten Sie immer prüfen:" },
-        { "t": "h3", "text": "Scheckheft & Servicehistorie" },
-        { "t": "p", "html": "Ein gepflegtes Serviceheft zeigt, dass alle Inspektionen rechtzeitig durchgeführt wurden — idealerweise in der Markenwerkstatt. Lückenlose Wartung ist der beste Hinweis auf einen zuverlässigen Wagen." },
-        { "t": "h3", "text": "HU/TÜV & technischer Zustand" },
-        { "t": "p", "html": "Prüfen Sie, wie lange die Hauptuntersuchung (HU) noch gültig ist. Ein frischer TÜV ist ein Pluspunkt. Achten Sie außerdem auf Reifen, Bremsen, Flüssigkeiten und den allgemeinen Zustand." },
-        { "t": "h3", "text": "Kilometerstand & Unfallfreiheit" },
-        { "t": "p", "html": "Der Kilometerstand sollte zur Historie passen (Rechnungen, HU-Berichte). Lassen Sie sich die Unfallfreiheit bestätigen und achten Sie auf ungleiche Spaltmaße oder Lackunterschiede." },
-        { "t": "h3", "text": "VIN / Fahrgestellnummer" },
-        { "t": "p", "html": "Die VIN (Fahrgestellnummer) muss in allen Dokumenten und am Fahrzeug übereinstimmen. Sie ist die eindeutige Identität des Autos und wichtig für jede spätere Ummeldung." },
-        { "t": "note", "title": "Total24-Tipp", "html": "Bei uns sind Historie, Dokumente und VIN für jedes Fahrzeug einsehbar — auf Wunsch schon vor der Besichtigung. Fragen Sie einfach nach." },
-        { "t": "h2", "id": "dokumente", "text": "Welche Dokumente brauchen Sie?" },
-        { "t": "p", "html": "Beim Kauf eines Fahrzeugs in Deutschland gehören diese Unterlagen dazu:" },
-        { "t": "ul", "items": [
-          "<strong>Zulassungsbescheinigung Teil I</strong> (früher Fahrzeugschein).",
-          "<strong>Zulassungsbescheinigung Teil II</strong> (früher Fahrzeugbrief) — das wichtigste Eigentumsdokument.",
-          "<strong>Serviceheft / Wartungsnachweise</strong>, sofern vorhanden.",
-          "<strong>HU-Bericht</strong> der letzten Hauptuntersuchung.",
-          "<strong>Kaufvertrag und Rechnung</strong> vom Händler.",
-          "Bei Ausfuhr ins Ausland ggf. die <strong>COC-Bescheinigung</strong> (Übereinstimmungsbescheinigung)."
-        ]},
-        { "t": "h2", "id": "kosten", "text": "Was kostet es wirklich?" },
-        { "t": "p", "html": "Neben dem Fahrzeugpreis sollten Sie folgende Positionen einplanen — je nachdem, ob Sie das Auto in Deutschland fahren oder ausführen:" },
-        { "t": "ul", "items": [
-          "<strong>Fahrzeugpreis</strong> — inklusive ausgewiesener MwSt. beim Händler.",
-          "<strong>Zulassung / Ummeldung</strong> auf Ihren Namen.",
-          "<strong>Überführung oder Lieferung</strong> — Kurzzeitkennzeichen oder Transport.",
-          "<strong>Optional: Finanzierung</strong> — monatliche Rate statt Einmalzahlung."
-        ]},
-        { "t": "note", "title": "Finanzierung möglich", "html": "Sie müssen nicht alles auf einmal zahlen. Rechnen Sie Ihre mögliche Monatsrate direkt im <a href=\"finantare.html\">Finanzierungsrechner</a> aus." },
-        { "t": "h2", "id": "ablauf", "text": "Der Kaufablauf – Schritt für Schritt" },
-        { "t": "ol", "items": [
-          "<strong>Fahrzeug auswählen</strong> — aus dem Bestand oder nach Ihren Wünschen.",
-          "<strong>Prüfung & Historie</strong> — Zustand, Serviceheft und VIN kontrollieren.",
-          "<strong>Besichtigung / Beratung</strong> — vor Ort in Fürth oder per Telefon und WhatsApp.",
-          "<strong>Reservierung & Papiere</strong> — Kaufvertrag und Unterlagen vorbereiten.",
-          "<strong>Übergabe</strong> — Abholung im Showroom oder Lieferung nach Absprache."
-        ]},
-        { "t": "h2", "id": "fehler", "text": "Häufige Fehler vermeiden" },
-        { "t": "ul", "items": [
-          "Nur auf den Preis schauen und die Historie ignorieren.",
-          "Fahrzeug ohne Dokumentencheck kaufen.",
-          "Kilometerstand nicht mit Rechnungen/HU-Berichten abgleichen.",
-          "Keine schriftliche Bestätigung der Unfallfreiheit verlangen."
-        ]},
-        { "t": "h2", "id": "fazit", "text": "Fazit" },
-        { "t": "p", "html": "Ein Gebrauchtwagen aus Deutschland ist eine sichere Wahl — wenn Sie auf Historie, Dokumente und Zustand achten. Am einfachsten geht das mit einem Händler, der Transparenz bietet und Sie persönlich berät. Genau dafür steht Total24 Automobile in Fürth." }
+        {
+          "t": "h2",
+          "id": "warum",
+          "text": "Warum ein Gebrauchtwagen aus Deutschland?"
+        },
+        {
+          "t": "p",
+          "html": "Deutschland hat einen der größten und transparentesten Gebrauchtwagenmärkte Europas. Viele Fahrzeuge stammen aus erster Hand, werden regelmäßig in der Markenwerkstatt gewartet und sind gut dokumentiert. Dazu kommt eine strenge technische Überwachung (HU/TÜV), die den Zustand nachvollziehbar macht."
+        },
+        {
+          "t": "ul",
+          "items": [
+            "<strong>Gepflegte Fahrzeuge:</strong> häufig scheckheftgepflegt und aus erster Hand.",
+            "<strong>Transparente Historie:</strong> Serviceheft, Rechnungen und HU-Berichte sind meist vorhanden.",
+            "<strong>Große Auswahl:</strong> praktisch jedes Modell, jede Motorisierung und Ausstattung verfügbar.",
+            "<strong>Faire Preise:</strong> ein großer, offener Markt sorgt für marktgerechte Preise."
+          ]
+        },
+        {
+          "t": "h2",
+          "id": "achten",
+          "text": "Worauf Sie beim Kauf achten sollten"
+        },
+        {
+          "t": "p",
+          "html": "Ein guter Gebrauchtwagen erkennt man nicht nur am Preis. Diese Punkte sollten Sie immer prüfen:"
+        },
+        {
+          "t": "h3",
+          "text": "Scheckheft & Servicehistorie"
+        },
+        {
+          "t": "p",
+          "html": "Ein gepflegtes Serviceheft zeigt, dass alle Inspektionen rechtzeitig durchgeführt wurden — idealerweise in der Markenwerkstatt. Lückenlose Wartung ist der beste Hinweis auf einen zuverlässigen Wagen."
+        },
+        {
+          "t": "h3",
+          "text": "HU/TÜV & technischer Zustand"
+        },
+        {
+          "t": "p",
+          "html": "Prüfen Sie, wie lange die Hauptuntersuchung (HU) noch gültig ist. Ein frischer TÜV ist ein Pluspunkt. Achten Sie außerdem auf Reifen, Bremsen, Flüssigkeiten und den allgemeinen Zustand."
+        },
+        {
+          "t": "h3",
+          "text": "Kilometerstand & Unfallfreiheit"
+        },
+        {
+          "t": "p",
+          "html": "Der Kilometerstand sollte zur Historie passen (Rechnungen, HU-Berichte). Lassen Sie sich die Unfallfreiheit bestätigen und achten Sie auf ungleiche Spaltmaße oder Lackunterschiede."
+        },
+        {
+          "t": "h3",
+          "text": "VIN / Fahrgestellnummer"
+        },
+        {
+          "t": "p",
+          "html": "Die VIN (Fahrgestellnummer) muss in allen Dokumenten und am Fahrzeug übereinstimmen. Sie ist die eindeutige Identität des Autos und wichtig für jede spätere Ummeldung."
+        },
+        {
+          "t": "note",
+          "title": "Total24-Tipp",
+          "html": "Bei uns sind Historie, Dokumente und VIN für jedes Fahrzeug einsehbar — auf Wunsch schon vor der Besichtigung. Fragen Sie einfach nach."
+        },
+        {
+          "t": "h2",
+          "id": "dokumente",
+          "text": "Welche Dokumente brauchen Sie?"
+        },
+        {
+          "t": "p",
+          "html": "Beim Kauf eines Fahrzeugs in Deutschland gehören diese Unterlagen dazu:"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "<strong>Zulassungsbescheinigung Teil I</strong> (früher Fahrzeugschein).",
+            "<strong>Zulassungsbescheinigung Teil II</strong> (früher Fahrzeugbrief) — das wichtigste Eigentumsdokument.",
+            "<strong>Serviceheft / Wartungsnachweise</strong>, sofern vorhanden.",
+            "<strong>HU-Bericht</strong> der letzten Hauptuntersuchung.",
+            "<strong>Kaufvertrag und Rechnung</strong> vom Händler.",
+            "Bei Ausfuhr ins Ausland ggf. die <strong>COC-Bescheinigung</strong> (Übereinstimmungsbescheinigung)."
+          ]
+        },
+        {
+          "t": "h2",
+          "id": "kosten",
+          "text": "Was kostet es wirklich?"
+        },
+        {
+          "t": "p",
+          "html": "Neben dem Fahrzeugpreis sollten Sie folgende Positionen einplanen — je nachdem, ob Sie das Auto in Deutschland fahren oder ausführen:"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "<strong>Fahrzeugpreis</strong> — inklusive ausgewiesener MwSt. beim Händler.",
+            "<strong>Zulassung / Ummeldung</strong> auf Ihren Namen.",
+            "<strong>Überführung oder Lieferung</strong> — Kurzzeitkennzeichen oder Transport.",
+            "<strong>Optional: Finanzierung</strong> — monatliche Rate statt Einmalzahlung."
+          ]
+        },
+        {
+          "t": "note",
+          "title": "Finanzierung möglich",
+          "html": "Sie müssen nicht alles auf einmal zahlen. Rechnen Sie Ihre mögliche Monatsrate direkt im <a href=\"finantare.html\">Finanzierungsrechner</a> aus."
+        },
+        {
+          "t": "h2",
+          "id": "ablauf",
+          "text": "Der Kaufablauf – Schritt für Schritt"
+        },
+        {
+          "t": "ol",
+          "items": [
+            "<strong>Fahrzeug auswählen</strong> — aus dem Bestand oder nach Ihren Wünschen.",
+            "<strong>Prüfung & Historie</strong> — Zustand, Serviceheft und VIN kontrollieren.",
+            "<strong>Besichtigung / Beratung</strong> — vor Ort in Fürth oder per Telefon und WhatsApp.",
+            "<strong>Reservierung & Papiere</strong> — Kaufvertrag und Unterlagen vorbereiten.",
+            "<strong>Übergabe</strong> — Abholung im Showroom oder Lieferung nach Absprache."
+          ]
+        },
+        {
+          "t": "h2",
+          "id": "fehler",
+          "text": "Häufige Fehler vermeiden"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Nur auf den Preis schauen und die Historie ignorieren.",
+            "Fahrzeug ohne Dokumentencheck kaufen.",
+            "Kilometerstand nicht mit Rechnungen/HU-Berichten abgleichen.",
+            "Keine schriftliche Bestätigung der Unfallfreiheit verlangen."
+          ]
+        },
+        {
+          "t": "h2",
+          "id": "fazit",
+          "text": "Fazit"
+        },
+        {
+          "t": "p",
+          "html": "Ein Gebrauchtwagen aus Deutschland ist eine sichere Wahl — wenn Sie auf Historie, Dokumente und Zustand achten. Am einfachsten geht das mit einem Händler, der Transparenz bietet und Sie persönlich berät. Genau dafür steht Total24 Automobile in Fürth."
+        }
       ],
       "faq": [
-        ["Kann ich das Fahrzeug vor dem Kauf besichtigen?", "Ja, gerne nach Terminvereinbarung in unserem Showroom in Fürth — oder wir klären Details vorab per Telefon und WhatsApp."],
-        ["Sind die Fahrzeuge unfallfrei?", "Wir weisen den Zustand jedes Fahrzeugs transparent aus. Die Unfallfreiheit bzw. bekannte Vorschäden werden Ihnen offen mitgeteilt."],
-        ["Ist eine Lieferung möglich?", "Ja, deutschlandweit nach Absprache. Sprechen Sie uns für die Details zu Ihrem Standort an."]
+        [
+          "Kann ich das Fahrzeug vor dem Kauf besichtigen?",
+          "Ja, gerne nach Terminvereinbarung in unserem Showroom in Fürth — oder wir klären Details vorab per Telefon und WhatsApp."
+        ],
+        [
+          "Sind die Fahrzeuge unfallfrei?",
+          "Wir weisen den Zustand jedes Fahrzeugs transparent aus. Die Unfallfreiheit bzw. bekannte Vorschäden werden Ihnen offen mitgeteilt."
+        ],
+        [
+          "Ist eine Lieferung möglich?",
+          "Ja, deutschlandweit nach Absprache. Sprechen Sie uns für die Details zu Ihrem Standort an."
+        ]
       ]
     },
     {
@@ -86,41 +210,105 @@
       "category": "kaufberatung",
       "title": "Audi A3 gebraucht kaufen – Kaufberatung & typische Punkte",
       "excerpt": "Der Audi A3 ist einer der beliebtesten Kompakten überhaupt. Welche Motoren empfehlenswert sind, worauf Sie beim Gebrauchten achten sollten und was der A3 im Alltag kann.",
-      "image": "assets/img/cars/audi-a3-35tdi-2022-1.jpg",
+      "image": "assets/img/ratgeber/audi-a3.svg",
       "date": "2026-08-22",
       "readingTime": 7,
       "relatedMake": "Audi",
       "lead": "Kurz gesagt: Der Audi A3 verbindet Premium-Anspruch mit Alltagstauglichkeit — hochwertig verarbeitet, sparsam und wertstabil. Worauf es beim Gebrauchtkauf ankommt, lesen Sie hier.",
       "toc": true,
       "blocks": [
-        { "t": "h2", "id": "ueberblick", "text": "Der Audi A3 im Überblick" },
-        { "t": "p", "html": "Der Audi A3 ist ein Kompaktwagen der Premiumklasse und seit Jahren einer der Bestseller in seinem Segment. Er punktet mit hochwertiger Verarbeitung, moderner Technik und einem breiten Motorenangebot — als Limousine oder Sportback." },
-        { "t": "rating", "title": "Unsere Einschätzung", "rows": [
-          ["Komfort", 4],
-          ["Zuverlässigkeit", 4],
-          ["Verbrauch", 5],
-          ["Verarbeitung", 5],
-          ["Unterhaltskosten", 4]
-        ]},
-        { "t": "h2", "id": "motoren", "text": "Welche Motoren sind empfehlenswert?" },
-        { "t": "p", "html": "Die TDI-Diesel (z. B. 30 TDI und 35 TDI) sind sparsam und ideal für Vielfahrer und lange Strecken. Die TFSI-Benziner passen besser zu Kurzstrecke und Stadt. Die Automatik (S tronic) schaltet komfortabel und ist im Alltag sehr angenehm." },
-        { "t": "note", "title": "Für Vielfahrer", "html": "Ein 35 TDI mit Automatik ist ein guter Kompromiss aus Sparsamkeit, Reichweite und Komfort — besonders auf der Langstrecke." },
-        { "t": "h2", "id": "pruefen", "text": "Worauf Sie beim Kauf achten sollten" },
-        { "t": "ul", "items": [
-          "<strong>Scheckheft</strong> — lückenlose Wartung, idealerweise bei Audi.",
-          "<strong>DSG/S-tronic</strong> — sauberes Schalten ohne Ruckeln prüfen.",
-          "<strong>Elektronik & Ausstattung</strong> — MMI, Assistenzsysteme und Klimaautomatik testen.",
-          "<strong>Reifen & Bremsen</strong> — Zustand und Profiltiefe kontrollieren.",
-          "<strong>Historie & VIN</strong> — Dokumente und Kilometerstand abgleichen."
-        ]},
-        { "t": "h2", "id": "kosten", "text": "Kosten & Unterhalt" },
-        { "t": "p", "html": "Der A3 gilt als wertstabil. Die Unterhaltskosten sind für ein Premium-Fahrzeug moderat, TDI-Modelle überzeugen mit niedrigem Verbrauch. Achten Sie auf die Ausstattungslinie — sie beeinflusst Wert und Wiederverkauf spürbar." },
-        { "t": "h2", "id": "fazit", "text": "Fazit" },
-        { "t": "p", "html": "Der Audi A3 ist ein hochwertiger, sparsamer und wertstabiler Kompakter — eine sichere Wahl gebraucht, wenn Historie und Zustand stimmen. Prüfen Sie Scheckheft, Getriebe und Ausstattung, dann macht der A3 lange Freude." }
+        {
+          "t": "h2",
+          "id": "ueberblick",
+          "text": "Der Audi A3 im Überblick"
+        },
+        {
+          "t": "p",
+          "html": "Der Audi A3 ist ein Kompaktwagen der Premiumklasse und seit Jahren einer der Bestseller in seinem Segment. Er punktet mit hochwertiger Verarbeitung, moderner Technik und einem breiten Motorenangebot — als Limousine oder Sportback."
+        },
+        {
+          "t": "rating",
+          "title": "Unsere Einschätzung",
+          "rows": [
+            [
+              "Komfort",
+              4
+            ],
+            [
+              "Zuverlässigkeit",
+              4
+            ],
+            [
+              "Verbrauch",
+              5
+            ],
+            [
+              "Verarbeitung",
+              5
+            ],
+            [
+              "Unterhaltskosten",
+              4
+            ]
+          ]
+        },
+        {
+          "t": "h2",
+          "id": "motoren",
+          "text": "Welche Motoren sind empfehlenswert?"
+        },
+        {
+          "t": "p",
+          "html": "Die TDI-Diesel (z. B. 30 TDI und 35 TDI) sind sparsam und ideal für Vielfahrer und lange Strecken. Die TFSI-Benziner passen besser zu Kurzstrecke und Stadt. Die Automatik (S tronic) schaltet komfortabel und ist im Alltag sehr angenehm."
+        },
+        {
+          "t": "note",
+          "title": "Für Vielfahrer",
+          "html": "Ein 35 TDI mit Automatik ist ein guter Kompromiss aus Sparsamkeit, Reichweite und Komfort — besonders auf der Langstrecke."
+        },
+        {
+          "t": "h2",
+          "id": "pruefen",
+          "text": "Worauf Sie beim Kauf achten sollten"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "<strong>Scheckheft</strong> — lückenlose Wartung, idealerweise bei Audi.",
+            "<strong>DSG/S-tronic</strong> — sauberes Schalten ohne Ruckeln prüfen.",
+            "<strong>Elektronik & Ausstattung</strong> — MMI, Assistenzsysteme und Klimaautomatik testen.",
+            "<strong>Reifen & Bremsen</strong> — Zustand und Profiltiefe kontrollieren.",
+            "<strong>Historie & VIN</strong> — Dokumente und Kilometerstand abgleichen."
+          ]
+        },
+        {
+          "t": "h2",
+          "id": "kosten",
+          "text": "Kosten & Unterhalt"
+        },
+        {
+          "t": "p",
+          "html": "Der A3 gilt als wertstabil. Die Unterhaltskosten sind für ein Premium-Fahrzeug moderat, TDI-Modelle überzeugen mit niedrigem Verbrauch. Achten Sie auf die Ausstattungslinie — sie beeinflusst Wert und Wiederverkauf spürbar."
+        },
+        {
+          "t": "h2",
+          "id": "fazit",
+          "text": "Fazit"
+        },
+        {
+          "t": "p",
+          "html": "Der Audi A3 ist ein hochwertiger, sparsamer und wertstabiler Kompakter — eine sichere Wahl gebraucht, wenn Historie und Zustand stimmen. Prüfen Sie Scheckheft, Getriebe und Ausstattung, dann macht der A3 lange Freude."
+        }
       ],
       "faq": [
-        ["Ist der Audi A3 zuverlässig?", "Ja, bei gepflegter Wartung gilt der A3 als zuverlässig und langlebig. Entscheidend sind lückenloses Scheckheft und ein sauberer Getriebezustand."],
-        ["Diesel oder Benziner beim A3?", "Für viele Kilometer und Langstrecke lohnt sich der TDI-Diesel. Für Stadt und Kurzstrecke ist ein TFSI-Benziner die bessere Wahl."]
+        [
+          "Ist der Audi A3 zuverlässig?",
+          "Ja, bei gepflegter Wartung gilt der A3 als zuverlässig und langlebig. Entscheidend sind lückenloses Scheckheft und ein sauberer Getriebezustand."
+        ],
+        [
+          "Diesel oder Benziner beim A3?",
+          "Für viele Kilometer und Langstrecke lohnt sich der TDI-Diesel. Für Stadt und Kurzstrecke ist ein TFSI-Benziner die bessere Wahl."
+        ]
       ]
     },
     {
@@ -128,45 +316,109 @@
       "category": "kaufberatung",
       "title": "BMW 3er gebraucht kaufen – darauf sollten Sie achten",
       "excerpt": "Der BMW 3er ist die Referenz unter den Business-Limousinen. Welche Motoren empfehlenswert sind, welche typischen Schwachstellen es gibt und worauf Sie beim Gebrauchtkauf achten sollten.",
-      "image": "assets/img/brand/showroom.jpg",
+      "image": "assets/img/ratgeber/bmw-3er.svg",
       "date": "2026-08-22",
       "readingTime": 7,
       "relatedMake": "BMW",
       "lead": "Kurz gesagt: Der BMW 3er verbindet sportliches Fahrverhalten mit Alltagstauglichkeit und Wertstabilität. Wer beim Gebrauchtkauf auf die richtigen Punkte achtet, bekommt eine der besten Limousinen seiner Klasse.",
       "toc": true,
       "blocks": [
-        { "t": "h2", "id": "ueberblick", "text": "Der BMW 3er im Überblick" },
-        { "t": "p", "html": "Der BMW 3er (Baureihen u. a. F30 und G20) ist seit Jahrzehnten der Maßstab bei den sportlichen Mittelklasse-Limousinen. Er überzeugt mit präzisem Fahrverhalten, hochwertiger Verarbeitung und einer breiten Motorenpalette — als Limousine oder Touring (Kombi)." },
-        { "t": "rating", "title": "Unsere Einschätzung", "rows": [
-          ["Fahrdynamik", 5],
-          ["Komfort", 4],
-          ["Zuverlässigkeit", 4],
-          ["Verbrauch", 4],
-          ["Wertstabilität", 5]
-        ]},
-        { "t": "h2", "id": "motoren", "text": "Welche Motoren sind empfehlenswert?" },
-        { "t": "p", "html": "Die Diesel (z. B. 318d, 320d) sind sparsam und ideal für Vielfahrer — der 320d gilt als bester Allrounder. Bei den Benzinern bieten 320i und 330i ein sehr ausgewogenes Paket. Die Achtgang-Automatik (Steptronic) ist komfortabel und empfehlenswert." },
-        { "t": "note", "title": "Der Klassiker", "html": "Ein 320d mit Automatik ist für die meisten Käufer die vernünftigste Wahl: sparsam, kräftig und langstreckentauglich." },
-        { "t": "h2", "id": "schwachstellen", "text": "Typische Schwachstellen" },
-        { "t": "ul", "items": [
-          "Steuerkette bei älteren Vierzylinder-Dieseln — auf ruhigen Motorlauf achten.",
-          "AGR-Ventil und Ansaugbrücke bei Dieseln — auf Fehlermeldungen prüfen.",
-          "Elektronik & Infotainment (iDrive) — Funktionen im Test durchgehen.",
-          "Fahrwerk & Bremsen bei sportlicher Nutzung — Verschleiß kontrollieren."
-        ]},
-        { "t": "h2", "id": "pruefen", "text": "Worauf Sie beim Kauf achten sollten" },
-        { "t": "ul", "items": [
-          "<strong>Scheckheft</strong> — lückenlose Wartung, idealerweise bei BMW.",
-          "<strong>Getriebe</strong> — sauberes, ruckfreies Schalten der Steptronic.",
-          "<strong>Historie & VIN</strong> — Dokumente und Kilometerstand abgleichen.",
-          "<strong>Unfallfreiheit</strong> — Spaltmaße und Lack prüfen (lassen)."
-        ]},
-        { "t": "h2", "id": "fazit", "text": "Fazit" },
-        { "t": "p", "html": "Der BMW 3er ist gebraucht eine sehr gute Wahl — dynamisch, wertstabil und alltagstauglich. Mit gepflegtem Scheckheft und einem sauberen Motor- und Getriebezustand macht er lange Freude." }
+        {
+          "t": "h2",
+          "id": "ueberblick",
+          "text": "Der BMW 3er im Überblick"
+        },
+        {
+          "t": "p",
+          "html": "Der BMW 3er (Baureihen u. a. F30 und G20) ist seit Jahrzehnten der Maßstab bei den sportlichen Mittelklasse-Limousinen. Er überzeugt mit präzisem Fahrverhalten, hochwertiger Verarbeitung und einer breiten Motorenpalette — als Limousine oder Touring (Kombi)."
+        },
+        {
+          "t": "rating",
+          "title": "Unsere Einschätzung",
+          "rows": [
+            [
+              "Fahrdynamik",
+              5
+            ],
+            [
+              "Komfort",
+              4
+            ],
+            [
+              "Zuverlässigkeit",
+              4
+            ],
+            [
+              "Verbrauch",
+              4
+            ],
+            [
+              "Wertstabilität",
+              5
+            ]
+          ]
+        },
+        {
+          "t": "h2",
+          "id": "motoren",
+          "text": "Welche Motoren sind empfehlenswert?"
+        },
+        {
+          "t": "p",
+          "html": "Die Diesel (z. B. 318d, 320d) sind sparsam und ideal für Vielfahrer — der 320d gilt als bester Allrounder. Bei den Benzinern bieten 320i und 330i ein sehr ausgewogenes Paket. Die Achtgang-Automatik (Steptronic) ist komfortabel und empfehlenswert."
+        },
+        {
+          "t": "note",
+          "title": "Der Klassiker",
+          "html": "Ein 320d mit Automatik ist für die meisten Käufer die vernünftigste Wahl: sparsam, kräftig und langstreckentauglich."
+        },
+        {
+          "t": "h2",
+          "id": "schwachstellen",
+          "text": "Typische Schwachstellen"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Steuerkette bei älteren Vierzylinder-Dieseln — auf ruhigen Motorlauf achten.",
+            "AGR-Ventil und Ansaugbrücke bei Dieseln — auf Fehlermeldungen prüfen.",
+            "Elektronik & Infotainment (iDrive) — Funktionen im Test durchgehen.",
+            "Fahrwerk & Bremsen bei sportlicher Nutzung — Verschleiß kontrollieren."
+          ]
+        },
+        {
+          "t": "h2",
+          "id": "pruefen",
+          "text": "Worauf Sie beim Kauf achten sollten"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "<strong>Scheckheft</strong> — lückenlose Wartung, idealerweise bei BMW.",
+            "<strong>Getriebe</strong> — sauberes, ruckfreies Schalten der Steptronic.",
+            "<strong>Historie & VIN</strong> — Dokumente und Kilometerstand abgleichen.",
+            "<strong>Unfallfreiheit</strong> — Spaltmaße und Lack prüfen (lassen)."
+          ]
+        },
+        {
+          "t": "h2",
+          "id": "fazit",
+          "text": "Fazit"
+        },
+        {
+          "t": "p",
+          "html": "Der BMW 3er ist gebraucht eine sehr gute Wahl — dynamisch, wertstabil und alltagstauglich. Mit gepflegtem Scheckheft und einem sauberen Motor- und Getriebezustand macht er lange Freude."
+        }
       ],
       "faq": [
-        ["Welcher BMW 3er ist der beste Allrounder?", "Der 320d mit Automatik gilt als bester Kompromiss aus Verbrauch, Leistung und Langstreckentauglichkeit."],
-        ["Ist der BMW 3er teuer im Unterhalt?", "Für ein Premium-Fahrzeug sind die Unterhaltskosten moderat. Entscheidend sind regelmäßige Wartung und ein guter Allgemeinzustand."]
+        [
+          "Welcher BMW 3er ist der beste Allrounder?",
+          "Der 320d mit Automatik gilt als bester Kompromiss aus Verbrauch, Leistung und Langstreckentauglichkeit."
+        ],
+        [
+          "Ist der BMW 3er teuer im Unterhalt?",
+          "Für ein Premium-Fahrzeug sind die Unterhaltskosten moderat. Entscheidend sind regelmäßige Wartung und ein guter Allgemeinzustand."
+        ]
       ]
     },
     {
@@ -174,45 +426,109 @@
       "category": "kaufberatung",
       "title": "Audi A4 gebraucht kaufen – Kaufberatung & häufige Punkte",
       "excerpt": "Der Audi A4 ist komfortabel, hochwertig und wertstabil. Welche Motoren sich lohnen, worauf Sie beim Gebrauchten achten sollten und was den A4 im Alltag ausmacht.",
-      "image": "assets/img/brand/showroom.jpg",
+      "image": "assets/img/ratgeber/audi-a4.svg",
       "date": "2026-08-22",
       "readingTime": 7,
       "relatedMake": "Audi",
       "lead": "Kurz gesagt: Der Audi A4 punktet mit hochwertigem Interieur, komfortablem Fahrwerk und sparsamen Motoren. Als Gebrauchter eine sichere Wahl — wenn Historie und Zustand stimmen.",
       "toc": true,
       "blocks": [
-        { "t": "h2", "id": "ueberblick", "text": "Der Audi A4 im Überblick" },
-        { "t": "p", "html": "Der Audi A4 (u. a. B8 und B9) gehört zu den beliebtesten Business-Limousinen. Er überzeugt mit einem der hochwertigsten Innenräume seiner Klasse, gutem Komfort und moderner Technik — als Limousine oder Avant (Kombi)." },
-        { "t": "rating", "title": "Unsere Einschätzung", "rows": [
-          ["Komfort", 5],
-          ["Verarbeitung", 5],
-          ["Zuverlässigkeit", 4],
-          ["Verbrauch", 4],
-          ["Wertstabilität", 4]
-        ]},
-        { "t": "h2", "id": "motoren", "text": "Welche Motoren sind empfehlenswert?" },
-        { "t": "p", "html": "Die TDI-Diesel (30 TDI, 35 TDI, 40 TDI) sind sparsam und für Vielfahrer ideal. Die TFSI-Benziner passen gut zu Stadt und Kurzstrecke. Die S tronic bzw. tiptronic-Automatik ist komfortabel; quattro-Allrad bringt zusätzliche Traktion." },
-        { "t": "note", "title": "Für Vielfahrer", "html": "Ein 35 TDI oder 40 TDI mit Automatik ist ein guter Kompromiss aus Sparsamkeit, Reichweite und Komfort." },
-        { "t": "h2", "id": "schwachstellen", "text": "Typische Schwachstellen" },
-        { "t": "ul", "items": [
-          "Ölverbrauch bei älteren TFSI-Benzinern — Historie und Ölstand prüfen.",
-          "Steuerkette bei bestimmten Baujahren — auf Motorlauf achten.",
-          "AGR/Ansaugung bei Dieseln — Fehlermeldungen kontrollieren.",
-          "Elektronik & MMI — alle Funktionen im Test durchgehen."
-        ]},
-        { "t": "h2", "id": "pruefen", "text": "Worauf Sie beim Kauf achten sollten" },
-        { "t": "ul", "items": [
-          "<strong>Scheckheft</strong> — lückenlose Wartung, idealerweise bei Audi.",
-          "<strong>Getriebe</strong> — sauberes Schalten ohne Ruckeln.",
-          "<strong>Ausstattung</strong> — beeinflusst Wert und Wiederverkauf deutlich.",
-          "<strong>Historie & VIN</strong> — Dokumente und Kilometerstand abgleichen."
-        ]},
-        { "t": "h2", "id": "fazit", "text": "Fazit" },
-        { "t": "p", "html": "Der Audi A4 ist gebraucht eine komfortable, hochwertige und wertstabile Wahl. Prüfen Sie Scheckheft, Getriebe und Ausstattung — dann bekommen Sie eine der besten Limousinen ihrer Klasse." }
+        {
+          "t": "h2",
+          "id": "ueberblick",
+          "text": "Der Audi A4 im Überblick"
+        },
+        {
+          "t": "p",
+          "html": "Der Audi A4 (u. a. B8 und B9) gehört zu den beliebtesten Business-Limousinen. Er überzeugt mit einem der hochwertigsten Innenräume seiner Klasse, gutem Komfort und moderner Technik — als Limousine oder Avant (Kombi)."
+        },
+        {
+          "t": "rating",
+          "title": "Unsere Einschätzung",
+          "rows": [
+            [
+              "Komfort",
+              5
+            ],
+            [
+              "Verarbeitung",
+              5
+            ],
+            [
+              "Zuverlässigkeit",
+              4
+            ],
+            [
+              "Verbrauch",
+              4
+            ],
+            [
+              "Wertstabilität",
+              4
+            ]
+          ]
+        },
+        {
+          "t": "h2",
+          "id": "motoren",
+          "text": "Welche Motoren sind empfehlenswert?"
+        },
+        {
+          "t": "p",
+          "html": "Die TDI-Diesel (30 TDI, 35 TDI, 40 TDI) sind sparsam und für Vielfahrer ideal. Die TFSI-Benziner passen gut zu Stadt und Kurzstrecke. Die S tronic bzw. tiptronic-Automatik ist komfortabel; quattro-Allrad bringt zusätzliche Traktion."
+        },
+        {
+          "t": "note",
+          "title": "Für Vielfahrer",
+          "html": "Ein 35 TDI oder 40 TDI mit Automatik ist ein guter Kompromiss aus Sparsamkeit, Reichweite und Komfort."
+        },
+        {
+          "t": "h2",
+          "id": "schwachstellen",
+          "text": "Typische Schwachstellen"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Ölverbrauch bei älteren TFSI-Benzinern — Historie und Ölstand prüfen.",
+            "Steuerkette bei bestimmten Baujahren — auf Motorlauf achten.",
+            "AGR/Ansaugung bei Dieseln — Fehlermeldungen kontrollieren.",
+            "Elektronik & MMI — alle Funktionen im Test durchgehen."
+          ]
+        },
+        {
+          "t": "h2",
+          "id": "pruefen",
+          "text": "Worauf Sie beim Kauf achten sollten"
+        },
+        {
+          "t": "ul",
+          "items": [
+            "<strong>Scheckheft</strong> — lückenlose Wartung, idealerweise bei Audi.",
+            "<strong>Getriebe</strong> — sauberes Schalten ohne Ruckeln.",
+            "<strong>Ausstattung</strong> — beeinflusst Wert und Wiederverkauf deutlich.",
+            "<strong>Historie & VIN</strong> — Dokumente und Kilometerstand abgleichen."
+          ]
+        },
+        {
+          "t": "h2",
+          "id": "fazit",
+          "text": "Fazit"
+        },
+        {
+          "t": "p",
+          "html": "Der Audi A4 ist gebraucht eine komfortable, hochwertige und wertstabile Wahl. Prüfen Sie Scheckheft, Getriebe und Ausstattung — dann bekommen Sie eine der besten Limousinen ihrer Klasse."
+        }
       ],
       "faq": [
-        ["Ist der Audi A4 zuverlässig?", "Ja, bei gepflegter Wartung. Achten Sie besonders auf lückenloses Scheckheft und bei älteren TFSI-Benzinern auf den Ölverbrauch."],
-        ["Limousine oder Avant?", "Die Limousine ist etwas günstiger, der Avant (Kombi) bietet deutlich mehr Praxisnutzen — je nach Bedarf."]
+        [
+          "Ist der Audi A4 zuverlässig?",
+          "Ja, bei gepflegter Wartung. Achten Sie besonders auf lückenloses Scheckheft und bei älteren TFSI-Benzinern auf den Ölverbrauch."
+        ],
+        [
+          "Limousine oder Avant?",
+          "Die Limousine ist etwas günstiger, der Avant (Kombi) bietet deutlich mehr Praxisnutzen — je nach Bedarf."
+        ]
       ]
     },
     {
@@ -220,36 +536,80 @@
       "category": "vergleich",
       "title": "Diesel oder Benziner – was lohnt sich 2026?",
       "excerpt": "Diesel oder Benziner? Die Antwort hängt vor allem von Ihrer jährlichen Fahrleistung ab. Wir vergleichen Verbrauch, Kosten, Langstrecke und Stadtverkehr — verständlich erklärt.",
-      "image": "assets/img/brand/showroom.jpg",
+      "image": "assets/img/ratgeber/diesel-benziner.svg",
       "date": "2026-08-22",
       "readingTime": 6,
       "relatedMake": null,
       "lead": "Kurz gesagt: Wer viel und lange Strecken fährt, profitiert meist vom Diesel. Wer wenig und überwiegend in der Stadt unterwegs ist, fährt mit einem Benziner oft günstiger und unkomplizierter.",
       "toc": true,
       "blocks": [
-        { "t": "h2", "id": "diesel", "text": "Wann lohnt sich ein Diesel?" },
-        { "t": "p", "html": "Der Diesel spielt seine Stärken bei hoher Fahrleistung und auf der Langstrecke aus: niedriger Verbrauch, hohes Drehmoment und große Reichweite. Als Faustregel gilt: Ab etwa 15.000–20.000 km pro Jahr wird der Diesel wirtschaftlich interessant." },
-        { "t": "ul", "items": [
-          "Sparsam auf Autobahn und Landstraße.",
-          "Kräftiger Durchzug, ideal für Anhänger und volle Beladung.",
-          "Große Reichweite pro Tankfüllung."
-        ]},
-        { "t": "h2", "id": "benziner", "text": "Wann lohnt sich ein Benziner?" },
-        { "t": "p", "html": "Der Benziner ist meist die bessere Wahl bei geringer Fahrleistung und im Stadtverkehr: günstiger in der Anschaffung, laufruhiger und unkomplizierter bei Kurzstrecken, da keine Diesel-typischen Bauteile (z. B. Partikelfilter) auf Regenerationsfahrten angewiesen sind." },
-        { "t": "ul", "items": [
-          "Günstiger im Kaufpreis.",
-          "Ideal für Stadt und Kurzstrecke.",
-          "Laufruhig und wartungsärmer bei geringer Laufleistung."
-        ]},
-        { "t": "note", "title": "Die einfache Faustregel", "html": "Viel Langstrecke → Diesel. Wenig Fahrleistung & Stadt → Benziner. Rechnen Sie im Zweifel Ihre jährlichen Kilometer gegen den Mehrpreis und die Verbrauchsersparnis." },
-        { "t": "h2", "id": "kosten", "text": "Kosten im Blick behalten" },
-        { "t": "p", "html": "Neben dem Verbrauch zählen Anschaffungspreis, Steuer, Versicherung und Wartung. Ein Diesel ist im Kauf und bei der Steuer oft teurer, spart aber bei hoher Laufleistung deutlich beim Kraftstoff. Beim Benziner ist es umgekehrt." },
-        { "t": "h2", "id": "fazit", "text": "Fazit" },
-        { "t": "p", "html": "Es gibt kein pauschales „besser\". Entscheidend ist Ihr Fahrprofil. Sagen Sie uns, wie viel und wo Sie fahren — wir empfehlen Ihnen das passende Fahrzeug aus unserem Bestand." }
+        {
+          "t": "h2",
+          "id": "diesel",
+          "text": "Wann lohnt sich ein Diesel?"
+        },
+        {
+          "t": "p",
+          "html": "Der Diesel spielt seine Stärken bei hoher Fahrleistung und auf der Langstrecke aus: niedriger Verbrauch, hohes Drehmoment und große Reichweite. Als Faustregel gilt: Ab etwa 15.000–20.000 km pro Jahr wird der Diesel wirtschaftlich interessant."
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Sparsam auf Autobahn und Landstraße.",
+            "Kräftiger Durchzug, ideal für Anhänger und volle Beladung.",
+            "Große Reichweite pro Tankfüllung."
+          ]
+        },
+        {
+          "t": "h2",
+          "id": "benziner",
+          "text": "Wann lohnt sich ein Benziner?"
+        },
+        {
+          "t": "p",
+          "html": "Der Benziner ist meist die bessere Wahl bei geringer Fahrleistung und im Stadtverkehr: günstiger in der Anschaffung, laufruhiger und unkomplizierter bei Kurzstrecken, da keine Diesel-typischen Bauteile (z. B. Partikelfilter) auf Regenerationsfahrten angewiesen sind."
+        },
+        {
+          "t": "ul",
+          "items": [
+            "Günstiger im Kaufpreis.",
+            "Ideal für Stadt und Kurzstrecke.",
+            "Laufruhig und wartungsärmer bei geringer Laufleistung."
+          ]
+        },
+        {
+          "t": "note",
+          "title": "Die einfache Faustregel",
+          "html": "Viel Langstrecke → Diesel. Wenig Fahrleistung & Stadt → Benziner. Rechnen Sie im Zweifel Ihre jährlichen Kilometer gegen den Mehrpreis und die Verbrauchsersparnis."
+        },
+        {
+          "t": "h2",
+          "id": "kosten",
+          "text": "Kosten im Blick behalten"
+        },
+        {
+          "t": "p",
+          "html": "Neben dem Verbrauch zählen Anschaffungspreis, Steuer, Versicherung und Wartung. Ein Diesel ist im Kauf und bei der Steuer oft teurer, spart aber bei hoher Laufleistung deutlich beim Kraftstoff. Beim Benziner ist es umgekehrt."
+        },
+        {
+          "t": "h2",
+          "id": "fazit",
+          "text": "Fazit"
+        },
+        {
+          "t": "p",
+          "html": "Es gibt kein pauschales „besser\". Entscheidend ist Ihr Fahrprofil. Sagen Sie uns, wie viel und wo Sie fahren — wir empfehlen Ihnen das passende Fahrzeug aus unserem Bestand."
+        }
       ],
       "faq": [
-        ["Ab wie vielen Kilometern lohnt sich ein Diesel?", "Als Faustregel ab etwa 15.000–20.000 km pro Jahr — abhängig vom Mehrpreis und der Verbrauchsersparnis des jeweiligen Modells."],
-        ["Ist ein Diesel für die Stadt geeignet?", "Für reine Kurzstrecke ist ein Benziner meist besser. Diesel bevorzugen regelmäßige längere Fahrten."]
+        [
+          "Ab wie vielen Kilometern lohnt sich ein Diesel?",
+          "Als Faustregel ab etwa 15.000–20.000 km pro Jahr — abhängig vom Mehrpreis und der Verbrauchsersparnis des jeweiligen Modells."
+        ],
+        [
+          "Ist ein Diesel für die Stadt geeignet?",
+          "Für reine Kurzstrecke ist ein Benziner meist besser. Diesel bevorzugen regelmäßige längere Fahrten."
+        ]
       ]
     }
   ]

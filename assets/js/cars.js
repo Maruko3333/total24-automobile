@@ -26,7 +26,7 @@ const Cars = {
       <a href="masina.html?id=${car.id}" class="car-media">
         ${img}
         ${statusBadge}
-        <span class="car-fav${favCls}" data-fav="${car.id}" role="button" tabindex="0" aria-label="Salvează la favorite">${T24.icon('heart', 18)}</span>
+        <span class="car-fav${favCls}" data-fav="${car.id}" role="button" tabindex="0" aria-label="${T24.t('card.fav.aria')}">${T24.icon('heart', 18)}</span>
       </a>
       <div class="car-body">
         <a href="masina.html?id=${car.id}" class="car-title">${car.make} ${car.model}</a>
@@ -147,11 +147,11 @@ const Cars = {
 
   buildFilterOptions(cars) {
     const uniq = k => [...new Set(cars.map(c => c[k]).filter(Boolean))];
-    this.fill('fMake', uniq('make').sort(), 'Toate mărcile');
-    this.fill('fYear', uniq('year').sort((a, b) => b - a), 'Oricare');
-    this.fill('fFuel', uniq('fuel').sort(), 'Oricare');
-    this.fill('fGear', uniq('transmission').sort(), 'Oricare');
-    this.fill('fBody', uniq('body').sort(), 'Oricare');
+    this.fill('fMake', uniq('make').sort(), T24.t('stoc.f.allmakes'));
+    this.fill('fYear', uniq('year').sort((a, b) => b - a), T24.t('stoc.f.any'));
+    this.fill('fFuel', uniq('fuel').sort(), T24.t('stoc.f.any'));
+    this.fill('fGear', uniq('transmission').sort(), T24.t('stoc.f.any'));
+    this.fill('fBody', uniq('body').sort(), T24.t('stoc.f.any'));
     this.buildModelOptions();
     const maxPrice = Math.max(...cars.map(c => c.price), 30000);
     const price = document.getElementById('fPrice');
@@ -168,7 +168,7 @@ const Cars = {
     let cars = this.state.all;
     if (make) cars = cars.filter(c => c.make === make);
     const models = [...new Set(cars.map(c => c.model))].sort();
-    this.fill('fModel', models, 'Toate modelele');
+    this.fill('fModel', models, T24.t('stoc.f.allmodels'));
   },
 
   fill(id, items, placeholder) {
@@ -218,17 +218,17 @@ const Cars = {
     const grid = document.getElementById('carsGrid');
     const count = document.getElementById('carsCount');
     const list = this.state.filtered;
-    const noun = list.length === 1 ? 'mașină disponibilă' : 'mașini disponibile';
-    if (count) count.innerHTML = `<b>${list.length}</b> ${this.state.favOnly ? 'favorite' : noun}`;
+    const noun = list.length === 1 ? T24.t('stoc.available.one') : T24.t('stoc.available.many');
+    if (count) count.innerHTML = `<b>${list.length}</b> ${this.state.favOnly ? T24.t('stoc.favorites') : noun}`;
     const btn = document.getElementById('fApplyCount');
-    if (btn) btn.textContent = `Filtrează (${list.length})`;
+    if (btn) btn.textContent = `${T24.t('stoc.f.apply')} (${list.length})`;
     if (!grid) return;
     if (!list.length) {
       const fav = this.state.favOnly;
       grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">
         ${T24.icon(fav ? 'heart' : 'search', 46, 1.4)}
-        <h3 style="margin:14px 0 6px">${fav ? 'Nu ai mașini favorite încă' : 'Nicio mașină găsită'}</h3>
-        <p>${fav ? 'Apasă ♥ pe o mașină ca s-o salvezi aici.' : 'Încearcă să ajustezi filtrele.'}</p></div>`;
+        <h3 style="margin:14px 0 6px">${fav ? T24.t('stoc.empty.fav.title') : T24.t('stoc.empty.none.title')}</h3>
+        <p>${fav ? T24.t('stoc.empty.fav.text') : T24.t('stoc.empty.none.text')}</p></div>`;
       return;
     }
     grid.innerHTML = list.map(c => this.card(c)).join('');
@@ -252,7 +252,7 @@ const Cars = {
       ? (car.images[0].startsWith('http') ? car.images[0] : `${base}/${car.images[0]}`)
       : `${base}/assets/img/brand/logo.png`;
     const avail = car.status === 'available';
-    const desc = `${car.make} ${car.model}, ${car.year}, ${T24.km(car.mileage)}, ${car.fuel}, ${car.transmission}. Preț ${T24.price(car.price)}. Prima mână, km la service-ul oficial — Total24 Automobile, Fürth.`;
+    const desc = `${car.make} ${car.model}, ${car.year}, ${T24.km(car.mileage)}, ${car.fuel}, ${car.transmission}. ${T24.t('seo.price')} ${T24.price(car.price)}. ${T24.t('detail.seo.suffix')}`;
 
     T24.setMeta('description', desc);
     T24.setCanonical(url);
@@ -284,8 +284,8 @@ const Cars = {
     T24.addJsonLd({
       '@context': 'https://schema.org', '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Acasă', item: `${base}/index.html` },
-        { '@type': 'ListItem', position: 2, name: 'Stoc Auto', item: `${base}/stoc.html` },
+        { '@type': 'ListItem', position: 1, name: T24.t('nav.home'), item: `${base}/index.html` },
+        { '@type': 'ListItem', position: 2, name: T24.t('nav.cars'), item: `${base}/stoc.html` },
         { '@type': 'ListItem', position: 3, name: `${car.make} ${car.model}` }
       ]
     });
@@ -300,8 +300,8 @@ const Cars = {
     if (!wrap) return;
     if (!car) {
       wrap.innerHTML = `<div class="empty-state">${T24.icon('car', 46, 1.4)}
-        <h3 style="margin:14px 0 6px">Mașina nu a fost găsită</h3>
-        <p><a href="stoc.html" style="color:var(--gold)">Vezi tot stocul →</a></p></div>`;
+        <h3 style="margin:14px 0 6px">${T24.t('notfound.title')}</h3>
+        <p><a href="stoc.html" style="color:var(--blue-deep)">${T24.t('notfound.link')}</a></p></div>`;
       return;
     }
     document.title = `${car.make} ${car.model} ${car.year} — Total24 Automobile`;
@@ -311,7 +311,7 @@ const Cars = {
 
     const mainImg = (car.images && car.images.length)
       ? `<img src="${car.images[0]}" id="galMain" alt="${car.make} ${car.model}">`
-      : `<div class="no-img">${T24.icon('car', 60, 1.3)}<p>Fotos in Kürze verfügbar</p></div>`;
+      : `<div class="no-img">${T24.icon('car', 60, 1.3)}</div>`;
     const thumbs = (car.images || []).map((src, i) =>
       `<div class="thumb ${i === 0 ? 'active' : ''}" data-src="${src}"><img src="${src}" alt=""></div>`
     ).join('');
@@ -321,34 +321,34 @@ const Cars = {
 
     // Specificații-cheie (mari, vizibile) — doar cele cu valoare
     const keyList = [
-      ['power', car.power ? car.power + ' CP' : null, 'Putere'],
-      ['gauge', T24.km(car.mileage), 'Kilometraj'],
-      ['fuel', car.fuel, 'Combustibil'],
-      ['gear', car.transmission, 'Transmisie'],
-      ['calendar', car.year, 'An'],
-      ['car', car.body, 'Caroserie']
+      ['power', car.power ? car.power + ' ' + T24.t('unit.ps') : null, T24.t('spec.power')],
+      ['gauge', T24.km(car.mileage), T24.t('spec.mileage')],
+      ['fuel', car.fuel, T24.t('spec.fuel')],
+      ['gear', car.transmission, T24.t('spec.transmission')],
+      ['calendar', car.year, T24.t('spec.year')],
+      ['car', car.body, T24.t('spec.body')]
     ].filter(([, v]) => v);
     const keySpecs = keyList.map(([ic, v, l]) =>
       `<div class="key-spec"><span class="ic">${T24.icon(ic, 20)}</span><div><b>${v}</b><span>${l}</span></div></div>`).join('');
 
     // Tabel detaliat complet
     const specs = [
-      ['calendar', 'Prima înmatriculare', car.firstReg || car.year],
-      ['gauge', 'Kilometraj', T24.km(car.mileage)],
-      ['fuel', 'Combustibil', car.fuel],
-      ['gear', 'Transmisie', car.transmission],
-      ['power', 'Putere', car.power ? car.power + ' CP' : '—'],
-      ['car', 'Capacitate', car.capacity ? car.capacity + ' cm³' : '—'],
-      ['car', 'Caroserie', car.body],
-      ['tag', 'Culoare', car.color || '—'],
-      ['car', 'Uși / Locuri', `${car.doors || '—'} / ${car.seats || '—'}`],
-      ['gauge', 'Emisii CO₂', car.co2 ? car.co2 + ' g/km' : '—']
+      ['calendar', T24.t('spec.firstReg'), car.firstReg || car.year],
+      ['gauge', T24.t('spec.mileage'), T24.km(car.mileage)],
+      ['fuel', T24.t('spec.fuel'), car.fuel],
+      ['gear', T24.t('spec.transmission'), car.transmission],
+      ['power', T24.t('spec.power'), car.power ? car.power + ' ' + T24.t('unit.ps') : '—'],
+      ['car', T24.t('spec.capacity'), car.capacity ? car.capacity + ' ' + T24.t('unit.ccm') : '—'],
+      ['car', T24.t('spec.body'), car.body],
+      ['tag', T24.t('spec.color'), car.color || '—'],
+      ['car', T24.t('spec.doorsSeats'), `${car.doors || '—'} / ${car.seats || '—'}`],
+      ['gauge', T24.t('spec.co2'), car.co2 ? car.co2 + ' g/km' : '—']
     ];
     const features = (car.features || []).map(f =>
       `<div class="feature-li"><span class="ic">${T24.icon('check', 16)}</span>${f}</div>`).join('');
 
     wrap.innerHTML = `
-      <div class="breadcrumb"><a href="index.html">Acasă</a> / <a href="stoc.html">Stoc Auto</a> / ${car.make} ${car.model}</div>
+      <div class="breadcrumb"><a href="index.html">${T24.t('nav.home')}</a> / <a href="stoc.html">${T24.t('nav.cars')}</a> / ${car.make} ${car.model}</div>
       <div class="detail-head">
         <h1>${car.make} ${car.model}</h1>
         <div class="detail-sub">${sub}</div>
@@ -360,33 +360,33 @@ const Cars = {
         </div>
         <aside class="detail-panel">
           <div class="detail-price">${T24.price(car.price)}</div>
-          <a href="finantare.html" class="detail-finance">${T24.icon('percent', 15)} <b>Finanzierung möglich</b> — jetzt anfragen</a>
+          <a href="finantare.html" class="detail-finance">${T24.icon('percent', 15)} <b>${T24.t('detail.finance.badge')}</b> — ${T24.t('detail.finance.cta')}</a>
           <ul class="detail-trust">
-            <li>${T24.icon('checkCircle', 17)} Prima mână — un singur proprietar</li>
-            <li>${T24.icon('checkCircle', 17)} Km făcuți doar la service-ul oficial</li>
-            <li>${T24.icon('checkCircle', 17)} Istoric clar și documente complete</li>
+            <li>${T24.icon('checkCircle', 17)} ${T24.t('detail.trust.1')}</li>
+            <li>${T24.icon('checkCircle', 17)} ${T24.t('detail.trust.2')}</li>
+            <li>${T24.icon('checkCircle', 17)} ${T24.t('detail.trust.3')}</li>
           </ul>
-          <a href="${T24.waCar(car)}" target="_blank" rel="noopener" class="btn btn-wa btn-block" style="margin-bottom:12px">${T24.icon('whatsapp', 18)} Über dieses Fahrzeug sprechen</a>
+          <a href="${T24.waCar(car)}" target="_blank" rel="noopener" class="btn btn-wa btn-block" style="margin-bottom:12px">${T24.icon('whatsapp', 18)} ${T24.t('detail.wa')}</a>
           <div class="detail-cta-row">
-            <a href="tel:${phone}" class="btn btn-primary btn-block">${T24.icon('phone', 18)} Anrufen</a>
-            <a href="mailto:${c.email}?subject=${encodeURIComponent(`Anfrage: ${car.make} ${car.model} ${car.year}`)}" class="btn btn-outline btn-block">${T24.icon('mail', 18)} E-Mail</a>
+            <a href="tel:${phone}" class="btn btn-primary btn-block">${T24.icon('phone', 18)} ${T24.t('cta.call')}</a>
+            <a href="mailto:${c.email}?subject=${encodeURIComponent(`Anfrage: ${car.make} ${car.model} ${car.year}`)}" class="btn btn-outline btn-block">${T24.icon('mail', 18)} ${T24.t('detail.email')}</a>
           </div>
-          <button type="button" class="btn btn-detail btn-block detail-share" id="shareBtn" style="margin-top:12px">${T24.icon('share', 17)} An einen Freund senden</button>
+          <button type="button" class="btn btn-detail btn-block detail-share" id="shareBtn" style="margin-top:12px">${T24.icon('share', 17)} ${T24.t('detail.share')}</button>
           ${mobileDe ? `<a href="${mobileDe}" target="_blank" rel="noopener" class="detail-mobilede">
-            <span>Publicat și pe Mobile.de</span>
-            <b>Vezi anunțul pe Mobile.de ${T24.icon('arrowRight', 14)}</b>
+            <span>${T24.t('detail.mobilede.pre')}</span>
+            <b>${T24.t('detail.mobilede.link')} ${T24.icon('arrowRight', 14)}</b>
           </a>` : ''}
           <div id="modelGuide"></div>
 
           <div class="lead-box">
-            <h3>Te interesează această mașină?</h3>
-            <p>Lasă-ne datele și te contactăm cu o ofertă.</p>
+            <h3>${T24.t('lead.title')}</h3>
+            <p>${T24.t('lead.sub')}</p>
             <form class="lead-form" id="leadForm">
-              <input name="name" placeholder="Numele tău" required>
-              <input name="phone" type="tel" placeholder="Telefon" required>
-              <input name="email" type="email" placeholder="Email (opțional)">
-              <label class="lead-check"><input type="checkbox" name="finance"> Doresc informații despre finanțare</label>
-              <button type="submit" class="btn btn-primary btn-block">Trimite cererea</button>
+              <input name="name" placeholder="${T24.t('lead.name')}" required>
+              <input name="phone" type="tel" placeholder="${T24.t('lead.phone')}" required>
+              <input name="email" type="email" placeholder="${T24.t('lead.email')}">
+              <label class="lead-check"><input type="checkbox" name="finance"> ${T24.t('lead.finance')}</label>
+              <button type="submit" class="btn btn-primary btn-block">${T24.t('lead.submit')}</button>
             </form>
             <p class="lead-note" id="leadNote"></p>
           </div>
@@ -394,14 +394,14 @@ const Cars = {
       </div>
 
       <div class="spec-table">
-        <h3>Specificații</h3>
+        <h3>${T24.t('detail.h.specs')}</h3>
         <div class="key-specs">${keySpecs}</div>
         <div class="spec-grid">
           ${specs.map(([ic, k, v]) => `<div class="spec-cell"><span class="ic">${T24.icon(ic, 18)}</span><div><span class="k">${k}</span><span class="v">${v}</span></div></div>`).join('')}
         </div>
       </div>
-      ${features ? `<div class="spec-table"><h3>Dotări</h3><div class="features-grid">${features}</div></div>` : ''}
-      ${car.description ? `<div class="spec-table"><h3>Descriere</h3><p class="detail-desc">${car.description}</p></div>` : ''}
+      ${features ? `<div class="spec-table"><h3>${T24.t('detail.h.features')}</h3><div class="features-grid">${features}</div></div>` : ''}
+      ${car.description ? `<div class="spec-table"><h3>${T24.t('detail.h.desc')}</h3><p class="detail-desc">${car.description}</p></div>` : ''}
     `;
 
     // gallery thumbs
@@ -418,7 +418,7 @@ const Cars = {
       const res = await T24.shareCar(car);
       if (res === 'shared' || res === 'whatsapp') {
         const orig = shareBtn.innerHTML;
-        shareBtn.innerHTML = `${T24.icon('checkCircle', 17)} Geteilt`;
+        shareBtn.innerHTML = `${T24.icon('checkCircle', 17)} ${T24.t('detail.shared')}`;
         setTimeout(() => { shareBtn.innerHTML = orig; }, 2200);
       }
     });
@@ -429,8 +429,8 @@ const Cars = {
       const art = (rg.articles || []).find(a => a.relatedMake && a.relatedMake === car.make);
       const mg = document.getElementById('modelGuide');
       if (art && mg) mg.innerHTML = `<a href="artikel.html?slug=${art.slug}" class="detail-mobilede" style="margin-top:12px">
-        <span>Ratgeber zu diesem Modell</span>
-        <b>${art.title.split('–')[0].trim()} — mehr erfahren ${T24.icon('arrowRight', 14)}</b></a>`;
+        <span>${T24.t('detail.modelguide.pre')}</span>
+        <b>${art.title.split('–')[0].trim()} — ${T24.t('detail.modelguide.suffix')} ${T24.icon('arrowRight', 14)}</b></a>`;
     } catch (e) { /* silențios */ }
 
     // Lightbox full-screen (GLightbox) — click pe imaginea principală
@@ -462,7 +462,7 @@ const Cars = {
       const note = document.getElementById('leadNote');
       const btn = lead.querySelector('button[type=submit]');
       const orig = btn.textContent;
-      btn.disabled = true; btn.textContent = 'Wird gesendet...';
+      btn.disabled = true; btn.textContent = T24.t('lead.sending');
       try {
         await T24.sendLead({
           _subject: `Total24 Automobile — Fahrzeuganfrage: ${car.make} ${car.model} (${car.year})`,
@@ -487,11 +487,11 @@ const Cars = {
           Finanzierung: lead.finance.checked ? 'Ja, Informationen gewünscht' : 'Nein'
         });
         note.style.color = 'var(--green)';
-        note.textContent = 'Vielen Dank! Ihre Anfrage wurde gesendet — wir melden uns mit einem Angebot.';
+        note.textContent = T24.t('lead.ok');
         lead.reset();
       } catch (err) {
         note.style.color = 'var(--red)';
-        note.innerHTML = `Senden momentan nicht möglich. Schreiben Sie uns auf <a href="${T24.waCar(car)}" target="_blank" rel="noopener" style="color:var(--gold)">WhatsApp</a>.`;
+        note.innerHTML = `${T24.t('lead.errPre')} <a href="${T24.waCar(car)}" target="_blank" rel="noopener" style="color:var(--blue-deep)">${T24.t('lead.errLink')}</a>.`;
       } finally {
         btn.disabled = false; btn.textContent = orig;
       }
