@@ -122,6 +122,135 @@
         ["Ist der Audi A3 zuverlässig?", "Ja, bei gepflegter Wartung gilt der A3 als zuverlässig und langlebig. Entscheidend sind lückenloses Scheckheft und ein sauberer Getriebezustand."],
         ["Diesel oder Benziner beim A3?", "Für viele Kilometer und Langstrecke lohnt sich der TDI-Diesel. Für Stadt und Kurzstrecke ist ein TFSI-Benziner die bessere Wahl."]
       ]
+    },
+    {
+      "slug": "bmw-3er-gebraucht-kaufen",
+      "category": "kaufberatung",
+      "title": "BMW 3er gebraucht kaufen – darauf sollten Sie achten",
+      "excerpt": "Der BMW 3er ist die Referenz unter den Business-Limousinen. Welche Motoren empfehlenswert sind, welche typischen Schwachstellen es gibt und worauf Sie beim Gebrauchtkauf achten sollten.",
+      "image": "assets/img/brand/showroom.jpg",
+      "date": "2026-08-22",
+      "readingTime": 7,
+      "relatedMake": "BMW",
+      "lead": "Kurz gesagt: Der BMW 3er verbindet sportliches Fahrverhalten mit Alltagstauglichkeit und Wertstabilität. Wer beim Gebrauchtkauf auf die richtigen Punkte achtet, bekommt eine der besten Limousinen seiner Klasse.",
+      "toc": true,
+      "blocks": [
+        { "t": "h2", "id": "ueberblick", "text": "Der BMW 3er im Überblick" },
+        { "t": "p", "html": "Der BMW 3er (Baureihen u. a. F30 und G20) ist seit Jahrzehnten der Maßstab bei den sportlichen Mittelklasse-Limousinen. Er überzeugt mit präzisem Fahrverhalten, hochwertiger Verarbeitung und einer breiten Motorenpalette — als Limousine oder Touring (Kombi)." },
+        { "t": "rating", "title": "Unsere Einschätzung", "rows": [
+          ["Fahrdynamik", 5],
+          ["Komfort", 4],
+          ["Zuverlässigkeit", 4],
+          ["Verbrauch", 4],
+          ["Wertstabilität", 5]
+        ]},
+        { "t": "h2", "id": "motoren", "text": "Welche Motoren sind empfehlenswert?" },
+        { "t": "p", "html": "Die Diesel (z. B. 318d, 320d) sind sparsam und ideal für Vielfahrer — der 320d gilt als bester Allrounder. Bei den Benzinern bieten 320i und 330i ein sehr ausgewogenes Paket. Die Achtgang-Automatik (Steptronic) ist komfortabel und empfehlenswert." },
+        { "t": "note", "title": "Der Klassiker", "html": "Ein 320d mit Automatik ist für die meisten Käufer die vernünftigste Wahl: sparsam, kräftig und langstreckentauglich." },
+        { "t": "h2", "id": "schwachstellen", "text": "Typische Schwachstellen" },
+        { "t": "ul", "items": [
+          "Steuerkette bei älteren Vierzylinder-Dieseln — auf ruhigen Motorlauf achten.",
+          "AGR-Ventil und Ansaugbrücke bei Dieseln — auf Fehlermeldungen prüfen.",
+          "Elektronik & Infotainment (iDrive) — Funktionen im Test durchgehen.",
+          "Fahrwerk & Bremsen bei sportlicher Nutzung — Verschleiß kontrollieren."
+        ]},
+        { "t": "h2", "id": "pruefen", "text": "Worauf Sie beim Kauf achten sollten" },
+        { "t": "ul", "items": [
+          "<strong>Scheckheft</strong> — lückenlose Wartung, idealerweise bei BMW.",
+          "<strong>Getriebe</strong> — sauberes, ruckfreies Schalten der Steptronic.",
+          "<strong>Historie & VIN</strong> — Dokumente und Kilometerstand abgleichen.",
+          "<strong>Unfallfreiheit</strong> — Spaltmaße und Lack prüfen (lassen)."
+        ]},
+        { "t": "h2", "id": "fazit", "text": "Fazit" },
+        { "t": "p", "html": "Der BMW 3er ist gebraucht eine sehr gute Wahl — dynamisch, wertstabil und alltagstauglich. Mit gepflegtem Scheckheft und einem sauberen Motor- und Getriebezustand macht er lange Freude." }
+      ],
+      "faq": [
+        ["Welcher BMW 3er ist der beste Allrounder?", "Der 320d mit Automatik gilt als bester Kompromiss aus Verbrauch, Leistung und Langstreckentauglichkeit."],
+        ["Ist der BMW 3er teuer im Unterhalt?", "Für ein Premium-Fahrzeug sind die Unterhaltskosten moderat. Entscheidend sind regelmäßige Wartung und ein guter Allgemeinzustand."]
+      ]
+    },
+    {
+      "slug": "audi-a4-gebraucht-kaufen",
+      "category": "kaufberatung",
+      "title": "Audi A4 gebraucht kaufen – Kaufberatung & häufige Punkte",
+      "excerpt": "Der Audi A4 ist komfortabel, hochwertig und wertstabil. Welche Motoren sich lohnen, worauf Sie beim Gebrauchten achten sollten und was den A4 im Alltag ausmacht.",
+      "image": "assets/img/brand/showroom.jpg",
+      "date": "2026-08-22",
+      "readingTime": 7,
+      "relatedMake": "Audi",
+      "lead": "Kurz gesagt: Der Audi A4 punktet mit hochwertigem Interieur, komfortablem Fahrwerk und sparsamen Motoren. Als Gebrauchter eine sichere Wahl — wenn Historie und Zustand stimmen.",
+      "toc": true,
+      "blocks": [
+        { "t": "h2", "id": "ueberblick", "text": "Der Audi A4 im Überblick" },
+        { "t": "p", "html": "Der Audi A4 (u. a. B8 und B9) gehört zu den beliebtesten Business-Limousinen. Er überzeugt mit einem der hochwertigsten Innenräume seiner Klasse, gutem Komfort und moderner Technik — als Limousine oder Avant (Kombi)." },
+        { "t": "rating", "title": "Unsere Einschätzung", "rows": [
+          ["Komfort", 5],
+          ["Verarbeitung", 5],
+          ["Zuverlässigkeit", 4],
+          ["Verbrauch", 4],
+          ["Wertstabilität", 4]
+        ]},
+        { "t": "h2", "id": "motoren", "text": "Welche Motoren sind empfehlenswert?" },
+        { "t": "p", "html": "Die TDI-Diesel (30 TDI, 35 TDI, 40 TDI) sind sparsam und für Vielfahrer ideal. Die TFSI-Benziner passen gut zu Stadt und Kurzstrecke. Die S tronic bzw. tiptronic-Automatik ist komfortabel; quattro-Allrad bringt zusätzliche Traktion." },
+        { "t": "note", "title": "Für Vielfahrer", "html": "Ein 35 TDI oder 40 TDI mit Automatik ist ein guter Kompromiss aus Sparsamkeit, Reichweite und Komfort." },
+        { "t": "h2", "id": "schwachstellen", "text": "Typische Schwachstellen" },
+        { "t": "ul", "items": [
+          "Ölverbrauch bei älteren TFSI-Benzinern — Historie und Ölstand prüfen.",
+          "Steuerkette bei bestimmten Baujahren — auf Motorlauf achten.",
+          "AGR/Ansaugung bei Dieseln — Fehlermeldungen kontrollieren.",
+          "Elektronik & MMI — alle Funktionen im Test durchgehen."
+        ]},
+        { "t": "h2", "id": "pruefen", "text": "Worauf Sie beim Kauf achten sollten" },
+        { "t": "ul", "items": [
+          "<strong>Scheckheft</strong> — lückenlose Wartung, idealerweise bei Audi.",
+          "<strong>Getriebe</strong> — sauberes Schalten ohne Ruckeln.",
+          "<strong>Ausstattung</strong> — beeinflusst Wert und Wiederverkauf deutlich.",
+          "<strong>Historie & VIN</strong> — Dokumente und Kilometerstand abgleichen."
+        ]},
+        { "t": "h2", "id": "fazit", "text": "Fazit" },
+        { "t": "p", "html": "Der Audi A4 ist gebraucht eine komfortable, hochwertige und wertstabile Wahl. Prüfen Sie Scheckheft, Getriebe und Ausstattung — dann bekommen Sie eine der besten Limousinen ihrer Klasse." }
+      ],
+      "faq": [
+        ["Ist der Audi A4 zuverlässig?", "Ja, bei gepflegter Wartung. Achten Sie besonders auf lückenloses Scheckheft und bei älteren TFSI-Benzinern auf den Ölverbrauch."],
+        ["Limousine oder Avant?", "Die Limousine ist etwas günstiger, der Avant (Kombi) bietet deutlich mehr Praxisnutzen — je nach Bedarf."]
+      ]
+    },
+    {
+      "slug": "diesel-oder-benziner-2026",
+      "category": "vergleich",
+      "title": "Diesel oder Benziner – was lohnt sich 2026?",
+      "excerpt": "Diesel oder Benziner? Die Antwort hängt vor allem von Ihrer jährlichen Fahrleistung ab. Wir vergleichen Verbrauch, Kosten, Langstrecke und Stadtverkehr — verständlich erklärt.",
+      "image": "assets/img/brand/showroom.jpg",
+      "date": "2026-08-22",
+      "readingTime": 6,
+      "relatedMake": null,
+      "lead": "Kurz gesagt: Wer viel und lange Strecken fährt, profitiert meist vom Diesel. Wer wenig und überwiegend in der Stadt unterwegs ist, fährt mit einem Benziner oft günstiger und unkomplizierter.",
+      "toc": true,
+      "blocks": [
+        { "t": "h2", "id": "diesel", "text": "Wann lohnt sich ein Diesel?" },
+        { "t": "p", "html": "Der Diesel spielt seine Stärken bei hoher Fahrleistung und auf der Langstrecke aus: niedriger Verbrauch, hohes Drehmoment und große Reichweite. Als Faustregel gilt: Ab etwa 15.000–20.000 km pro Jahr wird der Diesel wirtschaftlich interessant." },
+        { "t": "ul", "items": [
+          "Sparsam auf Autobahn und Landstraße.",
+          "Kräftiger Durchzug, ideal für Anhänger und volle Beladung.",
+          "Große Reichweite pro Tankfüllung."
+        ]},
+        { "t": "h2", "id": "benziner", "text": "Wann lohnt sich ein Benziner?" },
+        { "t": "p", "html": "Der Benziner ist meist die bessere Wahl bei geringer Fahrleistung und im Stadtverkehr: günstiger in der Anschaffung, laufruhiger und unkomplizierter bei Kurzstrecken, da keine Diesel-typischen Bauteile (z. B. Partikelfilter) auf Regenerationsfahrten angewiesen sind." },
+        { "t": "ul", "items": [
+          "Günstiger im Kaufpreis.",
+          "Ideal für Stadt und Kurzstrecke.",
+          "Laufruhig und wartungsärmer bei geringer Laufleistung."
+        ]},
+        { "t": "note", "title": "Die einfache Faustregel", "html": "Viel Langstrecke → Diesel. Wenig Fahrleistung & Stadt → Benziner. Rechnen Sie im Zweifel Ihre jährlichen Kilometer gegen den Mehrpreis und die Verbrauchsersparnis." },
+        { "t": "h2", "id": "kosten", "text": "Kosten im Blick behalten" },
+        { "t": "p", "html": "Neben dem Verbrauch zählen Anschaffungspreis, Steuer, Versicherung und Wartung. Ein Diesel ist im Kauf und bei der Steuer oft teurer, spart aber bei hoher Laufleistung deutlich beim Kraftstoff. Beim Benziner ist es umgekehrt." },
+        { "t": "h2", "id": "fazit", "text": "Fazit" },
+        { "t": "p", "html": "Es gibt kein pauschales „besser\". Entscheidend ist Ihr Fahrprofil. Sagen Sie uns, wie viel und wo Sie fahren — wir empfehlen Ihnen das passende Fahrzeug aus unserem Bestand." }
+      ],
+      "faq": [
+        ["Ab wie vielen Kilometern lohnt sich ein Diesel?", "Als Faustregel ab etwa 15.000–20.000 km pro Jahr — abhängig vom Mehrpreis und der Verbrauchsersparnis des jeweiligen Modells."],
+        ["Ist ein Diesel für die Stadt geeignet?", "Für reine Kurzstrecke ist ein Benziner meist besser. Diesel bevorzugen regelmäßige längere Fahrten."]
+      ]
     }
   ]
 }
