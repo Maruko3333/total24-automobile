@@ -143,7 +143,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1
 .header.is-stuck { box-shadow: 0 6px 24px rgba(10,33,48,.28); }
 .nav { display: flex; align-items: center; justify-content: space-between; height: 60px; }
 .logo { display: flex; align-items: center; }
-.logo-img { height: 40px; width: auto; max-width: 176px; object-fit: contain; display: block; }
+.logo-img { height: 46px; width: auto; max-width: 190px; object-fit: contain; display: block; }
 .footer-logo-img { height: 52px; max-width: 210px; }
 .nav-links { display: flex; align-items: center; gap: 22px; }
 .nav-links a { position: relative; display: inline-flex; align-items: center; color: rgba(255,255,255,.8); font-weight: 500; font-size: 13px; letter-spacing: .2px; }
@@ -168,11 +168,11 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1
    ============================================================ */
 .hero-cine {
   position: relative; overflow: hidden; background: #0a1620;
-  height: clamp(440px, 40vw, 620px);   /* 40vw ≈ raportul pozei → scena întreagă, „trasă înapoi", fără decupaj */
+  width: 100%; aspect-ratio: 1774 / 781;   /* raportul pozei noi → poza ÎNTREAGĂ, fundal complet, fără zoom/decupaj */
   display: flex; align-items: center;
 }
 .hero-bg-pic { position: absolute; inset: 0; z-index: 0; display: block; }
-.hero-bg { width: 100%; height: 100%; object-fit: cover; object-position: 68% 50%; }  /* mașina spre dreapta · se fixează definitiv pe asset-ul final */
+.hero-bg { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 /* gradient subtil stânga→dreapta: stânga citibilă, mașinile din dreapta clare */
 .hero-cine::after {
   content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
