@@ -43,7 +43,8 @@ const T24 = {
     percent: '<path d="M19 5L5 19"/><circle cx="7" cy="7" r="2"/><circle cx="17" cy="17" r="2"/>',
     doc: '<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 13h6M9 17h6"/>',
     play: '<circle cx="12" cy="12" r="9"/><path d="M10.5 8.5l5 3.5-5 3.5z"/>',
-    headset: '<path d="M4 13v-1a8 8 0 0116 0v1"/><rect x="3" y="13" width="4" height="7" rx="1.6"/><rect x="17" y="13" width="4" height="7" rx="1.6"/><path d="M20 20a3 3 0 01-3 3h-3"/>'
+    headset: '<path d="M4 13v-1a8 8 0 0116 0v1"/><rect x="3" y="13" width="4" height="7" rx="1.6"/><rect x="17" y="13" width="4" height="7" rx="1.6"/><path d="M20 20a3 3 0 01-3 3h-3"/>',
+    share: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.6l6.8-4.2M8.6 13.4l6.8 4.2"/>'
   },
 
   icon(name, size = 20, stroke = 1.7) {
@@ -75,6 +76,25 @@ const T24 = {
     const msg = encodeURIComponent(
       `Hallo! Ich interessiere mich für den ${car.make} ${car.model} (${car.year}${km}) – ${this.price(car.price)}. ${extra}Ist das Fahrzeug noch verfügbar?`);
     return `https://wa.me/${wa}?text=${msg}`;
+  },
+
+  // URL public (partajabil) al unei mașini
+  carUrl(car) { return `${this.siteUrl()}/masina.html?id=${car.id}`; },
+
+  // Share „trimite unui prieten": Web Share API pe mobil (WhatsApp/Messenger/…),
+  // fallback = WhatsApp fără destinatar (userul alege contactul). Textul conține
+  // marca/model/an/preț + link → prietenul vede datele chiar dacă preview-ul e generic.
+  async shareCar(car) {
+    const url = this.carUrl(car);
+    const title = `${car.make} ${car.model} ${car.year} — Total24 Automobile`;
+    const text = `${car.make} ${car.model} (${car.year}) – ${this.price(car.price)} bei Total24 Automobile`;
+    if (navigator.share) {
+      try { await navigator.share({ title, text, url }); return 'shared'; }
+      catch (e) { if (e && e.name === 'AbortError') return 'cancelled'; }
+    }
+    // fallback WhatsApp (deschide alegerea contactului)
+    window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank', 'noopener');
+    return 'whatsapp';
   },
 
   // Rată lunară estimată (avans %, luni, dobândă anuală %)

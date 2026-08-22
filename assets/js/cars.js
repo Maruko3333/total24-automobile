@@ -371,6 +371,7 @@ const Cars = {
             <a href="tel:${phone}" class="btn btn-primary btn-block">${T24.icon('phone', 18)} Anrufen</a>
             <a href="mailto:${c.email}?subject=${encodeURIComponent(`Anfrage: ${car.make} ${car.model} ${car.year}`)}" class="btn btn-outline btn-block">${T24.icon('mail', 18)} E-Mail</a>
           </div>
+          <button type="button" class="btn btn-detail btn-block detail-share" id="shareBtn" style="margin-top:12px">${T24.icon('share', 17)} An einen Freund senden</button>
           ${mobileDe ? `<a href="${mobileDe}" target="_blank" rel="noopener" class="detail-mobilede">
             <span>Publicat și pe Mobile.de</span>
             <b>Vezi anunțul pe Mobile.de ${T24.icon('arrowRight', 14)}</b>
@@ -409,6 +410,17 @@ const Cars = {
       const m = document.getElementById('galMain');
       if (m) m.src = t.dataset.src;
     }));
+
+    // Share „trimite unui prieten" — amplifică bucla de recomandare
+    const shareBtn = document.getElementById('shareBtn');
+    if (shareBtn) shareBtn.addEventListener('click', async () => {
+      const res = await T24.shareCar(car);
+      if (res === 'shared' || res === 'whatsapp') {
+        const orig = shareBtn.innerHTML;
+        shareBtn.innerHTML = `${T24.icon('checkCircle', 17)} Geteilt`;
+        setTimeout(() => { shareBtn.innerHTML = orig; }, 2200);
+      }
+    });
 
     // Lightbox full-screen (GLightbox) — click pe imaginea principală
     if (window.GLightbox && car.images && car.images.length) {
