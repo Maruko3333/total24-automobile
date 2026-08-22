@@ -17,8 +17,8 @@ const Cars = {
       ? `<img class="vehicle-card-image" src="${src}" alt="${car.make} ${car.model}" loading="lazy" decoding="async">`
       : `<div class="no-img">${T24.icon('car', 46, 1.4)}</div>`;
     const statusBadge = car.status !== 'available'
-      ? `<span class="car-status status-${car.status}">${car.status === 'reserved' ? 'Reserviert' : 'Verkauft'}</span>`
-      : (car.featured ? `<span class="car-badge">Neu</span>` : '');
+      ? `<span class="car-status status-${car.status}">${car.status === 'reserved' ? T24.t('badge.reserved') : T24.t('badge.sold')}</span>`
+      : (car.featured ? `<span class="car-badge">${T24.t('badge.new')}</span>` : '');
     const meta = [car.year, T24.km(car.mileage), car.fuel, car.transmission].filter(Boolean).join(' · ');
     const favCls = T24.favs.has(car.id) ? ' is-fav' : '';
     return `
@@ -33,8 +33,8 @@ const Cars = {
         <div class="car-meta">${meta}</div>
         <div class="car-price">${T24.price(car.price)}</div>
         <div class="car-actions">
-          <a href="masina.html?id=${car.id}" class="btn btn-primary car-cta">Details ansehen ${T24.icon('arrowRight', 15)}</a>
-          <a href="${T24.waCar(car)}" target="_blank" rel="noopener" class="car-wa" aria-label="Auf WhatsApp anfragen">${T24.icon('whatsapp', 18)}</a>
+          <a href="masina.html?id=${car.id}" class="btn btn-primary car-cta">${T24.t('card.details')} ${T24.icon('arrowRight', 15)}</a>
+          <a href="${T24.waCar(car)}" target="_blank" rel="noopener" class="car-wa" aria-label="${T24.t('card.wa.aria')}">${T24.icon('whatsapp', 18)}</a>
         </div>
       </div>
     </div>`;
@@ -48,10 +48,10 @@ const Cars = {
       : `<div class="no-img">${T24.icon('car', 54, 1.3)}</div>`;
     const meta = [car.year, T24.km(car.mileage), car.fuel, car.transmission].filter(Boolean).join(' · ');
     const badge = car.status === 'reserved'
-      ? `<span class="car-status status-reserved">Reserviert</span>`
+      ? `<span class="car-status status-reserved">${T24.t('badge.reserved')}</span>`
       : car.status === 'sold'
-        ? `<span class="car-status status-sold">Verkauft</span>`
-        : (car.featured ? `<span class="car-badge">Neu</span>` : '');
+        ? `<span class="car-status status-sold">${T24.t('badge.sold')}</span>`
+        : (car.featured ? `<span class="car-badge">${T24.t('badge.new')}</span>` : '');
     return `
     <a href="masina.html?id=${car.id}" class="feat-card">
       <div class="feat-media">${img}${badge}</div>
@@ -60,7 +60,7 @@ const Cars = {
         <div class="feat-meta">${meta}</div>
         <div class="feat-foot">
           <span class="feat-price">${T24.price(car.price)}</span>
-          <span class="feat-link">Details ansehen ${T24.icon('arrowRight', 15)}</span>
+          <span class="feat-link">${T24.t('card.details')} ${T24.icon('arrowRight', 15)}</span>
         </div>
       </div>
     </a>`;

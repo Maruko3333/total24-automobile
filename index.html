@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=49">
+  <link rel="stylesheet" href="assets/css/style.css?v=50">
   <link rel="icon" href="assets/img/brand/favicon.png">
   <link rel="icon" href="assets/img/brand/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/img/brand/favicon-64.png">
@@ -76,12 +76,12 @@
       <img class="hero-bg" src="assets/img/brand/showroom.jpg" alt="Total24 Automobile — Showroom in Fürth mit geprüften Fahrzeugen" width="1937" height="812" fetchpriority="high" decoding="async">
     </picture>
     <div class="container">
-      <span class="hero-eyebrow">Autohaus in Fürth · Deutschland</span>
-      <h1>Geprüfte Fahrzeuge. Faire Preise. <span class="accent">Aus Deutschland.</span></h1>
-      <p>Sorgfältig ausgewählte Fahrzeuge mit transparenter Historie und persönlichem Service.</p>
+      <span class="hero-eyebrow" data-i18n="hero.eyebrow">Autohaus in Fürth · Deutschland</span>
+      <h1 data-i18n-html="hero.title">Geprüfte Fahrzeuge. Faire Preise. <span class="accent">Aus Deutschland.</span></h1>
+      <p data-i18n="hero.sub">Sorgfältig ausgewählte Fahrzeuge mit transparenter Historie und persönlichem Service.</p>
       <div class="hero-actions">
-        <a href="stoc.html" class="btn btn-primary btn-lg">Fahrzeuge ansehen <span id="heroArrow"></span></a>
-        <a href="contact.html" class="btn btn-ghost-light btn-lg">Kontakt aufnehmen</a>
+        <a href="stoc.html" class="btn btn-primary btn-lg"><span data-i18n="hero.btn.cars">Fahrzeuge ansehen</span> <span id="heroArrow"></span></a>
+        <a href="contact.html" class="btn btn-ghost-light btn-lg" data-i18n="hero.btn.contact">Kontakt aufnehmen</a>
       </div>
     </div>
     <!-- Siglă în colțul stânga-jos al imaginii hero -->
@@ -101,13 +101,13 @@
   <section class="section">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">Fahrzeuge</span>
-        <h2>Fahrzeuge im Angebot</h2>
-        <p>Eine Auswahl unserer aktuellen Fahrzeuge.</p>
+        <span class="eyebrow" data-i18n="feat.eyebrow">Fahrzeuge</span>
+        <h2 data-i18n="feat.title">Fahrzeuge im Angebot</h2>
+        <p data-i18n="feat.sub">Eine Auswahl unserer aktuellen Fahrzeuge.</p>
       </div>
       <div class="feat-grid" id="featuredGrid"></div>
       <div style="text-align:center;margin-top:40px">
-        <a href="stoc.html" class="btn btn-outline">Alle Fahrzeuge ansehen <span id="allArrow"></span></a>
+        <a href="stoc.html" class="btn btn-outline"><span data-i18n="feat.btnall">Alle Fahrzeuge ansehen</span> <span id="allArrow"></span></a>
       </div>
     </div>
   </section>
@@ -120,11 +120,11 @@
           <span class="why-photo-cap"><span class="dot"></span>Showroom · Fürth</span>
         </div>
         <div class="why-text">
-          <span class="eyebrow">Bestand &amp; Transparenz</span>
-          <h2>Warum Kunden bei Total24 kaufen</h2>
-          <p>Wir wählen ausschließlich Fahrzeuge aus erster Hand mit klarer Historie und vollständiger Dokumentation. Keine Überraschungen — nur geprüfte Fahrzeuge zu fairen Preisen.</p>
+          <span class="eyebrow" data-i18n="why.eyebrow">Bestand &amp; Transparenz</span>
+          <h2 data-i18n="why.title">Warum Kunden bei Total24 kaufen</h2>
+          <p data-i18n="why.intro">Wir wählen ausschließlich Fahrzeuge aus erster Hand mit klarer Historie und vollständiger Dokumentation. Keine Überraschungen — nur geprüfte Fahrzeuge zu fairen Preisen.</p>
           <div class="why-list" id="whyList"></div>
-          <a href="despre.html" class="btn btn-primary">Mehr erfahren <span id="whyArrow"></span></a>
+          <a href="despre.html" class="btn btn-primary"><span data-i18n="why.btn">Mehr erfahren</span> <span id="whyArrow"></span></a>
         </div>
       </div>
     </div>
@@ -135,8 +135,8 @@
     <div class="container">
       <div class="reviews-head">
         <div class="rh-title">
-          <span class="eyebrow">Kundenstimmen</span>
-          <h2>Das sagen unsere Kunden</h2>
+          <span class="eyebrow" data-i18n="reviews.eyebrow">Kundenstimmen</span>
+          <h2 data-i18n="reviews.title">Das sagen unsere Kunden</h2>
         </div>
         <div id="reviewsAgg"></div>
       </div>
@@ -148,9 +148,9 @@
   <section class="section">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">So funktioniert's</span>
-        <h2>In 4 einfachen Schritten</h2>
-        <p>Von der Auswahl bis zur Übergabe — einfach und transparent.</p>
+        <span class="eyebrow" data-i18n="steps.eyebrow">So funktioniert's</span>
+        <h2 data-i18n="steps.title">In 4 einfachen Schritten</h2>
+        <p data-i18n="steps.sub">Von der Auswahl bis zur Übergabe — einfach und transparent.</p>
       </div>
       <div class="steps-grid">
         <div class="step-card">
@@ -185,13 +185,13 @@
   <section class="section" id="ratgeberTeaser">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">Ratgeber</span>
-        <h2>Kaufberatung & Auto-Wissen</h2>
-        <p>Alles rund um Kauf, Finanzierung und Fahrzeuge aus Deutschland — verständlich erklärt.</p>
+        <span class="eyebrow" data-i18n="rt.eyebrow">Ratgeber</span>
+        <h2 data-i18n="rt.title">Kaufberatung & Auto-Wissen</h2>
+        <p data-i18n="rt.sub">Alles rund um Kauf, Finanzierung und Fahrzeuge aus Deutschland — verständlich erklärt.</p>
       </div>
       <div class="article-grid" id="ratgeberGrid"></div>
       <div style="text-align:center;margin-top:40px">
-        <a href="ratgeber.html" class="btn btn-outline">Alle Ratgeber ansehen <span id="rgArrow"></span></a>
+        <a href="ratgeber.html" class="btn btn-outline"><span data-i18n="rt.btn">Alle Ratgeber ansehen</span> <span id="rgArrow"></span></a>
       </div>
     </div>
   </section>
@@ -200,9 +200,9 @@
   <section class="section section--soft">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">Häufige Fragen</span>
-        <h2>Fragen &amp; Antworten</h2>
-        <p>Das Wichtigste rund um Kauf, Besichtigung, Finanzierung und Lieferung.</p>
+        <span class="eyebrow" data-i18n="faq.eyebrow">Häufige Fragen</span>
+        <h2 data-i18n="faq.title">Fragen &amp; Antworten</h2>
+        <p data-i18n="faq.sub">Das Wichtigste rund um Kauf, Besichtigung, Finanzierung und Lieferung.</p>
       </div>
       <div class="faq-list" id="faqList"></div>
     </div>
@@ -211,16 +211,16 @@
   <!-- CTA FINAL -->
   <section class="cta-final">
     <div class="cta-final-in">
-      <h2>Nicht das passende Fahrzeug gefunden?</h2>
-      <p>Wir finden es für Sie.</p>
-      <a href="contact.html" class="btn btn-primary btn-lg">Fahrzeug anfragen <span id="ctaArrow"></span></a>
+      <h2 data-i18n="cta.title">Nicht das passende Fahrzeug gefunden?</h2>
+      <p data-i18n="cta.sub">Wir finden es für Sie.</p>
+      <a href="contact.html" class="btn btn-primary btn-lg"><span data-i18n="cta.btn">Fahrzeug anfragen</span> <span id="ctaArrow"></span></a>
     </div>
   </section>
 
   <div id="site-footer"></div>
 
-  <script src="assets/js/app.js?v=3"></script>
-  <script src="assets/js/cars.js?v=3"></script>
+  <script src="assets/js/app.js?v=4"></script>
+  <script src="assets/js/cars.js?v=4"></script>
   <script src="assets/js/ratgeber.js?v=1"></script>
   <script>
     (async () => {
@@ -234,27 +234,19 @@
       document.getElementById('stepIc2').innerHTML = T24.icon('headset', 22);
       document.getElementById('stepIc3').innerHTML = T24.icon('handshake', 22);
       document.getElementById('stepIc4').innerHTML = T24.icon('checkCircle', 22);
-      // Vertrauensleiste — 4 Vorteile, durchgehendes Band
-      const trust = [
-        ['shield', 'Geprüfte Fahrzeuge', 'Technisch geprüft und<br>in einwandfreiem Zustand'],
-        ['doc', 'Transparente Historie', 'Vollständige Historie und<br>alle Dokumente einsehbar'],
-        ['tag', 'Faire Preise', 'Marktgerechte Preise<br>ohne versteckte Kosten'],
-        ['headset', 'Persönliche Beratung', 'Individuelle Beratung<br>und persönlicher Service']
-      ];
+      // Pași — traducere titluri/descrieri din dicționar (icoanele rămân)
+      const stepsTx = T24.t('home.steps');
+      document.querySelectorAll('.steps-grid .step-card').forEach((card, i) => {
+        if (stepsTx[i]) { card.querySelector('h3').textContent = stepsTx[i][0]; card.querySelector('p').textContent = stepsTx[i][1]; }
+      });
+      // Vertrauensleiste — 4 Vorteile (text din dicționar, icoane fixe)
+      const trustIc = ['shield', 'doc', 'tag', 'headset'];
       document.getElementById('heroTrust').innerHTML =
-        trust.map(([ic, t, d]) =>
-          `<div class="trust-item"><span class="ic">${T24.icon(ic, 26, 1.6)}</span>
+        T24.t('home.trust').map(([t, d], i) =>
+          `<div class="trust-item"><span class="ic">${T24.icon(trustIc[i], 26, 1.6)}</span>
            <div><b>${t}</b><span>${d}</span></div></div>`).join('');
-      // „De ce Total24" — 4 beneficii editoriale: keyword bold + o linie de sprijin
-      const why = [
-        ['Aus erster Hand', 'Alle unsere Fahrzeuge mit nur einem Vorbesitzer'],
-        ['Persönlich geprüft', 'Jedes Fahrzeug wird vor dem Verkauf sorgfältig kontrolliert'],
-        ['Transparente Fahrzeughistorie', 'VIN, Dokumente und Wartungshistorie nachvollziehbar'],
-        ['Kein anonymer Online-Händler', 'Persönliche Beratung direkt in Fürth'],
-        ['Lieferung möglich', 'Deutschlandweit nach Absprache'],
-        ['Finanzierung', 'Flexible Finanzierungsmöglichkeiten']
-      ];
-      document.getElementById('whyList').innerHTML = why.map(([label, sub]) =>
+      // „Warum" — beneficii (text din dicționar)
+      document.getElementById('whyList').innerHTML = T24.t('home.why').map(([label, sub]) =>
         `<div class="why-li"><span class="ic">${T24.icon('check', 15, 2.6)}</span><div><b>${label}</b><small>${sub}</small></div></div>`).join('');
       Cars.renderFeatured('featuredGrid', 3);
       document.getElementById('rgArrow').innerHTML = T24.icon('arrowRight', 16);
@@ -273,8 +265,8 @@
         if (valid.length) {
           const avg = src.rating || (valid.reduce((s, r) => s + (r.rating || 5), 0) / valid.length);
           const cnt = src.count || valid.length;
-          agg.innerHTML = `<div class="rev-agg"><div class="num">${Number(avg).toFixed(1)}<small>${cnt} Bewertungen</small></div>
-            <div>${starsHtml(avg)}<div class="agg-src">${src.url ? `Quelle: <a href="${src.url}" target="_blank" rel="noopener">${src.source || 'Mobile.de'}</a>` : ''}</div></div></div>`;
+          agg.innerHTML = `<div class="rev-agg"><div class="num">${Number(avg).toFixed(1)}<small>${cnt} ${T24.t('reviews.count')}</small></div>
+            <div>${starsHtml(avg)}<div class="agg-src">${src.url ? `${T24.t('reviews.source')} <a href="${src.url}" target="_blank" rel="noopener">${src.source || 'Mobile.de'}</a>` : ''}</div></div></div>`;
           body.className = 'review-grid';
           body.innerHTML = valid.slice(0, 6).map(r => `
             <div class="review-card">${starsHtml(r.rating || 5)}
@@ -286,25 +278,16 @@
         } else if (src.url) {
           body.className = '';
           body.innerHTML = `<div class="reviews-empty"><span class="ic">${T24.icon('star', 40, 1.4)}</span>
-            <h3>Echte Bewertungen auf Mobile.de</h3>
-            <p>Lesen Sie geprüfte Kundenbewertungen direkt auf Deutschlands größter Fahrzeugbörse.</p>
-            <a href="${src.url}" target="_blank" rel="noopener" class="btn btn-primary">Bewertungen ansehen ${T24.icon('arrowRight', 15)}</a></div>`;
+            <h3>${T24.t('reviews.empty.title')}</h3>
+            <p>${T24.t('reviews.empty.text')}</p>
+            <a href="${src.url}" target="_blank" rel="noopener" class="btn btn-primary">${T24.t('reviews.empty.btn')} ${T24.icon('arrowRight', 15)}</a></div>`;
           sec.style.display = '';
         }
       } catch (e) { /* silențios */ }
 
       // ---- FAQ (accordion nativ) + FAQPage JSON-LD pentru SEO ----
       const plus = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>';
-      const faqs = [
-        ['Kann ich das Fahrzeug vor Ort besichtigen?', 'Ja, sehr gerne. Vereinbaren Sie einfach einen Termin — wir zeigen Ihnen das Fahrzeug persönlich in unserem Showroom in Fürth.'],
-        ['Sind die Fahrzeuge geprüft?', 'Ja. Jedes Fahrzeug wird vor dem Verkauf technisch und optisch kontrolliert. Fahrzeughistorie und Dokumente sind für Sie einsehbar.'],
-        ['Sind die Fahrzeuge aus erster Hand?', 'Ja. Unsere Fahrzeuge stammen aus erster Hand — mit nur einem Vorbesitzer und nachvollziehbarer Historie.'],
-        ['Ist eine Finanzierung möglich?', 'Ja, wir bieten flexible Finanzierungsmöglichkeiten. Details finden Sie auf unserer <a href="finantare.html">Finanzierungsseite</a> oder sprechen Sie uns direkt an.'],
-        ['Kann das Fahrzeug geliefert werden?', 'Eine Lieferung ist deutschlandweit nach Absprache möglich. Kontaktieren Sie uns für die Details zu Ihrem Standort.'],
-        ['Welche Unterlagen erhalte ich beim Kauf?', 'Sie erhalten alle relevanten Fahrzeugdokumente — u. a. Fahrzeugbrief und -schein, Serviceheft (sofern vorhanden), Kaufvertrag und Rechnung.'],
-        ['Nehmen Sie mein altes Fahrzeug in Zahlung?', 'In vielen Fällen ja. Sprechen Sie uns an — wir prüfen gerne eine faire Inzahlungnahme Ihres aktuellen Fahrzeugs.'],
-        ['Finde ich Ihre Fahrzeuge auch auf Mobile.de?', 'Ja. Unser gesamter Bestand sowie echte Kundenbewertungen sind auf Mobile.de verfügbar — der größten Fahrzeugbörse Deutschlands.']
-      ];
+      const faqs = T24.t('home.faq');
       document.getElementById('faqList').innerHTML = faqs.map(([q, a]) =>
         `<details class="faq-item"><summary>${q}<span class="fq-ic">${plus}</span></summary><div class="fq-a">${a}</div></details>`).join('');
       T24.addJsonLd({

@@ -6,6 +6,256 @@
 const T24 = {
   config: null,
   cars: null,
+  lang: 'de',
+
+  // ============================================
+  //  i18n — DE / EN / RO
+  // ============================================
+  i18n: {
+    de: {
+      'nav.home': 'Startseite', 'nav.cars': 'Fahrzeuge', 'nav.ratgeber': 'Ratgeber',
+      'nav.about': 'Über uns', 'nav.financing': 'Finanzierung', 'nav.contact': 'Kontakt',
+      'nav.rat.kaufberatung': 'Kaufberatung', 'nav.rat.vergleich': 'Fahrzeugvergleich',
+      'nav.rat.wissen': 'Auto-Wissen', 'nav.rat.deutschland': 'Auto aus Deutschland', 'nav.rat.finanzierung': 'Finanzierung',
+      'btn.quickcontact': 'Schnellkontakt',
+      'footer.tagline': 'Geprüfte Fahrzeuge. Faire Preise.',
+      'footer.h.vehicles': 'Fahrzeuge', 'footer.h.company': 'Unternehmen', 'footer.h.contact': 'Kontakt',
+      'footer.link.brands': 'Marken', 'footer.link.services': 'Leistungen',
+      'footer.mobilede.title': 'Verifiziert auf Mobile.de', 'footer.mobilede.sub': 'Zum Händlerprofil',
+      'footer.rights': 'Alle Rechte vorbehalten.',
+      'cta.call': 'Anrufen', 'cta.wa': 'WhatsApp', 'wa.aria': 'Schreiben Sie uns auf WhatsApp',
+      'card.details': 'Details ansehen', 'card.wa.aria': 'Auf WhatsApp anfragen',
+      'badge.new': 'Neu', 'badge.reserved': 'Reserviert', 'badge.sold': 'Verkauft',
+      'card.link': 'Fahrzeug ansehen',
+      'hero.eyebrow': 'Autohaus in Fürth · Deutschland',
+      'hero.title': 'Geprüfte Fahrzeuge. Faire Preise. <span class="accent">Aus Deutschland.</span>',
+      'hero.sub': 'Sorgfältig ausgewählte Fahrzeuge mit transparenter Historie und persönlichem Service.',
+      'hero.btn.cars': 'Fahrzeuge ansehen', 'hero.btn.contact': 'Kontakt aufnehmen',
+      'feat.eyebrow': 'Fahrzeuge', 'feat.title': 'Fahrzeuge im Angebot', 'feat.sub': 'Eine Auswahl unserer aktuellen Fahrzeuge.',
+      'feat.btnall': 'Alle Fahrzeuge ansehen',
+      'why.eyebrow': 'Bestand & Transparenz', 'why.title': 'Warum Kunden bei Total24 kaufen',
+      'why.intro': 'Wir wählen ausschließlich Fahrzeuge aus erster Hand mit klarer Historie und vollständiger Dokumentation. Keine Überraschungen — nur geprüfte Fahrzeuge zu fairen Preisen.',
+      'why.btn': 'Mehr erfahren',
+      'reviews.eyebrow': 'Kundenstimmen', 'reviews.title': 'Das sagen unsere Kunden',
+      'reviews.count': 'Bewertungen', 'reviews.source': 'Quelle:',
+      'reviews.empty.title': 'Echte Bewertungen auf Mobile.de',
+      'reviews.empty.text': 'Lesen Sie geprüfte Kundenbewertungen direkt auf Deutschlands größter Fahrzeugbörse.',
+      'reviews.empty.btn': 'Bewertungen ansehen',
+      'steps.eyebrow': "So funktioniert's", 'steps.title': 'In 4 einfachen Schritten',
+      'steps.sub': 'Von der Auswahl bis zur Übergabe — einfach und transparent.',
+      'rt.eyebrow': 'Ratgeber', 'rt.title': 'Kaufberatung & Auto-Wissen',
+      'rt.sub': 'Alles rund um Kauf, Finanzierung und Fahrzeuge aus Deutschland — verständlich erklärt.',
+      'rt.btn': 'Alle Ratgeber ansehen',
+      'faq.eyebrow': 'Häufige Fragen', 'faq.title': 'Fragen & Antworten',
+      'faq.sub': 'Das Wichtigste rund um Kauf, Besichtigung, Finanzierung und Lieferung.',
+      'cta.title': 'Nicht das passende Fahrzeug gefunden?', 'cta.sub': 'Wir finden es für Sie.', 'cta.btn': 'Fahrzeug anfragen',
+      'home.trust': [
+        ['Geprüfte Fahrzeuge', 'Technisch geprüft und<br>in einwandfreiem Zustand'],
+        ['Transparente Historie', 'Vollständige Historie und<br>alle Dokumente einsehbar'],
+        ['Faire Preise', 'Marktgerechte Preise<br>ohne versteckte Kosten'],
+        ['Persönliche Beratung', 'Individuelle Beratung<br>und persönlicher Service']
+      ],
+      'home.why': [
+        ['Aus erster Hand', 'Alle unsere Fahrzeuge mit nur einem Vorbesitzer'],
+        ['Persönlich geprüft', 'Jedes Fahrzeug wird vor dem Verkauf sorgfältig kontrolliert'],
+        ['Transparente Fahrzeughistorie', 'VIN, Dokumente und Wartungshistorie nachvollziehbar'],
+        ['Kein anonymer Online-Händler', 'Persönliche Beratung direkt in Fürth'],
+        ['Lieferung möglich', 'Deutschlandweit nach Absprache'],
+        ['Finanzierung', 'Flexible Finanzierungsmöglichkeiten']
+      ],
+      'home.steps': [
+        ['Fahrzeug auswählen', 'Aus unserem Bestand oder nach Ihren Wünschen — wir finden das passende Fahrzeug.'],
+        ['Beratung erhalten', 'Persönliche Beratung zu Historie, Preis, Papieren und Finanzierung.'],
+        ['Kauf abschließen', 'Wir bereiten gemeinsam alle Unterlagen vor — transparent und ohne Umstände.'],
+        ['Fahrzeug übernehmen', 'Abholung im Showroom in Fürth oder Lieferung nach Absprache.']
+      ],
+      'home.faq': [
+        ['Kann ich das Fahrzeug vor Ort besichtigen?', 'Ja, sehr gerne. Vereinbaren Sie einfach einen Termin — wir zeigen Ihnen das Fahrzeug persönlich in unserem Showroom in Fürth.'],
+        ['Sind die Fahrzeuge geprüft?', 'Ja. Jedes Fahrzeug wird vor dem Verkauf technisch und optisch kontrolliert. Fahrzeughistorie und Dokumente sind für Sie einsehbar.'],
+        ['Sind die Fahrzeuge aus erster Hand?', 'Ja. Unsere Fahrzeuge stammen aus erster Hand — mit nur einem Vorbesitzer und nachvollziehbarer Historie.'],
+        ['Ist eine Finanzierung möglich?', 'Ja, wir bieten flexible Finanzierungsmöglichkeiten. Details finden Sie auf unserer <a href="finantare.html">Finanzierungsseite</a> oder sprechen Sie uns direkt an.'],
+        ['Kann das Fahrzeug geliefert werden?', 'Eine Lieferung ist deutschlandweit nach Absprache möglich. Kontaktieren Sie uns für die Details zu Ihrem Standort.'],
+        ['Welche Unterlagen erhalte ich beim Kauf?', 'Sie erhalten alle relevanten Fahrzeugdokumente — u. a. Fahrzeugbrief und -schein, Serviceheft (sofern vorhanden), Kaufvertrag und Rechnung.'],
+        ['Nehmen Sie mein altes Fahrzeug in Zahlung?', 'In vielen Fällen ja. Sprechen Sie uns an — wir prüfen gerne eine faire Inzahlungnahme Ihres aktuellen Fahrzeugs.'],
+        ['Finde ich Ihre Fahrzeuge auch auf Mobile.de?', 'Ja. Unser gesamter Bestand sowie echte Kundenbewertungen sind auf Mobile.de verfügbar — der größten Fahrzeugbörse Deutschlands.']
+      ]
+    },
+    en: {
+      'nav.home': 'Home', 'nav.cars': 'Vehicles', 'nav.ratgeber': 'Guide',
+      'nav.about': 'About us', 'nav.financing': 'Financing', 'nav.contact': 'Contact',
+      'nav.rat.kaufberatung': 'Buying advice', 'nav.rat.vergleich': 'Comparisons',
+      'nav.rat.wissen': 'Car knowledge', 'nav.rat.deutschland': 'Cars from Germany', 'nav.rat.finanzierung': 'Financing',
+      'btn.quickcontact': 'Quick contact',
+      'footer.tagline': 'Checked vehicles. Fair prices.',
+      'footer.h.vehicles': 'Vehicles', 'footer.h.company': 'Company', 'footer.h.contact': 'Contact',
+      'footer.link.brands': 'Brands', 'footer.link.services': 'Services',
+      'footer.mobilede.title': 'Verified on Mobile.de', 'footer.mobilede.sub': 'To dealer profile',
+      'footer.rights': 'All rights reserved.',
+      'cta.call': 'Call', 'cta.wa': 'WhatsApp', 'wa.aria': 'Message us on WhatsApp',
+      'card.details': 'View details', 'card.wa.aria': 'Ask on WhatsApp',
+      'badge.new': 'New', 'badge.reserved': 'Reserved', 'badge.sold': 'Sold',
+      'card.link': 'View vehicle',
+      'hero.eyebrow': 'Car dealership in Fürth · Germany',
+      'hero.title': 'Checked vehicles. Fair prices. <span class="accent">From Germany.</span>',
+      'hero.sub': 'Carefully selected vehicles with transparent history and personal service.',
+      'hero.btn.cars': 'View vehicles', 'hero.btn.contact': 'Get in touch',
+      'feat.eyebrow': 'Vehicles', 'feat.title': 'Vehicles on offer', 'feat.sub': 'A selection of our current vehicles.',
+      'feat.btnall': 'View all vehicles',
+      'why.eyebrow': 'Inventory & transparency', 'why.title': 'Why customers buy at Total24',
+      'why.intro': 'We select exclusively first-hand vehicles with a clear history and complete documentation. No surprises — only checked vehicles at fair prices.',
+      'why.btn': 'Learn more',
+      'reviews.eyebrow': 'Testimonials', 'reviews.title': 'What our customers say',
+      'reviews.count': 'reviews', 'reviews.source': 'Source:',
+      'reviews.empty.title': 'Real reviews on Mobile.de',
+      'reviews.empty.text': "Read verified customer reviews directly on Germany's largest vehicle marketplace.",
+      'reviews.empty.btn': 'View reviews',
+      'steps.eyebrow': 'How it works', 'steps.title': 'In 4 simple steps',
+      'steps.sub': 'From selection to handover — simple and transparent.',
+      'rt.eyebrow': 'Guide', 'rt.title': 'Buying advice & car knowledge',
+      'rt.sub': 'Everything about buying, financing and cars from Germany — clearly explained.',
+      'rt.btn': 'View all guides',
+      'faq.eyebrow': 'FAQ', 'faq.title': 'Questions & answers',
+      'faq.sub': 'The essentials about buying, viewing, financing and delivery.',
+      'cta.title': "Didn't find the right vehicle?", 'cta.sub': "We'll find it for you.", 'cta.btn': 'Request a vehicle',
+      'home.trust': [
+        ['Checked vehicles', 'Technically checked and<br>in perfect condition'],
+        ['Transparent history', 'Full history and<br>all documents available'],
+        ['Fair prices', 'Market-fair prices<br>without hidden costs'],
+        ['Personal advice', 'Individual advice<br>and personal service']
+      ],
+      'home.why': [
+        ['First-hand', 'All our vehicles with only one previous owner'],
+        ['Personally checked', 'Every vehicle is carefully inspected before sale'],
+        ['Transparent vehicle history', 'VIN, documents and service history verifiable'],
+        ['No anonymous online dealer', 'Personal advice directly in Fürth'],
+        ['Delivery available', 'Nationwide by arrangement'],
+        ['Financing', 'Flexible financing options']
+      ],
+      'home.steps': [
+        ['Choose a vehicle', 'From our stock or to your wishes — we find the right vehicle.'],
+        ['Get advice', 'Personal advice on history, price, paperwork and financing.'],
+        ['Complete the purchase', 'We prepare all documents together — transparent and hassle-free.'],
+        ['Take delivery', 'Pick-up at our showroom in Fürth or delivery by arrangement.']
+      ],
+      'home.faq': [
+        ['Can I view the vehicle in person?', 'Yes, gladly. Just book an appointment — we will show you the vehicle personally at our showroom in Fürth.'],
+        ['Are the vehicles checked?', 'Yes. Every vehicle is technically and visually inspected before sale. History and documents are available for you to review.'],
+        ['Are the vehicles first-hand?', 'Yes. Our vehicles are first-hand — with only one previous owner and a verifiable history.'],
+        ['Is financing possible?', 'Yes, we offer flexible financing options. See details on our <a href="finantare.html">financing page</a> or simply contact us.'],
+        ['Can the vehicle be delivered?', 'Delivery is possible nationwide by arrangement. Contact us for details regarding your location.'],
+        ['Which documents do I receive when buying?', 'You receive all relevant vehicle documents — including registration parts I and II, service booklet (if available), sales contract and invoice.'],
+        ['Do you take my old car in part-exchange?', 'In many cases yes. Get in touch — we are happy to assess a fair part-exchange for your current vehicle.'],
+        ['Can I also find your vehicles on Mobile.de?', "Yes. Our entire stock and genuine customer reviews are available on Mobile.de — Germany's largest vehicle marketplace."]
+      ]
+    },
+    ro: {
+      'nav.home': 'Acasă', 'nav.cars': 'Mașini', 'nav.ratgeber': 'Ghid',
+      'nav.about': 'Despre noi', 'nav.financing': 'Finanțare', 'nav.contact': 'Contact',
+      'nav.rat.kaufberatung': 'Ghid de cumpărare', 'nav.rat.vergleich': 'Comparații',
+      'nav.rat.wissen': 'Cunoștințe auto', 'nav.rat.deutschland': 'Mașini din Germania', 'nav.rat.finanzierung': 'Finanțare',
+      'btn.quickcontact': 'Contact rapid',
+      'footer.tagline': 'Mașini verificate. Prețuri corecte.',
+      'footer.h.vehicles': 'Mașini', 'footer.h.company': 'Companie', 'footer.h.contact': 'Contact',
+      'footer.link.brands': 'Mărci', 'footer.link.services': 'Servicii',
+      'footer.mobilede.title': 'Verificat pe Mobile.de', 'footer.mobilede.sub': 'Vezi profilul dealerului',
+      'footer.rights': 'Toate drepturile rezervate.',
+      'cta.call': 'Sună', 'cta.wa': 'WhatsApp', 'wa.aria': 'Scrie-ne pe WhatsApp',
+      'card.details': 'Vezi detalii', 'card.wa.aria': 'Întreabă pe WhatsApp',
+      'badge.new': 'Nou', 'badge.reserved': 'Rezervat', 'badge.sold': 'Vândut',
+      'card.link': 'Vezi mașina',
+      'hero.eyebrow': 'Dealer auto în Fürth · Germania',
+      'hero.title': 'Mașini verificate. Prețuri corecte. <span class="accent">Din Germania.</span>',
+      'hero.sub': 'Mașini alese cu grijă, cu istoric transparent și service personal.',
+      'hero.btn.cars': 'Vezi mașinile', 'hero.btn.contact': 'Contactează-ne',
+      'feat.eyebrow': 'Mașini', 'feat.title': 'Mașini disponibile', 'feat.sub': 'O selecție a mașinilor noastre actuale.',
+      'feat.btnall': 'Vezi toate mașinile',
+      'why.eyebrow': 'Stoc & transparență', 'why.title': 'De ce cumpără clienții de la Total24',
+      'why.intro': 'Alegem exclusiv mașini din prima mână, cu istoric clar și documentație completă. Fără surprize — doar mașini verificate, la prețuri corecte.',
+      'why.btn': 'Află mai mult',
+      'reviews.eyebrow': 'Recenzii', 'reviews.title': 'Ce spun clienții noștri',
+      'reviews.count': 'recenzii', 'reviews.source': 'Sursă:',
+      'reviews.empty.title': 'Recenzii reale pe Mobile.de',
+      'reviews.empty.text': 'Citește recenzii verificate ale clienților direct pe cea mai mare platformă auto din Germania.',
+      'reviews.empty.btn': 'Vezi recenziile',
+      'steps.eyebrow': 'Cum funcționează', 'steps.title': 'În 4 pași simpli',
+      'steps.sub': 'De la alegere până la predare — simplu și transparent.',
+      'rt.eyebrow': 'Ghid', 'rt.title': 'Ghid de cumpărare & cunoștințe auto',
+      'rt.sub': 'Tot ce ține de cumpărare, finanțare și mașini din Germania — explicat pe înțelesul tuturor.',
+      'rt.btn': 'Vezi toate ghidurile',
+      'faq.eyebrow': 'Întrebări frecvente', 'faq.title': 'Întrebări & răspunsuri',
+      'faq.sub': 'Esențialul despre cumpărare, vizionare, finanțare și livrare.',
+      'cta.title': 'Nu ai găsit mașina potrivită?', 'cta.sub': 'O găsim noi pentru tine.', 'cta.btn': 'Cere o mașină',
+      'home.trust': [
+        ['Mașini verificate', 'Verificate tehnic și<br>în stare impecabilă'],
+        ['Istoric transparent', 'Istoric complet și<br>toate documentele disponibile'],
+        ['Prețuri corecte', 'Prețuri corecte de piață<br>fără costuri ascunse'],
+        ['Consiliere personală', 'Consiliere individuală<br>și service personal']
+      ],
+      'home.why': [
+        ['Din prima mână', 'Toate mașinile noastre cu un singur proprietar anterior'],
+        ['Verificate personal', 'Fiecare mașină este controlată atent înainte de vânzare'],
+        ['Istoric transparent', 'VIN, documente și istoric de service verificabile'],
+        ['Nu un dealer online anonim', 'Consiliere personală direct în Fürth'],
+        ['Livrare posibilă', 'În toată Germania, pe bază de înțelegere'],
+        ['Finanțare', 'Opțiuni flexibile de finanțare']
+      ],
+      'home.steps': [
+        ['Alege mașina', 'Din stocul nostru sau după dorințele tale — găsim mașina potrivită.'],
+        ['Primește consiliere', 'Consiliere personală despre istoric, preț, acte și finanțare.'],
+        ['Finalizează achiziția', 'Pregătim împreună toate actele — transparent și fără bătăi de cap.'],
+        ['Preia mașina', 'Ridicare din showroom-ul din Fürth sau livrare pe bază de înțelegere.']
+      ],
+      'home.faq': [
+        ['Pot vedea mașina la fața locului?', 'Da, cu plăcere. Stabilește o programare — îți arătăm mașina personal în showroom-ul nostru din Fürth.'],
+        ['Sunt mașinile verificate?', 'Da. Fiecare mașină este verificată tehnic și vizual înainte de vânzare. Istoricul și documentele sunt disponibile pentru tine.'],
+        ['Sunt mașinile din prima mână?', 'Da. Mașinile noastre sunt din prima mână — cu un singur proprietar anterior și istoric verificabil.'],
+        ['Este posibilă finanțarea?', 'Da, oferim opțiuni flexibile de finanțare. Vezi detalii pe <a href="finantare.html">pagina de finanțare</a> sau contactează-ne direct.'],
+        ['Poate fi livrată mașina?', 'Livrarea este posibilă în toată Germania, pe bază de înțelegere. Contactează-ne pentru detalii legate de locația ta.'],
+        ['Ce documente primesc la cumpărare?', 'Primești toate documentele relevante ale mașinii — inclusiv talonul (partea I și II), carnetul de service (dacă există), contractul de vânzare și factura.'],
+        ['Preluați mașina mea veche la schimb?', 'În multe cazuri, da. Contactează-ne — evaluăm cu plăcere o preluare corectă a mașinii tale actuale.'],
+        ['Găsesc mașinile voastre și pe Mobile.de?', 'Da. Întregul nostru stoc și recenzii reale ale clienților sunt disponibile pe Mobile.de — cea mai mare platformă auto din Germania.']
+      ]
+    }
+  },
+
+  t(key) {
+    const L = this.i18n[this.lang] || {}, D = this.i18n.de || {};
+    return (key in L) ? L[key] : (key in D ? D[key] : key);
+  },
+  initLang() {
+    const q = new URLSearchParams(location.search).get('lang');
+    let l = q || null;
+    try { l = l || localStorage.getItem('t24_lang'); } catch (e) { /* private */ }
+    if (!['de', 'en', 'ro'].includes(l)) l = 'de';
+    this.lang = l;
+    try { localStorage.setItem('t24_lang', l); } catch (e) { /* private */ }
+    document.documentElement.lang = l;
+  },
+  setLang(l) {
+    if (!['de', 'en', 'ro'].includes(l) || l === this.lang) return;
+    try { localStorage.setItem('t24_lang', l); } catch (e) { /* private */ }
+    location.reload();
+  },
+  langName(l) { return { de: 'Deutsch', en: 'English', ro: 'Română' }[l] || l; },
+  // Traduce elementele statice din DOM (data-i18n / data-i18n-html)
+  applyI18n(root) {
+    root = root || document;
+    root.querySelectorAll('[data-i18n]').forEach(el => {
+      const v = this.t(el.getAttribute('data-i18n'));
+      if (typeof v === 'string') el.textContent = v;
+    });
+    root.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const v = this.t(el.getAttribute('data-i18n-html'));
+      if (typeof v === 'string') el.innerHTML = v;
+    });
+    root.querySelectorAll('[data-i18n-attr]').forEach(el => {
+      el.getAttribute('data-i18n-attr').split(',').forEach(pair => {
+        const [attr, key] = pair.split(':').map(s => s.trim());
+        const v = this.t(key);
+        if (typeof v === 'string') el.setAttribute(attr, v);
+      });
+    });
+  },
 
   // ---- SVG icon set (24x24, stroke) ----
   icons: {
@@ -142,32 +392,47 @@ const T24 = {
 
   // ---- Header / Footer injection ----
   nav: [
-    { label: 'Startseite', href: 'index.html', key: 'home' },
-    { label: 'Fahrzeuge', href: 'stoc.html', key: 'stoc' },
+    { i18n: 'nav.home', href: 'index.html', key: 'home' },
+    { i18n: 'nav.cars', href: 'stoc.html', key: 'stoc' },
     {
-      label: 'Ratgeber', href: 'ratgeber.html', key: 'ratgeber', children: [
-        { label: 'Kaufberatung', href: 'ratgeber.html?cat=kaufberatung', icon: 'search' },
-        { label: 'Fahrzeugvergleich', href: 'ratgeber.html?cat=vergleich', icon: 'gauge' },
-        { label: 'Auto-Wissen', href: 'ratgeber.html?cat=wissen', icon: 'wrench' },
-        { label: 'Auto aus Deutschland', href: 'deutschland.html', icon: 'shield' },
-        { label: 'Finanzierung', href: 'ratgeber.html?cat=finanzierung', icon: 'percent' }
+      i18n: 'nav.ratgeber', href: 'ratgeber.html', key: 'ratgeber', children: [
+        { i18n: 'nav.rat.kaufberatung', href: 'ratgeber.html?cat=kaufberatung', icon: 'search' },
+        { i18n: 'nav.rat.vergleich', href: 'ratgeber.html?cat=vergleich', icon: 'gauge' },
+        { i18n: 'nav.rat.wissen', href: 'ratgeber.html?cat=wissen', icon: 'wrench' },
+        { i18n: 'nav.rat.deutschland', href: 'deutschland.html', icon: 'shield' },
+        { i18n: 'nav.rat.finanzierung', href: 'ratgeber.html?cat=finanzierung', icon: 'percent' }
       ]
     },
-    { label: 'Über uns', href: 'despre.html', key: 'despre' },
-    { label: 'Finanzierung', href: 'finantare.html', key: 'finantare' },
-    { label: 'Kontakt', href: 'contact.html', key: 'contact' }
+    { i18n: 'nav.about', href: 'despre.html', key: 'despre' },
+    { i18n: 'nav.financing', href: 'finantare.html', key: 'finantare' },
+    { i18n: 'nav.contact', href: 'contact.html', key: 'contact' }
   ],
+
+  langSwitcher() {
+    const flags = {
+      de: '<svg width="20" height="13" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#000"/><rect y="6.67" width="30" height="6.66" fill="#DD0000"/><rect y="13.33" width="30" height="6.67" fill="#FFCE00"/></svg>',
+      en: '<svg width="20" height="13" viewBox="0 0 60 30" aria-hidden="true"><clipPath id="s"><path d="M0 0v30h60V0z"/></clipPath><clipPath id="t"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><g clip-path="url(#s)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></g></svg>',
+      ro: '<svg width="20" height="13" viewBox="0 0 30 20" aria-hidden="true"><rect width="10" height="20" fill="#002B7F"/><rect x="10" width="10" height="20" fill="#FCD116"/><rect x="20" width="10" height="20" fill="#CE1126"/></svg>'
+    };
+    const opts = ['de', 'en', 'ro'].map(l =>
+      `<a href="#" data-setlang="${l}" class="${l === this.lang ? 'active' : ''}">${flags[l]} ${this.langName(l)}</a>`).join('');
+    return `<div class="topbar-lang" id="langSwitch">
+      <button type="button" class="lang-current" aria-label="Sprache / Language">${flags[this.lang]} ${this.lang.toUpperCase()} ${this.caret(13)}</button>
+      <div class="lang-dd">${opts}</div>
+    </div>`;
+  },
 
   renderHeader(active) {
     const c = this.config.company;
     const links = this.nav.map(n => {
       const cls = n.key === active ? 'active' : '';
+      const label = this.t(n.i18n);
       if (n.children) {
         const items = n.children.map(ch =>
-          `<a href="${ch.href}"><span class="ic">${this.icon(ch.icon, 16)}</span>${ch.label}</a>`).join('');
-        return `<div class="nav-item"><a href="${n.href}" class="${cls}">${n.label}${this.caret(13)}</a><div class="nav-dd">${items}</div></div>`;
+          `<a href="${ch.href}"><span class="ic">${this.icon(ch.icon, 16)}</span>${this.t(ch.i18n)}</a>`).join('');
+        return `<div class="nav-item"><a href="${n.href}" class="${cls}">${label}${this.caret(13)}</a><div class="nav-dd">${items}</div></div>`;
       }
-      return `<a href="${n.href}" class="${cls}">${n.label}</a>`;
+      return `<a href="${n.href}" class="${cls}">${label}</a>`;
     }).join('');
     const a = c.address;
     return `
@@ -180,7 +445,7 @@ const T24 = {
         </div>
         <div class="topbar-right">
           <span>${this.icon('clock', 15)} Mo – Fr: ${c.hours.weekdays}</span>
-          <span class="topbar-lang"><svg class="flag-de" width="21" height="14" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#000000"/><rect y="6.67" width="30" height="6.66" fill="#DD0000"/><rect y="13.33" width="30" height="6.67" fill="#FFCE00"/></svg> DE ${this.caret(13)}</span>
+          ${this.langSwitcher()}
         </div>
       </div>
     </div>
@@ -189,10 +454,10 @@ const T24 = {
         <a href="index.html" class="logo" aria-label="Total24 Automobile">
           <img src="assets/img/brand/logo.png" alt="Total24 Automobile" class="logo-img">
         </a>
-        <nav class="nav-links" id="navLinks">${links}</nav>
+        <nav class="nav-links" id="navLinks">${links}<div class="nav-lang-m">${['de', 'en', 'ro'].map(l => `<a href="#" data-setlang="${l}" class="${l === this.lang ? 'active' : ''}">${l.toUpperCase()}</a>`).join('')}</div></nav>
         <div class="nav-cta">
-          <a href="contact.html" class="btn btn-primary">${this.icon('phone', 16)} Schnellkontakt</a>
-          <button class="nav-toggle" id="navToggle" aria-label="Meniu">${this.icon('menu', 26, 2)}</button>
+          <a href="contact.html" class="btn btn-primary">${this.icon('phone', 16)} ${this.t('btn.quickcontact')}</a>
+          <button class="nav-toggle" id="navToggle" aria-label="Menu">${this.icon('menu', 26, 2)}</button>
         </div>
       </div>
     </header>`;
@@ -211,31 +476,31 @@ const T24 = {
             <a href="index.html" class="logo" aria-label="Total24 Automobile">
               <img src="assets/img/brand/logo.png" alt="Total24 Automobile" class="logo-img footer-logo-img">
             </a>
-            <p>Geprüfte Fahrzeuge. Faire Preise.</p>
+            <p>${this.t('footer.tagline')}</p>
             ${mobile ? `<a href="${mobile}" target="_blank" rel="noopener" class="footer-mobilede">
               <span class="fm-ic">${this.icon('checkCircle', 18, 1.7)}</span>
-              <span class="fm-txt"><b>Verifiziert auf Mobile.de</b><small>Zum Händlerprofil ${this.icon('arrowRight', 12)}</small></span>
+              <span class="fm-txt"><b>${this.t('footer.mobilede.title')}</b><small>${this.t('footer.mobilede.sub')} ${this.icon('arrowRight', 12)}</small></span>
             </a>` : ''}
           </div>
           <div>
-            <h5>Fahrzeuge</h5>
+            <h5>${this.t('footer.h.vehicles')}</h5>
             <ul class="footer-links">
-              <li><a href="stoc.html">Fahrzeuge</a></li>
-              <li><a href="stoc.html">Marken</a></li>
-              <li><a href="contact.html">Kontakt</a></li>
+              <li><a href="stoc.html">${this.t('nav.cars')}</a></li>
+              <li><a href="stoc.html">${this.t('footer.link.brands')}</a></li>
+              <li><a href="contact.html">${this.t('nav.contact')}</a></li>
             </ul>
           </div>
           <div>
-            <h5>Unternehmen</h5>
+            <h5>${this.t('footer.h.company')}</h5>
             <ul class="footer-links">
-              <li><a href="despre.html">Über uns</a></li>
-              <li><a href="ratgeber.html">Ratgeber</a></li>
-              <li><a href="servicii.html">Leistungen</a></li>
-              <li><a href="finantare.html">Finanzierung</a></li>
+              <li><a href="despre.html">${this.t('nav.about')}</a></li>
+              <li><a href="ratgeber.html">${this.t('nav.ratgeber')}</a></li>
+              <li><a href="servicii.html">${this.t('footer.link.services')}</a></li>
+              <li><a href="finantare.html">${this.t('nav.financing')}</a></li>
             </ul>
           </div>
           <div>
-            <h5>Kontakt</h5>
+            <h5>${this.t('footer.h.contact')}</h5>
             <ul class="footer-links">
               <li>${c.address.zip} ${c.address.city}, ${c.address.country}</li>
               <li><a href="tel:${c.phone}">${c.phone}</a></li>
@@ -245,7 +510,7 @@ const T24 = {
           </div>
         </div>
         <div class="footer-bottom">
-          <span>© ${y} ${c.name}. Alle Rechte vorbehalten.</span>
+          <span>© ${y} ${c.name}. ${this.t('footer.rights')}</span>
           <span class="footer-legal">
             <a href="impressum.html">Impressum</a>
             <a href="datenschutz.html">Datenschutz</a>
@@ -257,11 +522,21 @@ const T24 = {
   },
 
   async mount(active) {
+    this.initLang();
     await this.loadConfig();
     const h = document.getElementById('site-header');
     const f = document.getElementById('site-footer');
     if (h) h.innerHTML = this.renderHeader(active);
     if (f) f.innerHTML = this.renderFooter();
+    // traduce conținutul static (data-i18n) al paginii
+    this.applyI18n(document);
+    // comutator de limbă (delegat)
+    document.addEventListener('click', e => {
+      const b = e.target.closest('[data-setlang]');
+      if (!b) return;
+      e.preventDefault();
+      this.setLang(b.dataset.setlang);
+    });
     // mobile nav toggle
     const t = document.getElementById('navToggle');
     const l = document.getElementById('navLinks');
@@ -375,7 +650,7 @@ const T24 = {
     a.href = `https://wa.me/${wa}`;
     a.className = 'wa-float';
     a.target = '_blank'; a.rel = 'noopener';
-    a.setAttribute('aria-label', 'Scrie-ne pe WhatsApp');
+    a.setAttribute('aria-label', this.t('wa.aria'));
     a.innerHTML = this.icon('whatsapp', 28, 1.9);
     document.body.appendChild(a);
     // Bară CTA sticky jos, doar pe mobil (CSS controlează vizibilitatea): Anrufen + WhatsApp
@@ -383,8 +658,8 @@ const T24 = {
     const bar = document.createElement('div');
     bar.className = 'mobile-cta';
     bar.innerHTML =
-      `<a href="tel:${phone}" class="mcta mcta-call" aria-label="Anrufen">${this.icon('phone', 20, 1.9)}<span>Anrufen</span></a>` +
-      `<a href="https://wa.me/${wa}" target="_blank" rel="noopener" class="mcta mcta-wa" aria-label="WhatsApp schreiben">${this.icon('whatsapp', 20, 1.9)}<span>WhatsApp</span></a>`;
+      `<a href="tel:${phone}" class="mcta mcta-call" aria-label="${this.t('cta.call')}">${this.icon('phone', 20, 1.9)}<span>${this.t('cta.call')}</span></a>` +
+      `<a href="https://wa.me/${wa}" target="_blank" rel="noopener" class="mcta mcta-wa" aria-label="WhatsApp">${this.icon('whatsapp', 20, 1.9)}<span>${this.t('cta.wa')}</span></a>`;
     document.body.appendChild(bar);
   },
 
