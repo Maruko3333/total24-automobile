@@ -168,7 +168,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1
    ============================================================ */
 .hero-cine {
   position: relative; overflow: hidden; background: #0a1620;
-  min-height: clamp(460px, 64vh, 660px);
+  aspect-ratio: 1983 / 793;   /* raportul imaginii → scena întreagă, „trasă înapoi" */
+  min-height: 360px; max-height: 78vh;
   display: flex; align-items: flex-end;
 }
 .hero-bg-pic { position: absolute; inset: 0; z-index: 0; display: block; }
@@ -589,7 +590,7 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
     flex-direction: column; background: var(--ink); padding: 20px 26px;
     border-bottom: 1px solid rgba(255,255,255,.1); gap: 18px;
   }
-  .hero-cine { min-height: clamp(420px, 58vh, 560px); }
+  .hero-cine { min-height: 400px; }
   .why-split { grid-template-columns: 1fr; gap: 32px; }
   .why-photo { min-height: 260px; }
   .feat-grid { grid-template-columns: 1fr 1fr; }
