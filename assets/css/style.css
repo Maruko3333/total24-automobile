@@ -168,7 +168,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1
    ============================================================ */
 .hero-cine {
   position: relative; overflow: hidden; background: #0a1620;
-  height: clamp(470px, 60vh, 600px);   /* înălțime controlată — nu domină ecranul */
+  height: clamp(440px, 40vw, 620px);   /* 40vw ≈ raportul pozei → scena întreagă, „trasă înapoi", fără decupaj */
   display: flex; align-items: center;
 }
 .hero-bg-pic { position: absolute; inset: 0; z-index: 0; display: block; }
