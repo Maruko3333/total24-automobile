@@ -232,10 +232,11 @@ const T24 = {
     const t = document.getElementById('navToggle');
     const l = document.getElementById('navLinks');
     if (t && l) t.addEventListener('click', () => l.classList.toggle('open'));
-    // Header solid navy pe toate paginile; umbră subtilă la scroll
-    const headerEl = h && h.querySelector('.header');
-    if (headerEl) {
-      const onScroll = () => headerEl.classList.toggle('is-stuck', window.scrollY > 10);
+    // Pe HOME: header transparent peste fotografia hero, devine solid la scroll
+    if (active === 'home' && h) {
+      document.body.classList.add('home');
+      h.classList.add('nav-overlay');
+      const onScroll = () => h.classList.toggle('is-stuck', window.scrollY > 40);
       onScroll();
       window.addEventListener('scroll', onScroll, { passive: true });
     }
