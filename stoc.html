@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fahrzeuge — Total24 Automobile</title>
-  <meta name="description" content="Alle verfügbaren Fahrzeuge bei Total24 Automobile. Filtern Sie nach Marke, Modell, Preis, Baujahr und Kilometerstand.">
+  <title>Fahrzeuge â€” Total24 Automobile</title>
+  <meta name="description" content="Alle verfÃ¼gbaren Fahrzeuge bei Total24 Automobile. Filtern Sie nach Marke, Modell, Preis, Baujahr und Kilometerstand.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=23">
+  <link rel="stylesheet" href="assets/css/style.css?v=24">
   <link rel="icon" href="assets/img/brand/favicon.png">
 </head>
 <body>
@@ -17,7 +17,7 @@
   <section class="page-hero">
     <div class="container">
       <h1>Fahrzeuge</h1>
-      <p>Wählen Sie aus unseren aktuellen Angeboten.</p>
+      <p>WÃ¤hlen Sie aus unseren aktuellen Angeboten.</p>
     </div>
   </section>
 
@@ -28,16 +28,16 @@
         <aside class="filters-side" id="filtersSide">
           <div class="filters-head">
             <h3>Filter</h3>
-            <button class="filters-close" id="filterClose" aria-label="Filter schließen">✕</button>
+            <button class="filters-close" id="filterClose" aria-label="Filter schlieÃŸen">âœ•</button>
           </div>
           <div class="field"><label>Marke</label><select id="fMake"></select></div>
           <div class="field"><label>Modell</label><select id="fModel"></select></div>
           <div class="field">
-            <label>Höchstpreis</label>
+            <label>HÃ¶chstpreis</label>
             <div class="range-wrap">
-              <div class="range-values"><span>bis</span><span id="priceVal">30.000 €</span></div>
+              <div class="range-values"><span>bis</span><span id="priceVal">30.000 â‚¬</span></div>
               <input type="range" id="fPrice" min="0" max="80000" step="1000" value="80000">
-              <div class="range-values" style="margin-top:6px"><span>0 €</span><span id="priceMax">80.000 €</span></div>
+              <div class="range-values" style="margin-top:6px"><span>0 â‚¬</span><span id="priceMax">80.000 â‚¬</span></div>
             </div>
           </div>
           <div class="field"><label>Baujahr</label><select id="fYear"></select></div>
@@ -54,13 +54,13 @@
           <div class="field"><label>Getriebe</label><select id="fGear"></select></div>
           <div class="field"><label>Karosserie</label><select id="fBody"></select></div>
           <button class="btn btn-primary btn-block" id="fApplyCount">Filtern</button>
-          <button class="btn btn-ghost btn-block" id="fReset" style="margin-top:8px">Filter zurücksetzen</button>
+          <button class="btn btn-ghost btn-block" id="fReset" style="margin-top:8px">Filter zurÃ¼cksetzen</button>
         </aside>
 
         <!-- ERGEBNISSE -->
         <div>
           <div class="stoc-toolbar">
-            <span class="count" id="carsCount"><b>0</b> Fahrzeuge verfügbar</span>
+            <span class="count" id="carsCount"><b>0</b> Fahrzeuge verfÃ¼gbar</span>
             <div class="toolbar-actions">
               <button class="btn-filter-m" id="filterOpen">Filter</button>
               <button class="fav-toggle" id="favToggle" aria-pressed="false">Meine Favoriten <b id="favCount">0</b></button>
