@@ -168,7 +168,14 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1
    ============================================================ */
 .hero-cine {
   position: relative; overflow: hidden; background: #0a1620;
-  width: 100%; height: clamp(440px, 36vw, 600px);   /* înălțime FIXĂ (plafonată) — secțiunea NU crește pe 1920/2560/3840; imaginea e doar crop-uită (cover). ~500–560px pe desktopuri obișnuite */
+  width: 100%;
+  /* Înălțimea urmează RAPORTUL pozei (showroom.jpg = 1937×812 ≈ 2.385:1) → pe orice
+     lățime se vede compoziția ÎNTREAGĂ (cer + clădire + mașină), ca în Inspect.
+     min/max o țin într-o bandă rezonabilă; peste ~900px (monitoare foarte mari) se
+     face un crop ușor, grațios. Dacă schimbi poza cu una mai lată, actualizează raportul. */
+  aspect-ratio: 1937 / 812;
+  min-height: 440px;
+  max-height: 900px;
   display: flex; align-items: center;
 }
 .hero-bg-pic { position: absolute; inset: 0; z-index: 0; display: block; }
